@@ -1,8 +1,35 @@
+/** @format */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::before,
+::after {
+  box-sizing: inherit;
+}
+
 body {
-    background-image: linear-gradient(to left bottom, #5c2269, #5a1e6c, #571a6f, #531672, #4f1275, #4b0f78, #460b7a, #41087d, #390581, #2f0484, #210388, #03038c);
-    background-repeat: no-repeat;
-    height: 100vh;
- }
+  background-image: linear-gradient(
+    to left bottom,
+    #5c2269,
+    #5a1e6c,
+    #571a6f,
+    #531672,
+    #4f1275,
+    #4b0f78,
+    #460b7a,
+    #41087d,
+    #390581,
+    #2f0484,
+    #210388,
+    #03038c
+  );
+  background-repeat: no-repeat;
+  height: 100vh;
+}
 
 #app {
   max-width: 1280px;
@@ -10,4 +37,3 @@ body {
   padding: 2rem;
   font-weight: normal;
 }
-
