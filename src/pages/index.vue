@@ -33,15 +33,66 @@ const projects = ref([
   {
     title: "Star Wars Catalogue",
     description: "Catalog of characters from the Star Wars universe",
-    tags: ["vue", "tailwind", "nuxt"],
+    tags: ["javascript", "vue", "tailwind", "nuxt"],
     img: "star-wars-catalogue.png",
     url: "",
   },
   {
     title: "Naruto Game",
     description: "Naruto's racing game, based on T-Rex Game",
-    tags: ["vue", "tailwind", "quasar"],
-    img: "narutinho_game.png",
+    tags: ["javascript", "vue", "tailwind", "quasar", "game"],
+    img: "narutinho-game.png",
+    url: "",
+  },
+  {
+    title: "Cripto Coin",
+    description:
+      "Conversor de criptomoedas que permite que o usuário saiba a cotação do criptoativo desejado.",
+    tags: ["javascript", "vue", "tailwind", "quasar"],
+    img: "cripto-coin.png",
+    url: "",
+  },
+  {
+    title: "Cupcake Store",
+    description:
+      "Cupcake Store é uma lojinha de cupcakes fictícia e em progresso",
+    tags: ["javascript", "vue", "tailwind", "nuxt"],
+    img: "cupcake_store.png",
+    url: "",
+  },
+  {
+    title: "Space Shooter",
+    description: "Jogo de tiro espacial",
+    tags: ["javascript", "game"],
+    img: "space_shooter.gif",
+    url: "",
+  },
+  {
+    title: "Landing Page React",
+    description: "Exemplo de landing page feita em react",
+    tags: ["javascript", "react"],
+    img: "space_shooter.gif",
+    url: "",
+  },
+]);
+
+const contacts = ref([
+  {
+    title: "Linkedin",
+    img: "https://img.icons8.com/?size=100&id=xuvGCOXi8Wyg&format=png&color=000000",
+    alt: "linkedin-logo",
+    url: "",
+  },
+  {
+    title: "Github",
+    img: "https://img.icons8.com/?size=100&id=igYV9I849M8k&format=png&color=000000",
+    alt: "github-logo",
+    url: "",
+  },
+  {
+    title: "Email",
+    img: "https://img.icons8.com/?size=100&id=JeO1Kv9jsmLr&format=png&color=000000",
+    alt: "email-logo",
     url: "",
   },
 ]);
@@ -113,7 +164,7 @@ onMounted(() => {
           class="flex flex-col items-start rounded-2xl w-[400px] hover:w-[401px] text-white gap-3 p-8 bg-black my-4">
           <div class="flex justify-center w-full">
             <div
-              class="h-[170px] w-[370px] bg-contain hover:bg-cover bg-no-repeat border border-indigo-500 rounded-xl"
+              class="h-[170px] w-[370px] bg-cover bg-no-repeat border border-indigo-500 rounded-xl"
               :class="`bg-[url('/src/assets/img/projects-cover/${project.img}')]`" />
             <!-- <div
               class="h-[170px] w-[370px] bg-contain hover:bg-cover bg-no-repeat border border-indigo-500 rounded-xl bg-[url('/src/assets/img/projects-cover/narutinho_game.png')]" /> -->
@@ -139,10 +190,14 @@ onMounted(() => {
   <div
     class="w-full p-16 flex flex-col justify-start items-start bg-black/10 shadow-md shadow-black/30 gap-8">
     <h2 class="text-3xl text-white">Entre em contato</h2>
-    <div class="flex justify-center items-center w-full text-white gap-8">
-      <div>Linkedin</div>
-      <div>Github</div>
-      <div>Email</div>
+    <div class="flex justify-center items-center w-full text-white gap-10">
+      <div
+        v-for="(contact, index) in contacts"
+        :key="index"
+        class="flex flex-col items-center justify-center gap-2 border-b-4 border-gray-700/50 rounded-3xl w-40 h-40">
+        <img :src="contact.img" :alt="contact.alt" class="h-24" />
+        <h3>{{ contact.title }}</h3>
+      </div>
     </div>
     <!-- adicionar link do github, adicionar linkedin e email -->
   </div>
