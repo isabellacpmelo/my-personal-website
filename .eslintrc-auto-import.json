@@ -301,6 +301,9 @@
     "watchTriggerable": true,
     "watchWithFilter": true,
     "whenever": true,
-    "myProjects": true
+    "myProjects": true,
+    "DirectiveBinding": true,
+    "MaybeRef": true,
+    "MaybeRefOrGetter": true
   }
 }

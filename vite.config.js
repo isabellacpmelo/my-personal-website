@@ -1,23 +1,26 @@
-import { fileURLToPath, URL } from 'node:url'
+/** @format */
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
-import Pages from 'vite-plugin-pages'
-import Layouts from 'vite-plugin-vue-layouts'
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
+import { fileURLToPath, URL } from "node:url";
+
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import vueDevTools from "vite-plugin-vue-devtools";
+import Pages from "vite-plugin-pages";
+import Layouts from "vite-plugin-vue-layouts";
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+import VueMacros from "unplugin-vue-macros/dist/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
+  base: "./",
   build: {
-    outDir: './dist',
+    outDir: "./dist",
   },
 
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
 
@@ -31,41 +34,37 @@ export default defineConfig({
     vueDevTools(),
     Pages(),
     Layouts(),
+    VueMacros(),
     Components({
-      extensions: ['vue', 'md'],
+      extensions: ["vue", "md"],
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       dts: false,
     }),
     AutoImport({
-      include: [
-        /\.js$/,
-        /\.vue$/, /\.vue\?vue/,
-        /\.md$/,
-      ],
+      include: [/\.js$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
       imports: [
-        'vue',
-        'vue-router',
-        'vue/macros',
-        '@vueuse/core',
+        "vue",
+        "vue-router",
+        "vue/macros",
+        "@vueuse/core",
         {
-          axios: [
-            ['default', 'axios'],
-          ],
+          axios: [["default", "axios"]],
         },
       ],
       dirs: [
-        'src/composables',
-        'src/stores',
-        'src/services',
-        'src/directives',
+        "src/",
+        "src/composables",
+        "src/stores",
+        "src/services",
+        "src/directives",
       ],
       vueTemplate: true,
       dts: false,
       eslintrc: {
         enabled: true,
-        filepath: './.eslintrc-auto-import.json',
+        filepath: "./.eslintrc-auto-import.json",
         globalsPropValue: true,
       },
     }),
   ],
-})
+});
