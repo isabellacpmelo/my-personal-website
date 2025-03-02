@@ -84,6 +84,35 @@ const projects = ref([
   },
 ]);
 
+const currentIndex = ref(0);
+const filterTag = ref("");
+const itemsPerPage = 3;
+
+const filteredProjects = computed(() => {
+  return filterTag.value
+    ? projects.value.filter((p) => p.tags.includes(filterTag.value))
+    : projects.value;
+});
+
+const uniqueTags = computed(() => {
+  return [...new Set(projects.value.flatMap((p) => p.tags))];
+});
+
+const next = () => {
+  if (
+    currentIndex.value <
+    Math.ceil(filteredProjects.value.length / itemsPerPage) + 1
+  ) {
+    currentIndex.value++;
+  }
+};
+
+const prev = () => {
+  if (currentIndex.value > 0) {
+    currentIndex.value--;
+  }
+};
+
 const contacts = ref([
   {
     title: "Linkedin",
@@ -165,11 +194,50 @@ onMounted(() => {
   </div>
   <div class="w-full p-16 bg-black/10 shadow-md shadow-black/30">
     <h2 class="text-3xl text-white">Meus projetos</h2>
-    <div class="mt-10">
-      <div v-for="(project, index) in projects" :key="index">
-        <!-- criar filtro por tags no carrossel -->
-        <ProjectCard :project="project" />
+
+    <!-- Filtro de tags -->
+    <div class="mt-4 flex gap-2">
+      <button
+        v-for="tag in uniqueTags"
+        :key="tag"
+        @click="filterTag = tag"
+        :class="{
+          'bg-blue-500': filterTag === tag,
+          'bg-gray-700': filterTag !== tag,
+        }"
+        class="px-3 py-1 text-white rounded">
+        {{ tag }}
+      </button>
+      <button
+        @click="filterTag = ''"
+        class="px-3 py-1 bg-red-500 text-white rounded">
+        Resetar
+      </button>
+    </div>
+
+    <div class="mt-10 relative w-full overflow-hidden">
+      <div
+        class="flex transition-transform"
+        :style="`transform: translateX(-${
+          currentIndex * (100 / itemsPerPage)
+        }%)`">
+        <div
+          v-for="(project, index) in filteredProjects"
+          :key="index"
+          class="w-1/3 flex-shrink-0 p-2">
+          <ProjectCard :project="project" class="h-[450px]" />
+        </div>
       </div>
+    </div>
+
+    <!-- Controles do Carrossel -->
+    <div class="mt-4 flex justify-between">
+      <button @click="prev" class="px-4 py-2 bg-gray-700 text-white rounded">
+        Anterior
+      </button>
+      <button @click="next" class="px-4 py-2 bg-gray-700 text-white rounded">
+        Próximo
+      </button>
     </div>
   </div>
   <div
@@ -184,7 +252,14 @@ onMounted(() => {
         <h3>{{ contact.title }}</h3>
       </div>
     </div>
-    <!-- adicionar link do github, adicionar linkedin e email -->
   </div>
+  <!-- adicionar link do github, adicionar linkedin e email -->
   <!-- adiconar footer aqui -->
 </template>
+
+<style scoped>
+.flex {
+  display: flex;
+  transition: transform 0.9s ease-in-out;
+}
+</style>
