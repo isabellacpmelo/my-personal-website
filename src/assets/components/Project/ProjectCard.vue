@@ -9,12 +9,12 @@ const props = defineProps({
 </script>
 <template>
   <div
-    class="flex flex-col justify-between items-start rounded-2xl w-[400px] hover:w-[401px] text-white gap-3 p-8 bg-black my-4">
+    class="flex flex-col justify-between items-start rounded-2xl w-[350px] hover:w-[351px] text-white gap-3 p-8 bg-black my-4">
     <div class="flex justify-center w-full">
       <img
         :src="project.img"
         :alt="project.alt"
-        class="h-[180px] w-[350px] border-2 border-gray-500 rounded-xl" />
+        class="h-[150px] w-[280px] border-2 border-gray-500 rounded-xl" />
     </div>
     <div>
       <h2>{{ project.title }}</h2>
@@ -35,7 +35,7 @@ const props = defineProps({
         <li
           v-for="(tag, index) in project.tags"
           :key="index"
-          class="bg-sky-950 px-3 pb-0.5 rounded-full h-8 flex items-center">
+          class="bg-sky-950 px-2 rounded-full h-5 flex items-center text-[10px]">
           {{ tag }}
         </li>
       </ul>
