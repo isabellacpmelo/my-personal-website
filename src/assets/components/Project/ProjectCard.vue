@@ -9,7 +9,7 @@ const props = defineProps({
 </script>
 <template>
   <div
-    class="flex flex-col justify-between items-start rounded-2xl w-[350px] hover:w-[351px] text-white gap-3 p-8 bg-black my-4">
+    class="flex flex-col justify-between items-start rounded-2xl w-[350px] hover:w-[351px] h-[420px] text-white gap-3 p-8 bg-black">
     <div class="flex justify-center w-full">
       <img
         :src="project.img"

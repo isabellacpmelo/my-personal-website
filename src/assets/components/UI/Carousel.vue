@@ -26,8 +26,18 @@ const prev = () => {
 </script>
 
 <template>
-  <div v-if="items && items?.length > 0">
-    <div class="mt-10 relative w-full overflow-hidden">
+  <div
+    v-if="items && items?.length > 0"
+    class="flex items-center w-full justify-between">
+    <div>
+      <button
+        @click="prev"
+        class="h-8 w-8 bg-gray-950/70 text-white rounded-full flex items-center justify-center">
+        <
+      </button>
+    </div>
+
+    <div class="overflow-hidden w-10/12">
       <div
         class="flex transition-transform"
         :style="`transform: translateX(-${
@@ -36,19 +46,16 @@ const prev = () => {
         <div
           v-for="(item, index) in items"
           :key="index"
-          class="w-1/3 flex-shrink-0 p-2">
-          <ProjectCard :project="item" class="h-[450px]" />
+          class="w-1/3 flex-shrink-0">
+          <ProjectCard :project="item" />
         </div>
       </div>
     </div>
-
-    <!-- Controles do Carrossel -->
-    <div class="mt-4 flex justify-between">
-      <button @click="prev" class="px-4 py-2 bg-gray-700 text-white rounded">
-        Anterior
-      </button>
-      <button @click="next" class="px-4 py-2 bg-gray-700 text-white rounded">
-        Próximo
+    <div>
+      <button
+        @click="next"
+        class="h-8 w-8 bg-gray-950/70 text-white rounded-full flex items-center justify-center">
+        >
       </button>
     </div>
   </div>
@@ -56,3 +63,9 @@ const prev = () => {
     <p>Não há elementos para serem exibidos.</p>
   </div>
 </template>
+
+<style scoped>
+.flex {
+  transition: transform 0.9s ease-in-out;
+}
+</style>
