@@ -17,22 +17,18 @@
 
 body {
   background-image: linear-gradient(
-    to left bottom,
-    #5c2269,
-    #5a1e6c,
-    #571a6f,
-    #531672,
-    #4f1275,
-    #4b0f78,
-    #460b7a,
-    #41087d,
-    #390581,
-    #2f0484,
-    #210388,
-    #03038c
+    to bottom,
+    #051937,
+    #002038,
+    #002530,
+    #002823,
+    #062915
   );
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   height: 100%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
 }
 
 h1 {

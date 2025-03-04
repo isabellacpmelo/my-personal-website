@@ -3,6 +3,7 @@
 <script setup>
 import ProjectCard from "@/assets/components/Project/ProjectCard.vue";
 import Carousel from "@/assets/components/UI/Carousel.vue";
+import Section from "@/assets/components/UI/Section.vue";
 
 const text1 = "Olá!";
 const text2Part1 = "Sou ";
@@ -103,22 +104,43 @@ const prev = () => {
   }
 };
 
+// const contacts = ref([
+//   {
+//     title: "Linkedin",
+//     img: "https://img.icons8.com/ios-filled/50/linkedin.png",
+//     alt: "linkedin-logo",
+//     url: "",
+//   },
+//   {
+//     title: "Github",
+//     img: "https://img.icons8.com/glyph-neue/64/github.png",
+//     alt: "github-logo",
+//     url: "",
+//   },
+//   {
+//     title: "Email",
+//     img: "https://img.icons8.com/ios-filled/50/new-post.png",
+//     alt: "email-logo",
+//     url: "",
+//   },
+// ]);
+
 const contacts = ref([
   {
     title: "Linkedin",
-    img: "https://img.icons8.com/?size=100&id=xuvGCOXi8Wyg&format=png&color=000000",
+    img: "https://img.icons8.com/?size=200&id=108786&format=png&color=000000",
     alt: "linkedin-logo",
     url: "",
   },
   {
     title: "Github",
-    img: "https://img.icons8.com/?size=100&id=igYV9I849M8k&format=png&color=000000",
+    img: "https://img.icons8.com/?size=200&id=sbhfmWq4KRr1&format=png&color=000000",
     alt: "github-logo",
     url: "",
   },
   {
     title: "Email",
-    img: "https://img.icons8.com/?size=100&id=JeO1Kv9jsmLr&format=png&color=000000",
+    img: "https://img.icons8.com/?size=200&id=OumT4lIcOllS&format=png&color=000000",
     alt: "email-logo",
     url: "",
   },
@@ -136,69 +158,76 @@ onMounted(() => {
 </script>
 
 <template>
-  <div
-    class="w-full h-[300px] flex justify-center items-center bg-black/10 shadow-md shadow-black/30">
-    <div class="text-3xl">
-      <p class="text-white"><span v-text="displayText1"></span></p>
-      <p class="text-white">
-        <span v-text="displayText2Part1"></span>
-        <strong class="text-amber-100" v-text="displayText2Part2"></strong>
-      </p>
-      <p class="text-white"><span v-text="displayText3"></span></p>
-    </div>
-    <img
-      src="/src/assets/img/my-pic-02.png"
-      alt="My profile pic"
-      class="h-72" />
-  </div>
-  <div
-    class="w-full h-full p-16 flex flex-col justify-start items-start bg-black/10 shadow-md shadow-black/30 gap-8">
-    <h2 class="text-3xl text-white">Sobre mim</h2>
-    <!-- fazer uma breve apresentação -->
-    <!-- adicionar imagens -->
-    <div
-      class="flex flex-col justify-center items-center w-full text-white gap-8">
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pretium
-        arcu porttitor volutpat accumsan. Quisque mi nunc, ullamcorper quis
-        porta eu, condimentum eu quam. Etiam sit amet elementum sapien. Integer
-        condimentum mi eget lobortis pharetra. Donec purus est, ullamcorper non
-        est id, posuere condimentum metus. Nam interdum orci et justo ultrices,
-        eu euismod urna gravida. Fusce sagittis dolor a urna sollicitudin
-        suscipit.
+  <Section>
+    <template #default>
+      <div class="flex items-center justify-center w-full">
+        <div class="text-3xl">
+          <p class="text-white"><span v-text="displayText1"></span></p>
+          <p class="text-white">
+            <span v-text="displayText2Part1"></span>
+            <strong class="text-amber-100" v-text="displayText2Part2"></strong>
+          </p>
+          <p class="text-white"><span v-text="displayText3"></span></p>
+        </div>
+        <img
+          src="/src/assets/img/my-pic-02.png"
+          alt="My profile pic"
+          class="h-72" />
       </div>
-      <div>
-        Ut gravida est nec enim ultricies, eget vehicula nunc hendrerit.
-        Suspendisse potenti. Donec lobortis, erat in venenatis posuere, odio
-        odio dapibus libero, vitae condimentum ligula nisl id dui. Curabitur
-        condimentum placerat quam in elementum. Praesent ut convallis mauris.
-        Duis eget augue ac ante pulvinar molestie. In sed augue ipsum.
-        Pellentesque sit amet massa porta, mattis quam non, semper diam. In hac
-        habitasse platea dictumst. Etiam auctor ac est et pellentesque. Proin
-        tincidunt luctus nisi in tempor. Ut ullamcorper, sapien vitae tempor
-        eleifend, nulla mi posuere neque, eu hendrerit purus augue eget massa.
-        Nam sodales augue urna, eget auctor felis efficitur ac. Fusce elementum
-        imperdiet ante non porta. Suspendisse et dui non erat egestas blandit.
-      </div>
-    </div>
-  </div>
-  <div class="w-full p-16 bg-black/10 shadow-md shadow-black/30">
-    <h2 class="text-3xl text-white mb-16">Meus projetos</h2>
-    <Carousel :items="projects" />
-  </div>
-  <div
-    class="w-full p-16 flex flex-col justify-start items-start bg-black/10 shadow-md shadow-black/30 gap-8">
-    <h2 class="text-3xl text-white">Entre em contato</h2>
-    <div class="flex justify-center items-center w-full text-white gap-10">
+    </template>
+  </Section>
+  <Section title="Sobre mim">
+    <template #default>
+      <!-- fazer uma breve apresentação -->
+      <!-- adicionar imagens -->
       <div
-        v-for="(contact, index) in contacts"
-        :key="index"
-        class="flex flex-col items-center justify-center gap-2 border-b-4 border-gray-700/50 rounded-3xl w-40 h-40">
-        <img :src="contact.img" :alt="contact.alt" class="h-24" />
-        <h3>{{ contact.title }}</h3>
+        class="flex flex-col justify-center items-center w-full text-white gap-8">
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+          pretium arcu porttitor volutpat accumsan. Quisque mi nunc, ullamcorper
+          quis porta eu, condimentum eu quam. Etiam sit amet elementum sapien.
+          Integer condimentum mi eget lobortis pharetra. Donec purus est,
+          ullamcorper non est id, posuere condimentum metus. Nam interdum orci
+          et justo ultrices, eu euismod urna gravida. Fusce sagittis dolor a
+          urna sollicitudin suscipit.
+        </div>
+        <div>
+          Ut gravida est nec enim ultricies, eget vehicula nunc hendrerit.
+          Suspendisse potenti. Donec lobortis, erat in venenatis posuere, odio
+          odio dapibus libero, vitae condimentum ligula nisl id dui. Curabitur
+          condimentum placerat quam in elementum. Praesent ut convallis mauris.
+          Duis eget augue ac ante pulvinar molestie. In sed augue ipsum.
+          Pellentesque sit amet massa porta, mattis quam non, semper diam. In
+          hac habitasse platea dictumst. Etiam auctor ac est et pellentesque.
+          Proin tincidunt luctus nisi in tempor. Ut ullamcorper, sapien vitae
+          tempor eleifend, nulla mi posuere neque, eu hendrerit purus augue eget
+          massa. Nam sodales augue urna, eget auctor felis efficitur ac. Fusce
+          elementum imperdiet ante non porta. Suspendisse et dui non erat
+          egestas blandit.
+        </div>
       </div>
-    </div>
-  </div>
-  <!-- adicionar link do github, adicionar linkedin e email -->
-  <!-- adiconar footer aqui -->
+    </template>
+  </Section>
+  <Section title="Meus projetos">
+    <template #default>
+      <Carousel :items="projects" />
+    </template>
+  </Section>
+  <Section title="Entre em contato">
+    <template #default>
+      <!-- adicionar link do github, adicionar linkedin e email -->
+      <div class="flex justify-start items-center w-full text-white gap-8">
+        <div
+          v-for="(contact, index) in contacts"
+          :key="index"
+          class="flex flex-col items-center justify-between h-32 w-32">
+          <img :src="contact.img" :alt="contact.alt" class="h-24 hover:h-28" />
+          <h3>{{ contact.title }}</h3>
+        </div>
+      </div>
+    </template>
+  </Section>
+  <Section>
+    <template #default> Footer aqui </template>
+  </Section>
 </template>
