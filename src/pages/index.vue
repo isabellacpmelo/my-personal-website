@@ -227,7 +227,9 @@ onMounted(() => {
       </div>
     </template>
   </Section>
-  <Section>
-    <template #default> Footer aqui </template>
+  <Section sectionClass="bg-sky-950">
+    <template #default>
+      <div>Footer aqui</div>
+    </template>
   </Section>
 </template>
