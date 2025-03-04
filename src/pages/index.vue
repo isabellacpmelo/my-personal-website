@@ -1,6 +1,11 @@
 <!-- @format -->
 
 <script setup>
+// criar footer
+// criar filtro para o carrossel
+// Estilizar cards de projeto
+// adicionar biblioteca de ícones
+// criar arquivo de utils
 import ProjectCard from "@/assets/components/Project/ProjectCard.vue";
 import Carousel from "@/assets/components/UI/Carousel.vue";
 import Section from "@/assets/components/UI/Section.vue";
@@ -104,45 +109,24 @@ const prev = () => {
   }
 };
 
-// const contacts = ref([
-//   {
-//     title: "Linkedin",
-//     img: "https://img.icons8.com/ios-filled/50/linkedin.png",
-//     alt: "linkedin-logo",
-//     url: "",
-//   },
-//   {
-//     title: "Github",
-//     img: "https://img.icons8.com/glyph-neue/64/github.png",
-//     alt: "github-logo",
-//     url: "",
-//   },
-//   {
-//     title: "Email",
-//     img: "https://img.icons8.com/ios-filled/50/new-post.png",
-//     alt: "email-logo",
-//     url: "",
-//   },
-// ]);
-
 const contacts = ref([
   {
     title: "Linkedin",
     img: "https://img.icons8.com/?size=200&id=108786&format=png&color=000000",
     alt: "linkedin-logo",
-    url: "",
+    url: "https://www.linkedin.com/in/isabella-cpmelo/",
   },
   {
     title: "Github",
     img: "https://img.icons8.com/?size=200&id=sbhfmWq4KRr1&format=png&color=000000",
     alt: "github-logo",
-    url: "",
+    url: "https://github.com/isabellacpmelo",
   },
   {
     title: "Email",
     img: "https://img.icons8.com/?size=200&id=OumT4lIcOllS&format=png&color=000000",
     alt: "email-logo",
-    url: "",
+    url: "mailto:isacpmelo@gmail.com",
   },
 ]);
 
@@ -215,21 +199,25 @@ onMounted(() => {
   </Section>
   <Section title="Entre em contato">
     <template #default>
-      <!-- adicionar link do github, adicionar linkedin e email -->
-      <div class="flex justify-start items-center w-full text-white gap-8">
+      <div class="flex justify-center items-center w-full text-white gap-8">
         <div
           v-for="(contact, index) in contacts"
           :key="index"
           class="flex flex-col items-center justify-between h-32 w-32">
-          <img :src="contact.img" :alt="contact.alt" class="h-24 hover:h-28" />
-          <h3>{{ contact.title }}</h3>
+          <a :href="contact.url" target="_blank">
+            <img
+              :src="contact.img"
+              :alt="contact.alt"
+              class="h-24 hover:h-28" />
+          </a>
+          <!-- <h3>{{ contact.title }}</h3> -->
         </div>
       </div>
     </template>
   </Section>
-  <Section sectionClass="bg-sky-950">
+  <Section sectionClass="bg-[#191F04]">
     <template #default>
-      <div>Footer aqui</div>
+      <div class="text-white text-xl">Footer aqui</div>
     </template>
   </Section>
 </template>
