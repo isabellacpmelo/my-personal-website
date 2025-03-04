@@ -112,21 +112,21 @@ const prev = () => {
 const contacts = ref([
   {
     title: "Linkedin",
-    img: "https://img.icons8.com/?size=200&id=108786&format=png&color=000000",
     alt: "linkedin-logo",
     url: "https://www.linkedin.com/in/isabella-cpmelo/",
-  },
-  {
-    title: "Github",
-    img: "https://img.icons8.com/?size=200&id=sbhfmWq4KRr1&format=png&color=000000",
-    alt: "github-logo",
-    url: "https://github.com/isabellacpmelo",
+    icon: "bi-linkedin",
   },
   {
     title: "Email",
-    img: "https://img.icons8.com/?size=200&id=OumT4lIcOllS&format=png&color=000000",
     alt: "email-logo",
     url: "mailto:isacpmelo@gmail.com",
+    icon: "bi-envelope-at-fill",
+  },
+  {
+    title: "Github",
+    alt: "github-logo",
+    url: "https://github.com/isabellacpmelo",
+    icon: "bi-github",
   },
 ]);
 
@@ -205,19 +205,17 @@ onMounted(() => {
           :key="index"
           class="flex flex-col items-center justify-between h-32 w-32">
           <a :href="contact.url" target="_blank">
-            <img
-              :src="contact.img"
-              :alt="contact.alt"
-              class="h-24 hover:h-28" />
+            <i class="bi bi-github text-[80px]" :class="contact.icon" />
           </a>
-          <!-- <h3>{{ contact.title }}</h3> -->
         </div>
       </div>
     </template>
   </Section>
   <Section sectionClass="bg-[#191F04]">
     <template #default>
-      <div class="text-white text-xl">Footer aqui</div>
+      <div class="text-white text-xl flex justify-center w-full">
+        Feito por Isabella Melo
+      </div>
     </template>
   </Section>
 </template>
