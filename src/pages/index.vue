@@ -4,8 +4,8 @@
 // criar footer
 // criar filtro para o carrossel
 // Estilizar cards de projeto
-// adicionar biblioteca de ícones
 // criar arquivo de utils
+// Criar componente para link externo
 import ProjectCard from "@/assets/components/Project/ProjectCard.vue";
 import Carousel from "@/assets/components/UI/Carousel.vue";
 import Section from "@/assets/components/UI/Section.vue";
@@ -165,29 +165,26 @@ onMounted(() => {
       <!-- fazer uma breve apresentação -->
       <!-- adicionar imagens -->
       <div
-        class="flex flex-col justify-center items-center w-full text-white gap-8">
+        class="flex flex-col justify-center items-start w-full text-white gap-8">
         <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-          pretium arcu porttitor volutpat accumsan. Quisque mi nunc, ullamcorper
-          quis porta eu, condimentum eu quam. Etiam sit amet elementum sapien.
-          Integer condimentum mi eget lobortis pharetra. Donec purus est,
-          ullamcorper non est id, posuere condimentum metus. Nam interdum orci
-          et justo ultrices, eu euismod urna gravida. Fusce sagittis dolor a
-          urna sollicitudin suscipit.
+          Sou uma desenvolvedora de software especializada no desenvolvimento de
+          interfaces front-end para produtos digitais. Minha carreira é marcada
+          pela contribuição em projetos que abrangem desde interfaces web
+          dinâmicas até sistemas back-end robustos e soluções desktop de alto
+          desempenho.
         </div>
         <div>
-          Ut gravida est nec enim ultricies, eget vehicula nunc hendrerit.
-          Suspendisse potenti. Donec lobortis, erat in venenatis posuere, odio
-          odio dapibus libero, vitae condimentum ligula nisl id dui. Curabitur
-          condimentum placerat quam in elementum. Praesent ut convallis mauris.
-          Duis eget augue ac ante pulvinar molestie. In sed augue ipsum.
-          Pellentesque sit amet massa porta, mattis quam non, semper diam. In
-          hac habitasse platea dictumst. Etiam auctor ac est et pellentesque.
-          Proin tincidunt luctus nisi in tempor. Ut ullamcorper, sapien vitae
-          tempor eleifend, nulla mi posuere neque, eu hendrerit purus augue eget
-          massa. Nam sodales augue urna, eget auctor felis efficitur ac. Fusce
-          elementum imperdiet ante non porta. Suspendisse et dui non erat
-          egestas blandit.
+          No front-end, destaco minha experiência com Vue.js, Nuxt.js, Vuetify e
+          Quasar, criando interfaces intuitivas e responsivas. No back-end,
+          trabalho com Node.js, Python e Django, desenvolvendo APIs escaláveis e
+          seguras. Além disso, tenho expertise em desenvolvimento desktop,
+          utilizando Rust com o framework Tauri para criar aplicações leves e
+          eficientes.
+        </div>
+        <div>
+          Minha paixão por tecnologia é acompanhada por um compromisso constante
+          com a inovação e as melhores práticas de desenvolvimento, contribuindo
+          para a excelência dos produtos em que atuo.
         </div>
       </div>
     </template>
@@ -199,13 +196,15 @@ onMounted(() => {
   </Section>
   <Section title="Entre em contato">
     <template #default>
-      <div class="flex justify-center items-center w-full text-white gap-8">
+      <div class="flex justify-center items-center w-full text-white/85 gap-8">
         <div
           v-for="(contact, index) in contacts"
           :key="index"
           class="flex flex-col items-center justify-between h-32 w-32">
           <a :href="contact.url" target="_blank">
-            <i class="bi bi-github text-[80px]" :class="contact.icon" />
+            <i
+              class="bi bi-github text-[60px] hover:text-[70px] hover:text-white"
+              :class="contact.icon" />
           </a>
         </div>
       </div>
