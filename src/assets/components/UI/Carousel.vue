@@ -55,7 +55,7 @@ onUnmounted(() => {
         </button>
       </div>
 
-      <div class="overflow-hidden w-10/12">
+      <div class="overflow-hidden w-10/12 h-[430px]">
         <div
           class="flex transition-transform"
           :style="`transform: translateX(-${
@@ -64,7 +64,7 @@ onUnmounted(() => {
           <div
             v-for="(item, index) in items"
             :key="index"
-            class="w-1/3 flex-shrink-0">
+            class="w-1/3 mr-4 flex-shrink-0">
             <ProjectCard :project="item" />
           </div>
         </div>

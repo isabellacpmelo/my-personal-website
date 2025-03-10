@@ -6,6 +6,8 @@
 // Estilizar cards de projeto
 // criar arquivo de utils
 // Criar componente para link externo
+// criar internacionalização
+// deixar site responsivo
 import ProjectCard from "@/assets/components/Project/ProjectCard.vue";
 import Carousel from "@/assets/components/UI/Carousel.vue";
 import Section from "@/assets/components/UI/Section.vue";
@@ -89,6 +91,16 @@ const projects = ref([
     alt: "landing-page-cover",
     url: "",
   },
+]);
+
+const tagsType = ref([
+  "javascript",
+  "vue",
+  "tailwind",
+  "nuxt",
+  "quasar",
+  "game",
+  "react",
 ]);
 
 const currentIndex = ref(0);
@@ -191,6 +203,20 @@ onMounted(() => {
   </Section>
   <Section title="Meus projetos">
     <template #default>
+      <div class="text-white flex w-[95%] justify-end gap-2">
+        <i class="bi bi-funnel" />
+        <span>Tipo de projeto:</span>
+        <select name="Teste" class="text-black">
+          <option value="all" selected>Todos</option>
+          <option
+            v-for="tag in tagsType"
+            :value="tag"
+            disabled
+            class="capitalize">
+            {{ tag }}
+          </option>
+        </select>
+      </div>
       <Carousel :items="projects" />
     </template>
   </Section>
