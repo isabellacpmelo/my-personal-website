@@ -57,6 +57,7 @@ export default defineConfig({
         "src/stores",
         "src/services",
         "src/directives",
+        "src/components",
       ],
       vueTemplate: true,
       dts: false,

@@ -8,9 +8,11 @@
 // Criar componente para link externo
 // criar internacionalização
 // deixar site responsivo
-import ProjectCard from "@/assets/components/Project/ProjectCard.vue";
-import Carousel from "@/assets/components/UI/Carousel.vue";
-import Section from "@/assets/components/UI/Section.vue";
+// estilizar barra de rolagem
+// criar componente para tabelas
+// criar componente para botões
+// Criar componente para imagens (quadradas e redondas  )
+// Colocar baseURL no utils.js
 
 const text1 = "Olá!";
 const text2Part1 = "Sou ";
@@ -38,6 +40,7 @@ function typeEffect(text, refValue, callback) {
   type();
 }
 const baseUrl = window.origin;
+
 const projectsFolder = `${baseUrl}/src/assets/img/projects-cover/`;
 
 const projects = ref([
@@ -154,6 +157,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <Header />
   <Section>
     <template #default>
       <div class="flex items-center justify-center w-full">

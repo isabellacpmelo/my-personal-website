@@ -1,8 +1,6 @@
 <!-- @format -->
 
 <script setup>
-import ProjectCard from "@/assets/components/Project/ProjectCard.vue";
-
 const props = defineProps({
   items: {
     type: Array,
