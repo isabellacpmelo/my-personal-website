@@ -13,6 +13,8 @@
 // criar componente para botões
 // Criar componente para imagens (quadradas e redondas  )
 // Colocar baseURL no utils.js
+// criar componente para language switcher
+// criar componente para barra de pesquisa
 
 const text1 = "Olá!";
 const text2Part1 = "Sou ";
@@ -176,7 +178,7 @@ onMounted(() => {
       </div>
     </template>
   </Section>
-  <Section title="Sobre mim">
+  <Section title="Sobre mim" id="about-me">
     <template #default>
       <!-- fazer uma breve apresentação -->
       <!-- adicionar imagens -->
@@ -205,7 +207,7 @@ onMounted(() => {
       </div>
     </template>
   </Section>
-  <Section title="Meus projetos">
+  <Section title="Meus projetos" id="my-projects">
     <template #default>
       <div class="text-white flex w-[95%] justify-end gap-2">
         <i class="bi bi-funnel" />
@@ -224,7 +226,7 @@ onMounted(() => {
       <Carousel :items="projects" />
     </template>
   </Section>
-  <Section title="Entre em contato">
+  <Section title="Entre em contato" id="contact">
     <template #default>
       <div class="flex justify-center items-center w-full text-white/85 gap-8">
         <div
