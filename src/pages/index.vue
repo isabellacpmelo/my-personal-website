@@ -5,7 +5,7 @@
 // criar filtro para o carrossel
 // Estilizar cards de projeto
 // criar arquivo de utils
-// Criar componente para link externo
+// Criar componente para link externo - OK
 // criar internacionalização
 // deixar site responsivo
 // estilizar barra de rolagem

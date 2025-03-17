@@ -1,6 +1,8 @@
 <!-- @format -->
 
 <script setup>
+import ExternalLink from "../UI/ExternalLink.vue";
+
 const props = defineProps({
   project: {
     type: Object,
@@ -22,18 +24,8 @@ const props = defineProps({
         <p class="mt-2 text-[14px]">{{ project.description }}</p>
       </div>
       <div class="flex flex-col gap-1 mt-2 h-1/3">
-        <a
-          href="/"
-          class="flex items-center gap-2 text-blue-500 text-sm hover:font-semibold">
-          <span>Visitar projeto</span>
-          <i class="bi bi-box-arrow-up-right" />
-        </a>
-        <a
-          href="/"
-          class="flex items-center gap-2 text-blue-500 hover:text-blue-800 text-sm hover:font-semibold">
-          <span>Visitar repositório</span>
-          <i class="bi bi-box-arrow-up-right" />
-        </a>
+        <ExternalLink href="/" label="Visitar projeto" />
+        <ExternalLink href="/" label="Visitar repositório" />
       </div>
     </div>
     <div class="">
