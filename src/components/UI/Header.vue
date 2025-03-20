@@ -1,6 +1,7 @@
 <!-- @format -->
 <script setup>
-const baseUrl = window.origin;
+import { baseUrl } from "../utils";
+
 const iconsFoder = `${baseUrl}/src/assets/img/language-icon/`;
 
 const languages = [
@@ -24,13 +25,19 @@ const languages = [
 
 <template>
   <div
-    class="bg-white/10 w-full flex items-center justify-between px-16 text-white">
+    class="bg-white/10 w-full flex items-center justify-between px-16 py-2 text-white">
     <div class="flex items-center gap-12">
-      <div>
-        <img
-          src="/src/assets/img/my-pic-02.png"
-          alt="My profile pic"
-          class="h-12" />
+      <div class="relative group" style="opacity: 1; transform: none">
+        <div
+          class="absolute inset-0 rounded-full bg-gradient-to-r from-[#4a54de] via-[#ff2ee3] to-[#ec5cff] blur-sm opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
+        <div class="relative w-12 h-12 rounded-full overflow-hidden">
+          <img
+            src="/src/assets/img/my-pic-02.png"
+            alt="Isabella Melo"
+            class="w-full h-full rounded-full object-cover" />
+          <div
+            class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#4ADE80]/20 via-transparent to-[#2EBDFF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
       </div>
       <div class="flex items-center gap-8">
         <a href="#about-me">Sobre mim</a>
@@ -39,17 +46,25 @@ const languages = [
       </div>
     </div>
     <div class="flex items-center gap-8">
-      <div class="flex items-center justify-end">
+      <Button
+        bg-color="bg-teal-700"
+        text-color="text-white"
+        label="Conheça meu
+      currículo"
+        icon="bi-download"
+        class="text-[13px]"
+        @click="downloadCurriculum" />
+      <!-- <div class="flex items-center justify-end">
         <input
           type="text"
           id="site-search"
           name="q"
           class="relative text-black rounded-sm bg-white/80 pr-8" />
-        <button class="absolute -translate-x-2 text-sm">
+        <button disable class="absolute -translate-x-2 text-sm">
           <i class="bi-search text-black" />
         </button>
-      </div>
-      <button class="flex items-center gap-2">
+      </div> -->
+      <button type="button" disabled class="flex items-center gap-2">
         <img
           :src="languages[0].icon"
           :alt="`${languages[0].desc}`"

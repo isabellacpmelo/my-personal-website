@@ -17,6 +17,10 @@ const props = defineProps({
     type: String,
     default: "text-blue-500",
   },
+  fontSize: {
+    type: String,
+    default: "text-sm",
+  },
   iconLeft: {
     type: Boolean,
     default: false,
@@ -29,9 +33,10 @@ const props = defineProps({
     <a
       :href="href"
       target="_blank"
-      class="flex items-center gap-2 text-sm hover:font-semibold w-fit"
+      class="flex items-center gap-2 hover:font-semibold w-fit"
       :class="[
         color,
+        fontSize,
         {
           'flex-row-reverse justify-end': iconLeft == true,
         },
