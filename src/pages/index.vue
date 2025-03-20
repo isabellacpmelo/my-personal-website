@@ -15,6 +15,8 @@
 // Colocar baseURL no utils.js
 // criar componente para language switcher
 // criar componente para barra de pesquisa
+// criar botão com dropdown
+// Resolver problemas de responsividade
 
 const text1 = "Olá!";
 const text2Part1 = "Sou ";
@@ -41,7 +43,6 @@ function typeEffect(text, refValue, callback) {
   }
   type();
 }
-const baseUrl = window.origin;
 
 const projectsFolder = `${baseUrl}/src/assets/img/projects-cover/`;
 
@@ -160,23 +161,54 @@ onMounted(() => {
 
 <template>
   <Header />
-  <Section>
-    <template #default>
-      <div class="flex items-center justify-center w-full">
-        <div class="text-3xl">
-          <p class="text-white"><span v-text="displayText1"></span></p>
-          <p class="text-white">
-            <span v-text="displayText2Part1"></span>
-            <strong class="text-amber-100" v-text="displayText2Part2"></strong>
-          </p>
-          <p class="text-white"><span v-text="displayText3"></span></p>
+  <!-- <Section>
+    <div class="relative w-full flex items-center justify-center">
+      <div class="relative group" style="opacity: 1; transform: none">
+        <div
+          class="absolute inset-0 rounded-full bg-gradient-to-r from-[#4a54de] via-[#ff2ee3] to-[#ec5cff] blur-md opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
+        <div class="relative w-52 h-52 rounded-full overflow-hidden p-1">
+          <img
+            src="../assets/img/my-pic-02.png"
+            alt="Isabella Melo"
+            class="w-full h-full rounded-full object-cover" />
+          <div
+            class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#4ADE80]/20 via-transparent to-[#2EBDFF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
-        <img
-          src="/src/assets/img/my-pic-02.png"
-          alt="My profile pic"
-          class="h-72" />
       </div>
-    </template>
+      <div class="ml-6" style="opacity: 1; transform: none">
+        <div class="flex flex-col">
+          <div
+            class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-[#4ADE80] to-[#2EBDFF]"
+            style="opacity: 1; transform: none">
+            Isabella Melo
+          </div>
+          <div
+            class="text-sm text-zinc-400 mt-1"
+            style="opacity: 1; transform: none">
+            Frontend developer
+          </div>
+        </div>
+        <div
+          class="h-px bg-gradient-to-r from-[#4ADE80]/50 via-[#2EBDFF]/50 to-transparent mt-3"
+          style="width: 100%"></div>
+      </div>
+    </div>
+  </Section> -->
+  <Section>
+    <div class="flex items-center justify-center w-full">
+      <div class="text-3xl">
+        <p class="text-white"><span v-text="displayText1"></span></p>
+        <p class="text-white">
+          <span v-text="displayText2Part1"></span>
+          <strong class="text-amber-100" v-text="displayText2Part2"></strong>
+        </p>
+        <p class="text-white"><span v-text="displayText3"></span></p>
+      </div>
+      <img
+        src="/src/assets/img/my-pic-02.png"
+        alt="My profile pic"
+        class="h-72" />
+    </div>
   </Section>
   <Section title="Sobre mim" id="about-me">
     <template #default>
@@ -203,6 +235,14 @@ onMounted(() => {
           Minha paixão por tecnologia é acompanhada por um compromisso constante
           com a inovação e as melhores práticas de desenvolvimento, contribuindo
           para a excelência dos produtos em que atuo.
+        </div>
+        <div class="m-auto">
+          <Button
+            bg-color="bg-cyan-800"
+            text-color="text-white"
+            label="Conheça meu currículo"
+            icon="bi-download"
+            @click="downloadCurriculum" />
         </div>
       </div>
     </template>

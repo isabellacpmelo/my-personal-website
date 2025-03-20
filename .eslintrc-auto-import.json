@@ -303,6 +303,10 @@
     "watchThrottled": true,
     "watchTriggerable": true,
     "watchWithFilter": true,
-    "whenever": true
+    "whenever": true,
+    "teste": true,
+    "baseUrl": true,
+    "downloadFile": true,
+    "downloadCurriculum": true
   }
 }
