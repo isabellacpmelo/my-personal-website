@@ -197,7 +197,7 @@ onMounted(() => {
   </Section> -->
   <Section>
     <div class="flex flex-col md:flex-row items-center justify-center w-full">
-      <div class="text-2xl lg:text-3xl">
+      <div class="text-xl lg:text-3xl xl:text-5xl">
         <p class="text-white"><span v-text="displayText1"></span></p>
         <p class="text-white">
           <span v-text="displayText2Part1"></span>
@@ -217,7 +217,7 @@ onMounted(() => {
       <!-- fazer uma breve apresentação -->
       <!-- adicionar imagens -->
       <div
-        class="flex flex-col justify-center items-start w-full text-white gap-8 text-xs lg:text-sm">
+        class="flex flex-col justify-center items-start w-full text-white gap-8 text-sm sm:text-md lg:text-xl">
         <div>
           Sou uma desenvolvedora de software especializada no desenvolvimento de
           interfaces front-end para produtos digitais. Minha carreira é marcada
