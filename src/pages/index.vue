@@ -195,7 +195,7 @@ onMounted(() => {
     </div>
   </Section> -->
   <Section>
-    <div class="md:flex items-center justify-center w-full">
+    <div class="flex flex-col md:flex-row items-center justify-center w-full">
       <div class="text-2xl lg:text-3xl">
         <p class="text-white"><span v-text="displayText1"></span></p>
         <p class="text-white">
@@ -286,7 +286,7 @@ onMounted(() => {
   <Section sectionClass="bg-[#191F04]">
     <template #default>
       <div class="text-white lg:text-xl flex justify-center w-full">
-        Feito por Isabella Melo
+        Feito por Isabella Melo &copy;
       </div>
     </template>
   </Section>
