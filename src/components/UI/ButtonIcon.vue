@@ -1,13 +1,9 @@
 <!-- @format -->
 <script setup>
 const props = defineProps({
-  label: {
-    type: String,
-    default: "Label here",
-  },
   icon: {
     type: String,
-    default: "bi-box-arrow-up-right",
+    default: "bi-list",
   },
   textColor: {
     type: String,
@@ -33,10 +29,9 @@ const props = defineProps({
     <button
       :disabled="disabled"
       :class="[textColor, bgColor]"
-      class="flex px-1.5 lg:px-3 py-1 rounded-md font-medium">
-      <div>{{ label }}</div>
+      class="px-1.5 lg:px-3 py-1 rounded-md font-medium">
       <div>
-        <i :class="icon" class="ml-2" />
+        <i :class="icon" />
       </div>
     </button>
   </div>

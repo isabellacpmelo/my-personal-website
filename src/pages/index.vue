@@ -196,7 +196,7 @@ onMounted(() => {
   </Section> -->
   <Section>
     <div class="md:flex items-center justify-center w-full">
-      <div class="text-3xl">
+      <div class="text-2xl lg:text-3xl">
         <p class="text-white"><span v-text="displayText1"></span></p>
         <p class="text-white">
           <span v-text="displayText2Part1"></span>
@@ -215,7 +215,7 @@ onMounted(() => {
       <!-- fazer uma breve apresentação -->
       <!-- adicionar imagens -->
       <div
-        class="flex flex-col justify-center items-start w-full text-white gap-8">
+        class="flex flex-col justify-center items-start w-full text-white gap-8 text-xs lg:text-sm">
         <div>
           Sou uma desenvolvedora de software especializada no desenvolvimento de
           interfaces front-end para produtos digitais. Minha carreira é marcada
@@ -268,14 +268,15 @@ onMounted(() => {
   </Section>
   <Section title="Entre em contato" id="contact">
     <template #default>
-      <div class="flex justify-center items-center w-full text-white/85 gap-8">
+      <div
+        class="flex justify-center items-center w-full text-white/85 lg:gap-8">
         <div
           v-for="(contact, index) in contacts"
           :key="index"
-          class="flex flex-col items-center justify-between h-32 w-32">
+          class="flex flex-col items-center justify-between h-24 lg:h-32 w-24 lg:w-32">
           <a :href="contact.url" target="_blank">
             <i
-              class="bi bi-github text-[60px] hover:text-[70px] hover:text-white"
+              class="bi bi-github text-[50px] lg:text-[60px] hover:text-[60px] lg:hover:text-[70px] hover:text-white"
               :class="contact.icon" />
           </a>
         </div>
@@ -284,7 +285,7 @@ onMounted(() => {
   </Section>
   <Section sectionClass="bg-[#191F04]">
     <template #default>
-      <div class="text-white text-xl flex justify-center w-full">
+      <div class="text-white lg:text-xl flex justify-center w-full">
         Feito por Isabella Melo
       </div>
     </template>
