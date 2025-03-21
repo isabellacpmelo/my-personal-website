@@ -3,20 +3,21 @@
 <script setup>
 // criar footer
 // criar filtro para o carrossel
-// Estilizar cards de projeto
-// criar arquivo de utils
+// Estilizar cards de projeto - ok
+// criar arquivo de utils - ok
 // Criar componente para link externo - OK
-// criar internacionalização
-// deixar site responsivo
 // estilizar barra de rolagem
 // criar componente para tabelas
 // criar componente para botões
 // Criar componente para imagens (quadradas e redondas  )
-// Colocar baseURL no utils.js
+// Colocar baseURL no utils.js - ok
+// instalar biblioteca de idiomas
 // criar componente para language switcher
 // criar componente para barra de pesquisa
 // criar botão com dropdown
 // Resolver problemas de responsividade
+// Permitir rolagem com o dedo no celular (carrossel)
+// tirar cards de projeto de dentro do componente do carrosel, colocar um slot no lugar
 
 const text1 = "Olá!";
 const text2Part1 = "Sou ";
@@ -210,6 +211,7 @@ onMounted(() => {
         class="h-72" />
     </div>
   </Section>
+
   <Section title="Sobre mim" id="about-me">
     <template #default>
       <!-- fazer uma breve apresentação -->

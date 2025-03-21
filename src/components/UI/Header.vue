@@ -1,7 +1,5 @@
 <!-- @format -->
 <script setup>
-import { baseUrl } from "../utils";
-
 const iconsFoder = `${baseUrl}/src/assets/img/language-icon/`;
 
 const languages = [
