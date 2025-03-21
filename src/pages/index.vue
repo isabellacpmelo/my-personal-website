@@ -195,7 +195,7 @@ onMounted(() => {
     </div>
   </Section> -->
   <Section>
-    <div class="flex items-center justify-center w-full">
+    <div class="md:flex items-center justify-center w-full">
       <div class="text-3xl">
         <p class="text-white"><span v-text="displayText1"></span></p>
         <p class="text-white">
