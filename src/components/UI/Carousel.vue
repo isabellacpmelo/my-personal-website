@@ -44,6 +44,30 @@ const prev = () => {
   }
 };
 
+const touchStartX = ref(0);
+const touchEndX = ref(0);
+const minSwipeDistance = 50;
+
+const onTouchStart = (event) => {
+  touchStartX.value = event.touches[0].clientX;
+};
+
+const onTouchMove = (event) => {
+  touchEndX.value = event.touches[0].clientX;
+};
+
+const onTouchEnd = () => {
+  const distance = touchStartX.value - touchEndX.value;
+
+  if (Math.abs(distance) > minSwipeDistance) {
+    if (distance > 0) {
+      next();
+    } else {
+      prev();
+    }
+  }
+};
+
 onMounted(() => {
   updateItemsPerPage();
   window.addEventListener("resize", updateItemsPerPage);
@@ -65,7 +89,11 @@ onUnmounted(() => {
         </button>
       </div>
 
-      <div class="overflow-hidden w-[300px] lg:w-[950px] 2xl:w-[1330px] h-full">
+      <div
+        class="overflow-hidden w-[300px] lg:w-[950px] 2xl:w-[1330px] h-full"
+        @touchstart="onTouchStart"
+        @touchmove="onTouchMove"
+        @touchend="onTouchEnd">
         <div
           class="flex transition-transform"
           :style="`transform: translateX(-${
@@ -80,7 +108,7 @@ onUnmounted(() => {
           </div>
         </div>
       </div>
-      <div class="">
+      <div>
         <button
           @click="next"
           class="h-8 w-8 bg-gray-950/70 text-white rounded-full flex items-center justify-center">
