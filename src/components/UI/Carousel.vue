@@ -19,7 +19,7 @@ const totalPages = computed(() =>
 
 const updateItemsPerPage = () => {
   const width = window.innerWidth;
-  if (width < 1000) {
+  if (width < 1025) {
     itemsPerPage.value = 1;
   } else if (width < 1425) {
     itemsPerPage.value = 2;
@@ -56,14 +56,16 @@ onUnmounted(() => {
 
 <template>
   <div v-if="items && items.length > 0" class="w-full">
-    <div class="flex items-center w-full justify-between">
-      <button
-        @click="prev"
-        class="h-8 w-8 bg-gray-950/70 text-white rounded-full flex items-center justify-center">
-        <
-      </button>
+    <div class="flex items-center gap-3">
+      <div class="">
+        <button
+          @click="prev"
+          class="h-8 w-8 bg-gray-950/70 text-white rounded-full flex items-center justify-center">
+          <
+        </button>
+      </div>
 
-      <div class="overflow-hidden w-10/12 h-[430px]">
+      <div class="overflow-hidden w-[300px] lg:w-[950px] 2xl:w-[1330px] h-full">
         <div
           class="flex transition-transform"
           :style="`transform: translateX(-${
@@ -72,18 +74,19 @@ onUnmounted(() => {
           <div
             v-for="(item, index) in items"
             :key="index"
-            class="flex-shrink-0"
+            class="flex-shrink-0 mr-[2px]"
             :style="{ width: `${100 / itemsPerPage}%` }">
             <ProjectCard :project="item" />
           </div>
         </div>
       </div>
-
-      <button
-        @click="next"
-        class="h-8 w-8 bg-gray-950/70 text-white rounded-full flex items-center justify-center">
-        >
-      </button>
+      <div class="">
+        <button
+          @click="next"
+          class="h-8 w-8 bg-gray-950/70 text-white rounded-full flex items-center justify-center">
+          >
+        </button>
+      </div>
     </div>
 
     <!-- Indicadores -->

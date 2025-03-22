@@ -139,7 +139,7 @@ const contacts = ref([
     title: "Email",
     alt: "email-logo",
     url: "mailto:isacpmelo@gmail.com",
-    icon: "bi-envelope-at-fill",
+    icon: "bi-envelope-open-fill",
   },
   {
     title: "Github",
@@ -162,39 +162,6 @@ onMounted(() => {
 
 <template>
   <Header />
-  <!-- <Section>
-    <div class="relative w-full flex items-center justify-center">
-      <div class="relative group" style="opacity: 1; transform: none">
-        <div
-          class="absolute inset-0 rounded-full bg-gradient-to-r from-[#4a54de] via-[#ff2ee3] to-[#ec5cff] blur-md opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-        <div class="relative w-52 h-52 rounded-full overflow-hidden p-1">
-          <img
-            src="../assets/img/my-pic-02.png"
-            alt="Isabella Melo"
-            class="w-full h-full rounded-full object-cover" />
-          <div
-            class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#4ADE80]/20 via-transparent to-[#2EBDFF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        </div>
-      </div>
-      <div class="ml-6" style="opacity: 1; transform: none">
-        <div class="flex flex-col">
-          <div
-            class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-[#4ADE80] to-[#2EBDFF]"
-            style="opacity: 1; transform: none">
-            Isabella Melo
-          </div>
-          <div
-            class="text-sm text-zinc-400 mt-1"
-            style="opacity: 1; transform: none">
-            Frontend developer
-          </div>
-        </div>
-        <div
-          class="h-px bg-gradient-to-r from-[#4ADE80]/50 via-[#2EBDFF]/50 to-transparent mt-3"
-          style="width: 100%"></div>
-      </div>
-    </div>
-  </Section> -->
   <Section>
     <div class="flex flex-col md:flex-row items-center justify-center w-full">
       <div class="text-xl lg:text-3xl xl:text-5xl">
@@ -265,7 +232,9 @@ onMounted(() => {
           </option>
         </select>
       </div>
-      <Carousel :items="projects" />
+      <div>
+        <Carousel :items="projects" />
+      </div>
     </template>
   </Section>
   <Section title="Entre em contato" id="contact">
@@ -277,8 +246,8 @@ onMounted(() => {
           :key="index"
           class="flex flex-col items-center justify-between h-24 lg:h-32 w-24 lg:w-32">
           <a :href="contact.url" target="_blank">
-            <i
-              class="bi bi-github text-[50px] lg:text-[60px] hover:text-[60px] lg:hover:text-[70px] hover:text-white"
+            <div
+              class="text-[50px] lg:text-7xl hover:text-[60px] lg:hover:text-[65px] hover:text-white transition-all duration-400 hover:shadow-[0_0_50px_rgba(74,222,128,0.50)] rounded-full"
               :class="contact.icon" />
           </a>
         </div>

@@ -10,7 +10,7 @@ const props = defineProps({
 });
 </script>
 <template>
-  <Card>
+  <Card class="hover:animate-shake">
     <div
       class="flex flex-col justify-between items-center rounded-2xl w-full h-full text-white gap-3 p-8 bg-black/50 shadow-md shadow-white/10">
       <div class="flex justify-center w-full h-2/5">
