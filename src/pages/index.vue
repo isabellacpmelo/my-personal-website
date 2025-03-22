@@ -2,7 +2,7 @@
 
 <script setup>
 // criar footer
-// criar filtro para o carrossel
+// criar filtro para o carrossel - OK
 // Estilizar cards de projeto - ok
 // criar arquivo de utils - ok
 // Criar componente para link externo - OK
@@ -18,6 +18,9 @@
 // Resolver problemas de responsividade
 // Permitir rolagem com o dedo no celular (carrossel)
 // tirar cards de projeto de dentro do componente do carrosel, colocar um slot no lugar
+// Criar componente para o filtro
+// estilizar o filtro do carrossel
+// criar cards de contato
 
 const text1 = "Olá!";
 const text2Part1 = "Sou ";
@@ -110,13 +113,24 @@ const tagsType = ref([
   "react",
 ]);
 
+const selectedTag = ref("all");
+
+const filteredProjects = computed(() => {
+  if (selectedTag.value === "all") {
+    return projects.value;
+  }
+  return projects.value.filter((project) =>
+    project.tags.includes(selectedTag.value)
+  );
+});
+
 const currentIndex = ref(0);
 const itemsPerPage = 3;
 
 const next = () => {
   if (
     currentIndex.value <
-    Math.ceil(projects.value.length / itemsPerPage) + 1
+    Math.ceil(filteredProjects.value.length / itemsPerPage) + 1
   ) {
     currentIndex.value++;
   }
@@ -221,33 +235,32 @@ onMounted(() => {
       <div class="text-white flex w-[95%] justify-end gap-2">
         <i class="bi bi-funnel" />
         <span>Tipo de projeto:</span>
-        <select name="Teste" class="text-black">
-          <option value="all" selected>Todos</option>
+        <select v-model="selectedTag" class="text-black capitalize">
+          <option value="all">Todos</option>
           <option
             v-for="tag in tagsType"
+            :key="tag"
             :value="tag"
-            disabled
             class="capitalize">
             {{ tag }}
           </option>
         </select>
       </div>
       <div>
-        <Carousel :items="projects" />
+        <Carousel :items="filteredProjects" />
       </div>
     </template>
   </Section>
   <Section title="Entre em contato" id="contact">
     <template #default>
-      <div
-        class="flex justify-center items-center w-full text-white/85 lg:gap-8">
+      <div class="flex justify-center items-center w-full text-white lg:gap-8">
         <div
           v-for="(contact, index) in contacts"
           :key="index"
-          class="flex flex-col items-center justify-between h-24 lg:h-32 w-24 lg:w-32">
+          class="w-autp md:w-40 h-24 md:h-40 flex items-center">
           <a :href="contact.url" target="_blank">
             <div
-              class="text-[50px] lg:text-7xl hover:text-[60px] lg:hover:text-[65px] hover:text-white transition-all duration-400 hover:shadow-[0_0_50px_rgba(74,222,128,0.50)] rounded-full"
+              class="text-[60px] hover:text-[62px] hover:text-white/80 transition-all duration-400 hover:shadow-[0_0_40px_rgba(74,222,128,0.50)] rounded-full h-18 w-28 h-28 flex justify-center items-center"
               :class="contact.icon" />
           </a>
         </div>
@@ -257,7 +270,7 @@ onMounted(() => {
   <Section sectionClass="bg-[#191F04]">
     <template #default>
       <div class="text-white lg:text-xl flex justify-center w-full">
-        Feito por Isabella Melo &copy;
+        &copy; Isabella Melo
       </div>
     </template>
   </Section>
