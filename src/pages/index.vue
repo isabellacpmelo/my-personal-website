@@ -144,19 +144,22 @@ const prev = () => {
 
 const contacts = ref([
   {
-    title: "Linkedin",
+    title: "Contact me",
+    description: "Linkedin",
     alt: "linkedin-logo",
     url: "https://www.linkedin.com/in/isabella-cpmelo/",
     icon: "bi-linkedin",
   },
   {
-    title: "Email",
+    title: "Email me",
+    description: "isacpmelo@gmail.com",
     alt: "email-logo",
     url: "mailto:isacpmelo@gmail.com",
     icon: "bi-envelope-open-fill",
   },
   {
-    title: "Github",
+    title: "See my projects",
+    description: "Github",
     alt: "github-logo",
     url: "https://github.com/isabellacpmelo",
     icon: "bi-github",
@@ -194,84 +197,93 @@ onMounted(() => {
   </Section>
 
   <Section title="Sobre mim" id="about-me">
-    <template #default>
-      <!-- fazer uma breve apresentação -->
-      <!-- adicionar imagens -->
-      <div
-        class="flex flex-col justify-center items-start w-full text-white gap-8 text-sm sm:text-md lg:text-xl">
-        <div>
-          Sou uma desenvolvedora de software especializada no desenvolvimento de
-          interfaces front-end para produtos digitais. Minha carreira é marcada
-          pela contribuição em projetos que abrangem desde interfaces web
-          dinâmicas até sistemas back-end robustos e soluções desktop de alto
-          desempenho.
-        </div>
-        <div>
-          No front-end, destaco minha experiência com Vue.js, Nuxt.js, Vuetify e
-          Quasar, criando interfaces intuitivas e responsivas. No back-end,
-          trabalho com Node.js, Python e Django, desenvolvendo APIs escaláveis e
-          seguras. Além disso, tenho expertise em desenvolvimento desktop,
-          utilizando Rust com o framework Tauri para criar aplicações leves e
-          eficientes.
-        </div>
-        <div>
-          Minha paixão por tecnologia é acompanhada por um compromisso constante
-          com a inovação e as melhores práticas de desenvolvimento, contribuindo
-          para a excelência dos produtos em que atuo.
-        </div>
-        <div class="m-auto">
-          <Button
-            bg-color="bg-cyan-800"
-            text-color="text-white"
-            label="Conheça meu currículo"
-            icon="bi-download"
-            @click="downloadCurriculum" />
-        </div>
-      </div>
-    </template>
-  </Section>
-  <Section title="Meus projetos" id="my-projects">
-    <template #default>
-      <div class="text-white flex w-[95%] justify-end gap-2">
-        <i class="bi bi-funnel" />
-        <span>Tipo de projeto:</span>
-        <select v-model="selectedTag" class="text-black capitalize">
-          <option value="all">Todos</option>
-          <option
-            v-for="tag in tagsType"
-            :key="tag"
-            :value="tag"
-            class="capitalize">
-            {{ tag }}
-          </option>
-        </select>
+    <!-- fazer uma breve apresentação -->
+    <!-- adicionar imagens -->
+    <div
+      class="flex flex-col justify-center items-start w-full text-white gap-8 text-sm sm:text-md lg:text-xl">
+      <div>
+        Sou uma desenvolvedora de software especializada no desenvolvimento de
+        interfaces front-end para produtos digitais. Minha carreira é marcada
+        pela contribuição em projetos que abrangem desde interfaces web
+        dinâmicas até sistemas back-end robustos e soluções desktop de alto
+        desempenho.
       </div>
       <div>
-        <Carousel :items="filteredProjects" />
+        No front-end, destaco minha experiência com Vue.js, Nuxt.js, Vuetify e
+        Quasar, criando interfaces intuitivas e responsivas. No back-end,
+        trabalho com Node.js, Python e Django, desenvolvendo APIs escaláveis e
+        seguras. Além disso, tenho expertise em desenvolvimento desktop,
+        utilizando Rust com o framework Tauri para criar aplicações leves e
+        eficientes.
       </div>
-    </template>
+      <div>
+        Minha paixão por tecnologia é acompanhada por um compromisso constante
+        com a inovação e as melhores práticas de desenvolvimento, contribuindo
+        para a excelência dos produtos em que atuo.
+      </div>
+      <div class="m-auto">
+        <Button
+          bg-color="bg-cyan-800"
+          text-color="text-white"
+          label="Conheça meu currículo"
+          icon="bi-download"
+          @click="downloadCurriculum" />
+      </div>
+    </div>
+  </Section>
+  <Section title="Meus projetos" id="my-projects">
+    <div class="text-white flex w-[95%] justify-end gap-2">
+      <i class="bi bi-funnel" />
+      <span>Tipo de projeto:</span>
+      <select v-model="selectedTag" class="text-black capitalize">
+        <option value="all">Todos</option>
+        <option
+          v-for="tag in tagsType"
+          :key="tag"
+          :value="tag"
+          class="capitalize">
+          {{ tag }}
+        </option>
+      </select>
+    </div>
+    <div>
+      <Carousel :items="filteredProjects" />
+    </div>
   </Section>
   <Section title="Entre em contato" id="contact">
-    <template #default>
-      <div class="flex justify-center items-center w-full text-white lg:gap-8">
-        <div
-          v-for="(contact, index) in contacts"
-          :key="index"
-          class="w-autp md:w-40 h-24 md:h-40 flex items-center">
+    <div
+      class="flex flex-col justify-center gap-4 items-center w-full text-white">
+      <div v-for="(contact, index) in contacts" :key="index">
+        <CardB class="h-24">
           <a :href="contact.url" target="_blank">
             <div
-              class="text-[60px] hover:text-[62px] hover:text-white/80 transition-all duration-400 hover:shadow-[0_0_40px_rgba(74,222,128,0.50)] rounded-full h-18 w-28 h-28 flex justify-center items-center"
-              :class="contact.icon" />
+              class="flex items-center gap-3 w-[330px] p-2 hover:bg-black/30 rounded-lg">
+              <div
+                class="text-3xl bg-black/40 rounded-lg flex items-center justify-center h-14 w-14"
+                :class="contact.icon" />
+              <div>
+                <h2>{{ contact.title }}</h2>
+                <p class="font-medium">{{ contact.description }}</p>
+              </div>
+            </div>
           </a>
-        </div>
+        </CardB>
       </div>
-    </template>
+      <!-- <div
+        v-for="(contact, index) in contacts"
+        :key="index"
+        class="w-autp md:w-40 h-24 md:h-40 flex items-center">
+        <a :href="contact.url" target="_blank">
+          <div
+            class="text-[60px] hover:text-[62px] hover:text-white/80 transition-all duration-400 hover:shadow-[0_0_40px_rgba(74,222,128,0.50)] rounded-full h-18 w-28 h-28 flex justify-center items-center"
+            :class="contact.icon" />
+        </a>
+      </div> -->
+    </div>
   </Section>
   <Section sectionClass="bg-[#191F04]">
-    <template #default>
-      <div class="text-white lg:text-xl flex justify-center w-full">
-        &copy; Isabella Melo
-      </div>
-    </template>
+    <div class="text-white lg:text-xl flex justify-center w-full">
+      &copy; Isabella Melo
+    </div>
   </Section>
 </template>
