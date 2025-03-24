@@ -11,9 +11,9 @@ export default {
       keyframes: {
         shake: {
           "0%, 100%": { transform: "translateX(0)" },
-          "25%": { transform: "translateX(-1.5px)" },
-          "50%": { transform: "translateX(1.5px)" },
-          "75%": { transform: "translateX(-1.5px)" },
+          "25%": { transform: "translateX(-0.5px)" },
+          "50%": { transform: "translateX(0.5px)" },
+          "75%": { transform: "translateX(-0.5px)" },
         },
       },
       animation: {

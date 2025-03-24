@@ -144,22 +144,22 @@ const prev = () => {
 
 const contacts = ref([
   {
-    title: "Contact me",
-    description: "Linkedin",
+    title: "Linkedin",
+    description: "isabella-cpmelo",
     alt: "linkedin-logo",
     url: "https://www.linkedin.com/in/isabella-cpmelo/",
     icon: "bi-linkedin",
   },
   {
-    title: "Email me",
+    title: "Email",
     description: "isacpmelo@gmail.com",
     alt: "email-logo",
     url: "mailto:isacpmelo@gmail.com",
     icon: "bi-envelope-open-fill",
   },
   {
-    title: "See my projects",
-    description: "Github",
+    title: "Github",
+    description: "isabellacpmelo",
     alt: "github-logo",
     url: "https://github.com/isabellacpmelo",
     icon: "bi-github",
@@ -235,7 +235,9 @@ onMounted(() => {
     <div class="text-white flex w-[95%] justify-end gap-2">
       <i class="bi bi-funnel" />
       <span>Tipo de projeto:</span>
-      <select v-model="selectedTag" class="text-black capitalize">
+      <select
+        v-model="selectedTag"
+        class="text-white capitalize rounded-lg bg-black/50 text-center">
         <option value="all">Todos</option>
         <option
           v-for="tag in tagsType"
@@ -252,7 +254,7 @@ onMounted(() => {
   </Section>
   <Section title="Entre em contato" id="contact">
     <div
-      class="flex flex-col justify-center gap-4 items-center w-full text-white">
+      class="flex flex-col xl:flex-row justify-center gap-4 items-center w-full text-white">
       <div v-for="(contact, index) in contacts" :key="index">
         <CardB class="h-24">
           <a :href="contact.url" target="_blank">

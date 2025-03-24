@@ -33,7 +33,7 @@ const props = defineProps({
     <button
       :disabled="disabled"
       :class="[textColor, bgColor]"
-      class="rounded-md group">
+      class="rounded-md group hover:shadow-sm hover:shadow-black/30">
       <div
         class="flex px-1.5 lg:px-3 py-1 rounded-md hover:bg-black/25 transition-colors duration-300">
         <div class="group-hover:animate-shake">{{ label }}</div>
