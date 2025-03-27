@@ -23,7 +23,7 @@ const languages = [
 
 <template>
   <div
-    class="bg-white/10 w-full flex items-center gap-4 justify-between px-4 lg:px-16 2xl:px-24 py-2 text-white">
+    class="bg-white/10 w-full flex items-center gap-4 justify-between px-8 lg:px-16 2xl:px-48 py-2 text-white">
     <div class="flex items-center gap-6 lg:gap-12">
       <div class="relative group" style="opacity: 1; transform: none">
         <div

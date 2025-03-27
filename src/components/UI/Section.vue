@@ -13,9 +13,9 @@ const props = defineProps({
 
 <template>
   <div
-    class="w-full h-full p-4 lg:px-16 lg:py-6 2xl:px-24 flex flex-col justify-start items-center lg:items-start shadow-sm shadow-black/20 gap-8"
+    class="w-full h-full px-8 lg:px-16 2xl:px-48 py-16 lg:py-24 flex flex-col justify-start items-center lg:items-start shadow-sm shadow-black/20 gap-8"
     :class="sectionClass">
-    <h2 v-if="title" class="text-2xl lg:text-3xl text-white">{{ title }}</h2>
+    <h2 v-if="title" class="text-3xl lg:text-5xl text-white">{{ title }}</h2>
     <slot />
   </div>
 </template>

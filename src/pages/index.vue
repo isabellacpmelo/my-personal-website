@@ -221,7 +221,7 @@ onMounted(() => {
         com a inovação e as melhores práticas de desenvolvimento, contribuindo
         para a excelência dos produtos em que atuo.
       </div>
-      <div class="m-auto">
+      <div class="mt-10 mx-auto">
         <Button
           bg-color="bg-cyan-800"
           text-color="text-white"
@@ -232,6 +232,32 @@ onMounted(() => {
     </div>
   </Section>
   <Section title="Meus projetos" id="my-projects">
+    <div class="text-white flex w-[95%] justify-center lg:justify-start gap-2">
+      <i class="bi bi-funnel" />
+      <span>Tipo de projeto:</span>
+      <select
+        v-model="selectedTag"
+        class="text-white capitalize rounded-lg bg-black/50 text-center">
+        <option value="all">Todos</option>
+        <option
+          v-for="tag in tagsType"
+          :key="tag"
+          :value="tag"
+          class="capitalize">
+          {{ tag }}
+        </option>
+      </select>
+    </div>
+    <div class="flex items-center justify-center w-full">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <ProjectCard
+          v-for="(project, index) in filteredProjects"
+          :key="index"
+          :project="project" />
+      </div>
+    </div>
+  </Section>
+  <!-- <Section title="Meus projetos" id="my-projects">
     <div class="text-white flex w-[95%] justify-end gap-2">
       <i class="bi bi-funnel" />
       <span>Tipo de projeto:</span>
@@ -251,36 +277,28 @@ onMounted(() => {
     <div>
       <Carousel :items="filteredProjects" />
     </div>
-  </Section>
+  </Section> -->
   <Section title="Entre em contato" id="contact">
-    <div
-      class="flex flex-col xl:flex-row justify-center gap-4 items-center w-full text-white">
-      <div v-for="(contact, index) in contacts" :key="index">
-        <CardB class="h-24">
-          <a :href="contact.url" target="_blank">
-            <div
-              class="flex items-center gap-3 w-[330px] p-2 hover:bg-black/30 rounded-lg">
+    <div class="flex items-center justify-center w-full">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-white">
+        <div v-for="(contact, index) in contacts" :key="index">
+          <CardB class="h-24">
+            <a :href="contact.url" target="_blank">
               <div
-                class="text-3xl bg-black/40 rounded-lg flex items-center justify-center h-14 w-14"
-                :class="contact.icon" />
-              <div>
-                <h2>{{ contact.title }}</h2>
-                <p class="font-medium">{{ contact.description }}</p>
+                class="flex items-center gap-3 w-[330px] p-2 hover:bg-black/30 rounded-lg">
+                <div
+                  class="text-3xl bg-black/40 rounded-lg flex items-center justify-center h-14 w-14"
+                  :class="contact.icon" />
+                <div>
+                  <h2>{{ contact.title }}</h2>
+                  <p class="font-medium">{{ contact.description }}</p>
+                </div>
               </div>
-            </div>
-          </a>
-        </CardB>
+            </a>
+          </CardB>
+        </div>
       </div>
-      <!-- <div
-        v-for="(contact, index) in contacts"
-        :key="index"
-        class="w-autp md:w-40 h-24 md:h-40 flex items-center">
-        <a :href="contact.url" target="_blank">
-          <div
-            class="text-[60px] hover:text-[62px] hover:text-white/80 transition-all duration-400 hover:shadow-[0_0_40px_rgba(74,222,128,0.50)] rounded-full h-18 w-28 h-28 flex justify-center items-center"
-            :class="contact.icon" />
-        </a>
-      </div> -->
     </div>
   </Section>
   <Section sectionClass="bg-[#191F04]">
