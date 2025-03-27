@@ -166,6 +166,9 @@ const contacts = ref([
   },
 ]);
 
+var date = new Date();
+var year = date.getFullYear();
+
 onMounted(() => {
   typeEffect(text1, displayText1, () => {
     typeEffect(text2Part1, displayText2Part1, () => {
@@ -301,9 +304,9 @@ onMounted(() => {
       </div>
     </div>
   </Section>
-  <Section sectionClass="bg-[#191F04]">
+  <Section sectionClass="bg-[#191F04]" padding="py-4">
     <div class="text-white lg:text-xl flex justify-center w-full">
-      &copy; Isabella Melo
+      Copyright &copy; {{ year }} Isabella Melo
     </div>
   </Section>
 </template>
