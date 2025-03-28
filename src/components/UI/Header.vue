@@ -19,11 +19,13 @@ const languages = [
     icon: `${iconsFoder}/en.png`,
   },
 ];
+
+const openMenu = ref(false);
 </script>
 
 <template>
   <div
-    class="bg-white/10 w-full flex items-center gap-4 justify-between px-8 lg:px-16 2xl:px-48 py-2 text-white">
+    class="bg-white/10 w-full flex items-center gap-4 justify-between px-8 lg:px-16 2xl:px-48 py-2 text-white relative">
     <div class="flex items-center gap-6 lg:gap-12">
       <div class="relative group" style="opacity: 1; transform: none">
         <div
@@ -53,16 +55,6 @@ const languages = [
         icon="bi-download"
         class="text-[13px]"
         @click="downloadCurriculum" />
-      <!-- <div class="flex items-center justify-end">
-        <input
-          type="text"
-          id="site-search"
-          name="q"
-          class="relative text-black rounded-sm bg-white/80 pr-8" />
-        <button disable class="absolute -translate-x-2 text-sm">
-          <i class="bi-search text-black" />
-        </button>
-      </div> -->
       <button
         type="button"
         disabled
@@ -75,9 +67,45 @@ const languages = [
       </button>
     </div>
     <div class="flex md:hidden">
-      <div>
-        <ButtonIcon />
-      </div>
+      <div><ButtonIcon @click="openMenu = !openMenu" /></div>
     </div>
+    <transition
+      enter-active-class="transition-opacity duration-300 ease-out transform"
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-active-class="transition-opacity duration-200 ease-in transform"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0">
+      <div v-if="openMenu" class="top-16 right-8 absolute">
+        <div
+          class="bg-white p-4 text-black rounded-md grid grid-cols-1 shadow-lg">
+          <div class="grid gap-2">
+            <a href="#about-me" class="border-b border-black">Sobre mim</a>
+            <a href="#my-projects" class="border-b border-black"
+              >Meus projetos</a
+            >
+            <a href="#contact" class="border-b border-black">Contato</a>
+          </div>
+
+          <Button
+            bg-color="bg-teal-700"
+            text-color="text-white"
+            label="Conheça meu currículo"
+            icon="bi-download"
+            class="text-[13px] my-4"
+            @click="downloadCurriculum" />
+          <button
+            type="button"
+            disabled
+            class="flex items-center gap-2 text-sm xl:text-normal">
+            <img
+              :src="languages[0].icon"
+              :alt="`${languages[0].desc}`"
+              class="h-7 lg:h-8" />
+            <span>{{ languages[0].name }}</span>
+          </button>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>

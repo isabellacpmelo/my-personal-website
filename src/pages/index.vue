@@ -181,6 +181,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <!-- <div class="bg-red-300 fixed bottom-0 right-0">Voltar para o inicio</div> -->
   <Header />
   <Section>
     <div class="flex flex-col md:flex-row items-center justify-center w-full">
@@ -284,7 +285,7 @@ onMounted(() => {
   <Section title="Entre em contato" id="contact">
     <div class="flex items-center justify-center w-full">
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-white">
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-12 text-white">
         <div v-for="(contact, index) in contacts" :key="index">
           <CardB class="h-24">
             <a :href="contact.url" target="_blank">
