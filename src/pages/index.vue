@@ -57,7 +57,8 @@ const projects = ref([
     tags: ["javascript", "vue", "tailwind", "nuxt"],
     img: `${projectsFolder}/star-wars-catalogue.png`,
     alt: "star-wars-catalogue-cover",
-    url: "",
+    linkSite: "https://star-wars-catal.netlify.app/",
+    linkRep: "https://github.com/isabellacpmelo/starwars",
   },
   {
     title: "Naruto Game",
@@ -65,7 +66,8 @@ const projects = ref([
     tags: ["javascript", "vue", "tailwind", "quasar", "game"],
     img: `${projectsFolder}/narutinho-game.png`,
     alt: "narutinho-game-cover",
-    url: "",
+    linkSite: "https://naruto-running-game.netlify.app/#/",
+    linkRep: "https://github.com/isabellacpmelo/naruto-game",
   },
   {
     title: "Cripto Coin",
@@ -74,7 +76,8 @@ const projects = ref([
     tags: ["javascript", "vue", "tailwind", "quasar"],
     img: `${projectsFolder}/cripto-coin.png`,
     alt: "cripto-coin-cover",
-    url: "",
+    linkSite: "https://cryptor-converter.netlify.app/",
+    linkRep: "https://github.com/isabellacpmelo/conversor-criptomoedas",
   },
   {
     title: "Cupcake Store",
@@ -83,7 +86,8 @@ const projects = ref([
     tags: ["javascript", "vue", "tailwind", "nuxt"],
     img: `${projectsFolder}/cupcake-store.png`,
     alt: "cupcake-store-cover",
-    url: "",
+    linkSite: "https://cupcack-store.netlify.app/#/",
+    linkRep: "https://github.com/isabellacpmelo/cupcake-store",
   },
   {
     title: "Space Shooter",
@@ -91,7 +95,8 @@ const projects = ref([
     tags: ["javascript", "game"],
     img: `${projectsFolder}/space-shooter.gif`,
     alt: "space-shooter-cover",
-    url: "",
+    linkRep: "https://github.com/isabellacpmelo/jogo-space-shooter",
+    linkSite: "https://isabellacpmelo.github.io/jogo-space-shooter/",
   },
   {
     title: "Landing Page React",
@@ -99,7 +104,8 @@ const projects = ref([
     tags: ["javascript", "react"],
     img: `${projectsFolder}/landing-page-cover.png`,
     alt: "landing-page-cover",
-    url: "",
+    linkSite: "https://react-landing-page-exemplo.netlify.app/",
+    linkRep: "https://github.com/isabellacpmelo/landing-page-react",
   },
 ]);
 

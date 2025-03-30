@@ -25,8 +25,8 @@ const props = defineProps({
           <p class="mt-2 text-[14px]">{{ project.description }}</p>
         </div>
         <div class="flex flex-col gap-1 mt-2 h-1/3">
-          <ExternalLink href="/" label="Visitar projeto" />
-          <ExternalLink href="/" label="Visitar repositório" />
+          <ExternalLink :href="project?.linkSite" label="Visitar projeto" />
+          <ExternalLink :href="project.linkRep" label="Visitar repositório" />
         </div>
       </div>
       <div class="">
