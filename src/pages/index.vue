@@ -48,7 +48,7 @@ function typeEffect(text, refValue, callback) {
   type();
 }
 
-const projectsFolder = `${baseUrl}/src/assets/img/projects-cover/`;
+const projectsFolder = `${baseUrl}/img/projects-cover/`;
 
 const projects = ref([
   {

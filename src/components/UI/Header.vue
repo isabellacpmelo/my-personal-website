@@ -1,6 +1,6 @@
 <!-- @format -->
 <script setup>
-const iconsFoder = `${baseUrl}/src/assets/img/language-icon/`;
+const iconsFoder = `${baseUrl}/img/language-icon/`;
 
 const languages = [
   {
