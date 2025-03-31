@@ -30,4 +30,18 @@ body {
   font-weight: 200;
   font-style: normal;
   min-width: 330px;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(5, 56, 54) rgb(128, 202, 186);
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: hwb(193 5% 48%);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: hwb(193 31% 23%);
 }

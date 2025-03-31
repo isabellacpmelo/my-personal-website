@@ -1,26 +1,16 @@
 <!-- @format -->
 
 <script setup>
-// criar footer
-// criar filtro para o carrossel - OK
-// Estilizar cards de projeto - ok
-// criar arquivo de utils - ok
-// Criar componente para link externo - OK
 // estilizar barra de rolagem
 // criar componente para tabelas
 // criar componente para botões
 // Criar componente para imagens (quadradas e redondas  )
-// Colocar baseURL no utils.js - ok
 // instalar biblioteca de idiomas
 // criar componente para language switcher
 // criar componente para barra de pesquisa
-// criar botão com dropdown
-// Resolver problemas de responsividade
-// Permitir rolagem com o dedo no celular (carrossel)
-// tirar cards de projeto de dentro do componente do carrosel, colocar um slot no lugar
+// Permitir rolagem com o dedo no celular (carrossel) - Futuro
 // Criar componente para o filtro
-// estilizar o filtro do carrossel
-// criar cards de contato
+// criar env
 
 const text1 = "Olá!";
 const text2Part1 = "Sou ";
@@ -266,28 +256,10 @@ onMounted(() => {
           :project="project" />
       </div>
     </div>
-  </Section>
-  <!-- <Section title="Meus projetos" id="my-projects">
-    <div class="text-white flex w-[95%] justify-end gap-2">
-      <i class="bi bi-funnel" />
-      <span>Tipo de projeto:</span>
-      <select
-        v-model="selectedTag"
-        class="text-white capitalize rounded-lg bg-black/50 text-center">
-        <option value="all">Todos</option>
-        <option
-          v-for="tag in tagsType"
-          :key="tag"
-          :value="tag"
-          class="capitalize">
-          {{ tag }}
-        </option>
-      </select>
-    </div>
-    <div>
+    <!-- <div>
       <Carousel :items="filteredProjects" />
-    </div>
-  </Section> -->
+    </div> -->
+  </Section>
   <Section title="Entre em contato" id="contact">
     <div class="flex items-center justify-center w-full">
       <div
