@@ -1,14 +1,12 @@
 <!-- @format -->
 
 <script setup>
-// estilizar barra de rolagem
 // criar componente para tabelas
 // criar componente para botões
 // Criar componente para imagens (quadradas e redondas  )
 // instalar biblioteca de idiomas
 // criar componente para language switcher
 // criar componente para barra de pesquisa
-// Permitir rolagem com o dedo no celular (carrossel) - Futuro
 // Criar componente para o filtro
 // criar env
 
@@ -141,23 +139,23 @@ const prev = () => {
 const contacts = ref([
   {
     title: "Linkedin",
-    description: "isabella-cpmelo",
+    description: import.meta.env.VITE_LINKEDIN_USER,
     alt: "linkedin-logo",
-    url: "https://www.linkedin.com/in/isabella-cpmelo/",
+    url: import.meta.env.VITE_LINKEDIN_URL,
     icon: "bi-linkedin",
   },
   {
     title: "Email",
-    description: "isacpmelo@gmail.com",
+    description: import.meta.env.VITE_PERSONAL_EMAIL,
     alt: "email-logo",
-    url: "mailto:isacpmelo@gmail.com",
+    url: `mailto:${import.meta.env.VITE_PERSONAL_EMAIL}`,
     icon: "bi-envelope-open-fill",
   },
   {
     title: "Github",
-    description: "isabellacpmelo",
+    description: import.meta.env.VITE_GITHUB_USER,
     alt: "github-logo",
-    url: "https://github.com/isabellacpmelo",
+    url: import.meta.env.VITE_GITHUB_URL,
     icon: "bi-github",
   },
 ]);
