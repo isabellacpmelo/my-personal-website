@@ -1,26 +1,46 @@
 <!-- @format -->
 <script setup>
-const iconsFoder = `${baseUrl}/img/language-icon/`;
+const iconsFoder = `${baseUrl}/img/language-icon/`
 
 const languages = [
   {
-    name: "Português",
-    desc: "pt-br",
+    name: 'Português',
+    desc: 'pt-br',
     icon: `${iconsFoder}/pt-br.png`,
   },
   {
-    name: "Español",
-    desc: "es",
+    name: 'Español',
+    desc: 'es',
     icon: `${iconsFoder}/es.png`,
   },
   {
-    name: "English",
-    desc: "en",
+    name: 'English',
+    desc: 'en',
     icon: `${iconsFoder}/en.png`,
   },
-];
+]
 
-const openMenu = ref(false);
+const openMenu = ref(false)
+const menuRef = ref(null)
+
+const toggleMenu = (event) => {
+  event.stopPropagation()
+  openMenu.value = !openMenu.value
+}
+
+const handleClickOutside = (event) => {
+  if (menuRef.value && !menuRef.value.contains(event.target)) {
+    openMenu.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <template>
@@ -67,8 +87,10 @@ const openMenu = ref(false);
       </button>
     </div>
     <div class="flex md:hidden">
-      <div><ButtonIcon @click="openMenu = !openMenu" /></div>
+      <div><ButtonIcon @click.stop="toggleMenu" /></div>
     </div>
+
+    <!-- menu que só abre no mobile -->
     <transition
       enter-active-class="transition-opacity duration-300 ease-out transform"
       enter-from-class="opacity-0"
@@ -76,15 +98,32 @@ const openMenu = ref(false);
       leave-active-class="transition-opacity duration-200 ease-in transform"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0">
-      <div v-if="openMenu" class="top-16 right-8 absolute">
+      <div
+        v-if="openMenu"
+        ref="menuRef"
+        class="top-16 right-8 absolute"
+        @click.stop>
         <div
           class="bg-white p-4 text-black rounded-md grid grid-cols-1 shadow-lg">
           <div class="grid gap-2">
-            <a href="#about-me" class="border-b border-black">Sobre mim</a>
-            <a href="#my-projects" class="border-b border-black"
+            <a
+              href="#about-me"
+              class="border-b border-black"
+              @click="openMenu = false"
+              >Sobre mim</a
+            >
+            <a
+              href="#my-projects"
+              class="border-b border-black"
+              @click="openMenu = false"
               >Meus projetos</a
             >
-            <a href="#contact" class="border-b border-black">Contato</a>
+            <a
+              href="#contact"
+              class="border-b border-black"
+              @click="openMenu = false"
+              >Contato</a
+            >
           </div>
 
           <Button
@@ -94,6 +133,7 @@ const openMenu = ref(false);
             icon="bi-download"
             class="text-[13px] my-4"
             @click="downloadCurriculum" />
+
           <button
             type="button"
             disabled

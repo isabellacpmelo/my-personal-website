@@ -10,168 +10,168 @@
 // Criar componente para o filtro
 // criar env
 
-const text1 = "Olá!";
-const text2Part1 = "Sou ";
-const text2Part2 = "Isabella Melo,";
-const text3 = "Desenvolvedora front-end";
+const text1 = 'Olá!'
+const text2Part1 = 'Sou '
+const text2Part2 = 'Isabella Melo,'
+const text3 = 'Desenvolvedora front-end'
 
-const displayText1 = ref("");
-const displayText2Part1 = ref("");
-const displayText2Part2 = ref("");
-const displayText3 = ref("");
+const displayText1 = ref('')
+const displayText2Part1 = ref('')
+const displayText2Part2 = ref('')
+const displayText3 = ref('')
 
-const typingSpeed = 50;
+const typingSpeed = 50
 
 function typeEffect(text, refValue, callback) {
-  let index = 0;
+  let index = 0
   function type() {
     if (index < text.length) {
-      refValue.value += text[index];
-      index++;
-      setTimeout(type, typingSpeed);
+      refValue.value += text[index]
+      index++
+      setTimeout(type, typingSpeed)
     } else if (callback) {
-      setTimeout(callback, 300); // Pausa antes de ir para o próximo
+      setTimeout(callback, 300) // Pausa antes de ir para o próximo
     }
   }
-  type();
+  type()
 }
 
-const projectsFolder = `${baseUrl}/img/projects-cover/`;
+const projectsFolder = `${baseUrl}/img/projects-cover/`
 
 const projects = ref([
   {
-    title: "Star Wars Catalogue",
-    description: "Catalog of characters from the Star Wars universe",
-    tags: ["javascript", "vue", "tailwind", "nuxt"],
+    title: 'Star Wars Catalogue',
+    description: 'Catalog of characters from the Star Wars universe',
+    tags: ['javascript', 'vue', 'tailwind', 'nuxt'],
     img: `${projectsFolder}/star-wars-catalogue.png`,
-    alt: "star-wars-catalogue-cover",
-    linkSite: "https://star-wars-catal.netlify.app/",
-    linkRep: "https://github.com/isabellacpmelo/starwars",
+    alt: 'star-wars-catalogue-cover',
+    linkSite: 'https://star-wars-catal.netlify.app/',
+    linkRep: 'https://github.com/isabellacpmelo/starwars',
   },
   {
-    title: "Naruto Game",
+    title: 'Naruto Game',
     description: "Naruto's racing game, based on T-Rex Game",
-    tags: ["javascript", "vue", "tailwind", "quasar", "game"],
+    tags: ['javascript', 'vue', 'tailwind', 'quasar', 'game'],
     img: `${projectsFolder}/narutinho-game.png`,
-    alt: "narutinho-game-cover",
-    linkSite: "https://naruto-running-game.netlify.app/#/",
-    linkRep: "https://github.com/isabellacpmelo/naruto-game",
+    alt: 'narutinho-game-cover',
+    linkSite: 'https://naruto-running-game.netlify.app/#/',
+    linkRep: 'https://github.com/isabellacpmelo/naruto-game',
   },
   {
-    title: "Cripto Coin",
+    title: 'Cripto Coin',
     description:
-      "Conversor de criptomoedas que permite que o usuário saiba a cotação do criptoativo desejado.",
-    tags: ["javascript", "vue", "tailwind", "quasar"],
+      'Conversor de criptomoedas que permite que o usuário saiba a cotação do criptoativo desejado.',
+    tags: ['javascript', 'vue', 'tailwind', 'quasar'],
     img: `${projectsFolder}/cripto-coin.png`,
-    alt: "cripto-coin-cover",
-    linkSite: "https://cryptor-converter.netlify.app/",
-    linkRep: "https://github.com/isabellacpmelo/conversor-criptomoedas",
+    alt: 'cripto-coin-cover',
+    linkSite: 'https://cryptor-converter.netlify.app/',
+    linkRep: 'https://github.com/isabellacpmelo/conversor-criptomoedas',
   },
   {
-    title: "Cupcake Store",
+    title: 'Cupcake Shop',
     description:
-      "Cupcake Store é uma lojinha de cupcakes fictícia e em progresso",
-    tags: ["javascript", "vue", "tailwind", "nuxt"],
-    img: `${projectsFolder}/cupcake-store.png`,
-    alt: "cupcake-store-cover",
-    linkSite: "https://cupcack-store.netlify.app/#/",
-    linkRep: "https://github.com/isabellacpmelo/cupcake-store",
+      'Cupcake Shop é uma lojinha de cupcakes fictícia e em progresso',
+    tags: ['javascript', 'vue', 'tailwind', 'nuxt'],
+    img: `${projectsFolder}/cupcake-shop.png`,
+    alt: 'cupcake-shop-cover',
+    linkSite: 'https://cupcack-store.netlify.app/#/',
+    linkRep: 'https://github.com/isabellacpmelo/cupcake-store',
   },
   {
-    title: "Space Shooter",
-    description: "Jogo de tiro espacial",
-    tags: ["javascript", "game"],
+    title: 'Space Shooter',
+    description: 'Jogo de tiro espacial',
+    tags: ['javascript', 'game'],
     img: `${projectsFolder}/space-shooter.gif`,
-    alt: "space-shooter-cover",
-    linkRep: "https://github.com/isabellacpmelo/jogo-space-shooter",
-    linkSite: "https://isabellacpmelo.github.io/jogo-space-shooter/",
+    alt: 'space-shooter-cover',
+    linkRep: 'https://github.com/isabellacpmelo/jogo-space-shooter',
+    linkSite: 'https://isabellacpmelo.github.io/jogo-space-shooter/',
   },
   {
-    title: "Landing Page React",
-    description: "Exemplo de landing page feita em react",
-    tags: ["javascript", "react"],
+    title: 'Landing Page React',
+    description: 'Exemplo de landing page feita em react',
+    tags: ['javascript', 'react'],
     img: `${projectsFolder}/landing-page-cover.png`,
-    alt: "landing-page-cover",
-    linkSite: "https://react-landing-page-exemplo.netlify.app/",
-    linkRep: "https://github.com/isabellacpmelo/landing-page-react",
+    alt: 'landing-page-cover',
+    linkSite: 'https://react-landing-page-exemplo.netlify.app/',
+    linkRep: 'https://github.com/isabellacpmelo/landing-page-react',
   },
-]);
+])
 
 const tagsType = ref([
-  "javascript",
-  "vue",
-  "tailwind",
-  "nuxt",
-  "quasar",
-  "game",
-  "react",
-]);
+  'javascript',
+  'vue',
+  'tailwind',
+  'nuxt',
+  'quasar',
+  'game',
+  'react',
+])
 
-const selectedTag = ref("all");
+const selectedTag = ref('all')
 
 const filteredProjects = computed(() => {
-  if (selectedTag.value === "all") {
-    return projects.value;
+  if (selectedTag.value === 'all') {
+    return projects.value
   }
   return projects.value.filter((project) =>
     project.tags.includes(selectedTag.value)
-  );
-});
+  )
+})
 
-const currentIndex = ref(0);
-const itemsPerPage = 3;
+const currentIndex = ref(0)
+const itemsPerPage = 3
 
 const next = () => {
   if (
     currentIndex.value <
     Math.ceil(filteredProjects.value.length / itemsPerPage) + 1
   ) {
-    currentIndex.value++;
+    currentIndex.value++
   }
-};
+}
 
 const prev = () => {
   if (currentIndex.value > 0) {
-    currentIndex.value--;
+    currentIndex.value--
   }
-};
+}
 
 const contacts = ref([
   {
-    title: "Linkedin",
+    title: 'Linkedin',
     description: import.meta.env.VITE_LINKEDIN_USER,
-    alt: "linkedin-logo",
+    alt: 'linkedin-logo',
     url: import.meta.env.VITE_LINKEDIN_URL,
-    icon: "bi-linkedin",
+    icon: 'bi-linkedin',
   },
   {
-    title: "Email",
+    title: 'Email',
     description: import.meta.env.VITE_PERSONAL_EMAIL,
-    alt: "email-logo",
+    alt: 'email-logo',
     url: `mailto:${import.meta.env.VITE_PERSONAL_EMAIL}`,
-    icon: "bi-envelope-open-fill",
+    icon: 'bi-envelope-open-fill',
   },
   {
-    title: "Github",
+    title: 'Github',
     description: import.meta.env.VITE_GITHUB_USER,
-    alt: "github-logo",
+    alt: 'github-logo',
     url: import.meta.env.VITE_GITHUB_URL,
-    icon: "bi-github",
+    icon: 'bi-github',
   },
-]);
+])
 
-var date = new Date();
-var year = date.getFullYear();
+var date = new Date()
+var year = date.getFullYear()
 
 onMounted(() => {
   typeEffect(text1, displayText1, () => {
     typeEffect(text2Part1, displayText2Part1, () => {
       typeEffect(text2Part2, displayText2Part2, () => {
-        typeEffect(text3, displayText3);
-      });
-    });
-  });
-});
+        typeEffect(text3, displayText3)
+      })
+    })
+  })
+})
 </script>
 
 <template>
