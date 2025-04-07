@@ -1,13 +1,11 @@
 <!-- @format -->
 
 <script setup>
-import ExternalLink from "../UI/ExternalLink.vue";
-
 const props = defineProps({
   project: {
     type: Object,
   },
-});
+})
 </script>
 <template>
   <Card class="hover:animate-shake">
@@ -24,7 +22,7 @@ const props = defineProps({
           <h2 class="font-semibold text-lg">{{ project.title }}</h2>
           <p class="mt-2 text-[14px]">{{ project.description }}</p>
         </div>
-        <div class="flex flex-col gap-1 mt-2 h-1/3">
+        <div class="flex flex-col gap-1 mt-4 h-1/3">
           <ExternalLink :href="project?.linkSite" label="Visitar projeto" />
           <ExternalLink :href="project.linkRep" label="Visitar repositório" />
         </div>
