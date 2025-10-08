@@ -13,7 +13,7 @@
 const text1 = 'Olá!'
 const text2Part1 = 'Sou '
 const text2Part2 = 'Isabella Melo,'
-const text3 = 'Desenvolvedora front-end'
+const text3 = 'Desenvolvedora fullstack'
 
 const displayText1 = ref('')
 const displayText2Part1 = ref('')
@@ -176,9 +176,19 @@ onMounted(() => {
 
 <template>
   <!-- <div class="bg-red-300 fixed bottom-0 right-0">Voltar para o inicio</div> -->
-  <Header />
+  <!-- <Header /> -->
   <Section>
-    <div class="flex flex-col md:flex-row items-center justify-center w-full">
+    <div
+      class="h-full w-full flex flex-col justify-center items-center gap-16 md:gap-24 lg:gap-36">
+      <div
+        class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 lg:gap-32">
+        <div>apresentação aqui</div>
+        <ProfilePic />
+      </div>
+      <div>Curriculo</div>
+    </div>
+
+    <!-- <div class="flex flex-col md:flex-row items-center justify-center w-full">
       <div class="text-xl lg:text-3xl xl:text-5xl">
         <p class="text-white"><span v-text="displayText1"></span></p>
         <p class="text-white">
@@ -191,12 +201,75 @@ onMounted(() => {
         src="/src/assets/img/my-pic-02.png"
         alt="My profile pic"
         class="h-72" />
+    </div> -->
+  </Section>
+
+  <Section title="Sobre mim" light>
+    <div class="h-full flex items-start">
+      <div
+        class="w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-8 md:gap-16 lg:gap-36 lg:py-8">
+        <div class="text-justify w-full md:w-2/3">
+          <p class="mb-4 md:mb-6 lg:mb-8">
+            Sou uma Desenvolvedora Full Stack , com o objetivo de transformar
+            desafios complexos em soluções de software eficientes e escaláveis.
+            Minha jornada profissional é focada em construir produtos que não
+            apenas funcionam bem, mas que também geram um impacto real e
+            positivo para os usuários e o negócio.
+          </p>
+          <p class="mb-4 md:mb-6 lg:mb-8">
+            Atuo em todo o ciclo de desenvolvimento: no frontend, utilizo meu
+            conhecimento em Vue.js, React e Angular para criar interfaces de
+            alta performance, otimizando o tempo de carregamento de páginas e
+            garantindo uma experiência de usuário fluida. No backend, construo a
+            espinha dorsal das aplicações com Node.js e Python, desenvolvendo
+            APIs RESTful seguras e garantindo a escalabilidade de plataformas
+            digitais.
+          </p>
+          <p class="mb-4 md:mb-6 lg:mb-8">
+            Além do desenvolvimento web tradicional, tenho explorado o futuro
+            das aplicações desktop com Rust e Tauri e integrado o poder da
+            Inteligência Artificial generativa para automatizar processos e
+            criar soluções mais inteligentes.
+          </p>
+          <p>
+            Acredito no poder da colaboração ágil e do código limpo para
+            impulsionar a inovação. Estou sempre em busca de projetos
+            desafiadores onde eu possa aplicar minhas habilidades para construir
+            tecnologia de ponta
+          </p>
+        </div>
+        <div>
+          <img
+            src="@/assets/img/notebook-illustration.png"
+            alt=""
+            class="h-32 w-auto md:h-40 lg:h-60 xl:h-80" />
+        </div>
+      </div>
     </div>
   </Section>
 
-  <Section title="Sobre mim" id="about-me">
-    <!-- fazer uma breve apresentação -->
-    <!-- adicionar imagens -->
+  <Section title="Tecnologias">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur facere
+    illo sapiente, minima harum reprehenderit explicabo eaque neque at, fugiat
+    quam! Eligendi ipsam voluptate, asperiores tempore dicta sequi dolore
+    dolorem?
+  </Section>
+
+  <Section title="Meus Projetos" light>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur facere
+    illo sapiente, minima harum reprehenderit explicabo eaque neque at, fugiat
+    quam! Eligendi ipsam voluptate, asperiores tempore dicta sequi dolore
+    dolorem?
+  </Section>
+
+  <Section>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur facere
+    illo sapiente, minima harum reprehenderit explicabo eaque neque at, fugiat
+    quam! Eligendi ipsam voluptate, asperiores tempore dicta sequi dolore
+    dolorem?
+  </Section>
+
+  <!-- <Section title="Sobre mim" id="about-me">
     <div
       class="flex flex-col justify-center items-start w-full text-white gap-8 text-sm sm:text-md lg:text-xl">
       <div>
@@ -228,8 +301,9 @@ onMounted(() => {
           @click="downloadCurriculum" />
       </div>
     </div>
-  </Section>
-  <Section title="Meus projetos" id="my-projects">
+  </Section> -->
+
+  <!-- <Section title="Meus projetos" id="my-projects">
     <div class="text-white flex w-[95%] justify-center lg:justify-start gap-2">
       <i class="bi bi-funnel" />
       <span>Tipo de projeto:</span>
@@ -254,11 +328,9 @@ onMounted(() => {
           :project="project" />
       </div>
     </div>
-    <!-- <div>
-      <Carousel :items="filteredProjects" />
-    </div> -->
-  </Section>
-  <Section title="Entre em contato" id="contact">
+  </Section> -->
+
+  <!-- <Section title="Entre em contato" id="contact">
     <div class="flex items-center justify-center w-full">
       <div
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-12 text-white">
@@ -280,10 +352,11 @@ onMounted(() => {
         </div>
       </div>
     </div>
-  </Section>
-  <Section sectionClass="bg-[#191F04]" padding="py-4">
+  </Section> -->
+
+  <!-- <Section sectionClass="bg-[#191F04]" padding="py-4">
     <div class="text-white lg:text-xl flex justify-center w-full">
       Copyright &copy; {{ year }} Isabella Melo
     </div>
-  </Section>
+  </Section> -->
 </template>
