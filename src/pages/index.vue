@@ -177,7 +177,7 @@ onMounted(() => {
 <template>
   <!-- <div class="bg-red-300 fixed bottom-0 right-0">Voltar para o inicio</div> -->
   <!-- <Header /> -->
-  <Section>
+  <Section class="h-screen">
     <div
       class="h-full w-full flex flex-col justify-center items-center gap-16 md:gap-24 lg:gap-36">
       <div
