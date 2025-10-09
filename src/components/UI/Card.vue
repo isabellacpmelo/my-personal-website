@@ -1,5 +1,3 @@
-<!-- @format -->
-
 <template>
   <div
     class="group relative aspect-square h-[480px] 2xl:h-[500px] w-[290px] md:w-[300px] lg:w-[390] 2xl:w-[400px]"

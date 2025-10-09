@@ -15,6 +15,6 @@ const props = defineProps({
       'h-44 w-44 md:h-52 md:w-52 lg:h-64 lg:w-64 2xl:h-96 2xl:w-96':
         !isMinimized,
     }">
-    <img src="@/assets/img/profile-pic.png" />
+    <img src="@/assets/img/profile-pic.png" alt="My profile pic" />
   </div>
 </template>

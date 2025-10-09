@@ -1,5 +1,3 @@
-<!-- @format -->
-
 <script setup>
 // criar componente para tabelas
 // criar componente para botões
@@ -110,30 +108,6 @@ const prev = () => {
   }
 }
 
-const contacts = ref([
-  {
-    title: 'Linkedin',
-    description: import.meta.env.VITE_LINKEDIN_USER,
-    alt: 'linkedin-logo',
-    url: import.meta.env.VITE_LINKEDIN_URL,
-    icon: 'bi-linkedin',
-  },
-  {
-    title: 'Email',
-    description: import.meta.env.VITE_PERSONAL_EMAIL,
-    alt: 'email-logo',
-    url: `mailto:${import.meta.env.VITE_PERSONAL_EMAIL}`,
-    icon: 'bi-envelope-open-fill',
-  },
-  {
-    title: 'Github',
-    description: import.meta.env.VITE_GITHUB_USER,
-    alt: 'github-logo',
-    url: import.meta.env.VITE_GITHUB_URL,
-    icon: 'bi-github',
-  },
-])
-
 var date = new Date()
 var year = date.getFullYear()
 </script>
@@ -182,30 +156,6 @@ var year = date.getFullYear()
           v-for="(project, index) in filteredProjects"
           :key="index"
           :project="project" />
-      </div>
-    </div>
-  </Section> -->
-
-  <!-- <Section title="Entre em contato" id="contact">
-    <div class="flex items-center justify-center w-full">
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-12 text-white">
-        <div v-for="(contact, index) in contacts" :key="index">
-          <CardB class="h-24">
-            <a :href="contact.url" target="_blank">
-              <div
-                class="flex items-center gap-3 w-[330px] p-2 hover:bg-black/30 rounded-lg">
-                <div
-                  class="text-3xl bg-black/40 rounded-lg flex items-center justify-center h-14 w-14"
-                  :class="contact.icon" />
-                <div>
-                  <h2>{{ contact.title }}</h2>
-                  <p class="font-medium">{{ contact.description }}</p>
-                </div>
-              </div>
-            </a>
-          </CardB>
-        </div>
       </div>
     </div>
   </Section> -->

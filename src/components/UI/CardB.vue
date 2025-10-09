@@ -1,5 +1,3 @@
-<!-- @format -->
-
 <template>
   <div class="group relative aspect-square" style="transform: none">
     <div

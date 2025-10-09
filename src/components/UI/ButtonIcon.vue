@@ -1,17 +1,16 @@
-<!-- @format -->
 <script setup>
 const props = defineProps({
   icon: {
     type: String,
-    default: "bi-list",
+    default: 'bi-list',
   },
   textColor: {
     type: String,
-    default: "text-blue-500",
+    default: 'text-blue-500',
   },
   bgColor: {
     type: String,
-    default: "bg-white",
+    default: 'bg-white',
   },
   iconLeft: {
     type: Boolean,
@@ -21,7 +20,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-});
+})
 </script>
 
 <template>

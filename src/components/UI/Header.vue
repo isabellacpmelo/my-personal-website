@@ -1,4 +1,3 @@
-<!-- @format -->
 <script setup>
 const iconsFoder = `${baseUrl}/img/language-icon/`
 

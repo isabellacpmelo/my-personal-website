@@ -1,81 +1,79 @@
-<!-- @format -->
-
 <script setup>
 const props = defineProps({
   items: {
     type: Array,
     required: true,
   },
-});
+})
 
-const currentIndex = ref(0);
-const itemsPerPage = ref(3);
+const currentIndex = ref(0)
+const itemsPerPage = ref(3)
 
 const totalPages = computed(() =>
   props.items.length
     ? Math.ceil(props.items.length / itemsPerPage.value) + 1
     : 0
-);
+)
 
 const updateItemsPerPage = () => {
-  const width = window.innerWidth;
+  const width = window.innerWidth
   if (width < 1025) {
-    itemsPerPage.value = 1;
+    itemsPerPage.value = 1
   } else if (width < 1425) {
-    itemsPerPage.value = 2;
+    itemsPerPage.value = 2
   } else {
-    itemsPerPage.value = 3;
+    itemsPerPage.value = 3
   }
-};
+}
 
 const next = () => {
   if (currentIndex.value < totalPages.value) {
-    currentIndex.value++;
+    currentIndex.value++
   } else {
-    currentIndex.value = 0;
+    currentIndex.value = 0
   }
-};
+}
 
 const prev = () => {
   if (currentIndex.value > 0) {
-    currentIndex.value--;
+    currentIndex.value--
   } else {
-    currentIndex.value = totalPages.value;
+    currentIndex.value = totalPages.value
   }
-};
+}
 
-const touchStartX = ref(0);
-const touchEndX = ref(0);
-const minSwipeDistance = 50;
+const touchStartX = ref(0)
+const touchEndX = ref(0)
+const minSwipeDistance = 50
 
 const onTouchStart = (event) => {
-  touchStartX.value = event.touches[0].clientX;
-};
+  touchStartX.value = event.touches[0].clientX
+}
 
 const onTouchMove = (event) => {
-  touchEndX.value = event.touches[0].clientX;
-};
+  touchEndX.value = event.touches[0].clientX
+}
 
 const onTouchEnd = () => {
-  const distance = touchStartX.value - touchEndX.value;
+  const distance = touchStartX.value - touchEndX.value
 
   if (Math.abs(distance) > minSwipeDistance) {
     if (distance > 0) {
-      next();
+      next()
     } else {
-      prev();
+      prev()
     }
   }
-};
+}
 
 onMounted(() => {
-  updateItemsPerPage();
-  window.addEventListener("resize", updateItemsPerPage);
-});
+  updateItemsPerPage()
+  window.addEventListener('resize', updateItemsPerPage)
+})
 
 onUnmounted(() => {
-  window.removeEventListener("resize", updateItemsPerPage);
-});
+  window.removeEventListener('resize', updateItemsPerPage)
+})
 </script>
 
 <template>

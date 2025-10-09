@@ -1,31 +1,30 @@
-<!-- @format -->
 <script setup>
 const props = defineProps({
   href: {
     type: String,
-    default: "/",
+    default: '/',
   },
   label: {
     type: String,
-    default: "Link",
+    default: 'Link',
   },
   icon: {
     type: String,
-    default: "bi-box-arrow-up-right",
+    default: 'bi-box-arrow-up-right',
   },
   color: {
     type: String,
-    default: "text-blue-500",
+    default: 'text-blue-500',
   },
   fontSize: {
     type: String,
-    default: "text-sm",
+    default: 'text-sm',
   },
   iconLeft: {
     type: Boolean,
     default: false,
   },
-});
+})
 </script>
 
 <template>
