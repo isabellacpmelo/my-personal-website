@@ -3,21 +3,13 @@
 const props = defineProps({
   label: {
     type: String,
-    default: "Label here",
+    default: 'Label here',
   },
   icon: {
     type: String,
-    default: "bi-box-arrow-up-right",
+    default: '',
   },
-  textColor: {
-    type: String,
-    default: "text-blue-500",
-  },
-  bgColor: {
-    type: String,
-    default: "bg-white",
-  },
-  iconLeft: {
+  light: {
     type: Boolean,
     default: false,
   },
@@ -25,12 +17,12 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-});
+})
 </script>
 
 <template>
   <div>
-    <button
+    <!-- <button
       :disabled="disabled"
       :class="[textColor, bgColor]"
       class="rounded-md group hover:shadow-sm hover:shadow-black/30">
@@ -41,6 +33,17 @@ const props = defineProps({
           <i :class="icon" class="ml-2" />
         </div>
       </div>
+    </button> -->
+    <button
+      class="border transition-all delay-75 px-2 py-1 rounded-full flex justify-center items-center gap-1 font-medium"
+      :class="{
+        'border-secondary hover:border-mustard text-secondary hover:text-mustard':
+          light,
+        'border-darkText hover:border-mustard text-darkText hover:text-mustard':
+          !light,
+      }">
+      <i v-if="icon" :class="icon" />
+      <span>{{ label }}</span>
     </button>
   </div>
 </template>

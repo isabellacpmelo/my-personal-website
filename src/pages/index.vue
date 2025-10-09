@@ -179,13 +179,15 @@ onMounted(() => {
   <!-- <Header /> -->
   <Section class="h-screen">
     <div
-      class="h-full w-full flex flex-col justify-center items-center gap-16 md:gap-24 lg:gap-36">
+      class="h-full w-full flex flex-col justify-center items-center gap-16 md:gap-20 2xl:gap-36">
       <div
         class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 lg:gap-32">
         <div>apresentação aqui</div>
         <ProfilePic />
       </div>
-      <div>Curriculo</div>
+      <div>
+        <Button icon="bi bi-file-earmark-arrow-down" label="Currículo" light />
+      </div>
     </div>
 
     <!-- <div class="flex flex-col md:flex-row items-center justify-center w-full">
@@ -206,17 +208,22 @@ onMounted(() => {
 
   <Section title="Sobre mim" light>
     <div class="h-full flex items-start">
+      <!-- vite -->
+      <!-- next -->
+      <!-- quasar -->
+      <!-- Criar componente para as imgs de tecnologia -->
+
       <div
-        class="w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-8 md:gap-16 lg:gap-36 lg:py-8">
+        class="w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-8 md:gap-16 2xl:gap-36 2xl:py-8">
         <div class="text-justify w-full md:w-2/3">
-          <p class="mb-4 md:mb-6 lg:mb-8">
+          <p class="mb-4 md:mb-6 xl:mb-8">
             Sou uma Desenvolvedora Full Stack , com o objetivo de transformar
             desafios complexos em soluções de software eficientes e escaláveis.
             Minha jornada profissional é focada em construir produtos que não
             apenas funcionam bem, mas que também geram um impacto real e
             positivo para os usuários e o negócio.
           </p>
-          <p class="mb-4 md:mb-6 lg:mb-8">
+          <p class="mb-4 md:mb-6 xl:mb-8">
             Atuo em todo o ciclo de desenvolvimento: no frontend, utilizo meu
             conhecimento em Vue.js, React e Angular para criar interfaces de
             alta performance, otimizando o tempo de carregamento de páginas e
@@ -225,7 +232,7 @@ onMounted(() => {
             APIs RESTful seguras e garantindo a escalabilidade de plataformas
             digitais.
           </p>
-          <p class="mb-4 md:mb-6 lg:mb-8">
+          <p class="mb-4 md:mb-6 xl:mb-8">
             Além do desenvolvimento web tradicional, tenho explorado o futuro
             das aplicações desktop com Rust e Tauri e integrado o poder da
             Inteligência Artificial generativa para automatizar processos e
@@ -242,17 +249,145 @@ onMounted(() => {
           <img
             src="@/assets/img/notebook-illustration.png"
             alt=""
-            class="h-32 w-auto md:h-40 lg:h-60 xl:h-80" />
+            class="h-32 w-auto md:h-40 lg:h-60 2xl:h-80" />
         </div>
       </div>
     </div>
   </Section>
 
   <Section title="Tecnologias">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur facere
-    illo sapiente, minima harum reprehenderit explicabo eaque neque at, fugiat
-    quam! Eligendi ipsam voluptate, asperiores tempore dicta sequi dolore
-    dolorem?
+    <div class="h-full w-full flex justify-center items-center">
+      <ul class="grid grid-cols-4 gap-16">
+        <li>
+          <img
+            src="@/assets/img/dev-icons/javascript.svg"
+            alt="logo-javascript"
+            title="Javascript"
+            aria-label="Logo Javascript"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/typescript.svg"
+            alt="logo-typescript"
+            title="Typescript"
+            aria-label="Logo Typescript"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/html.svg"
+            alt="logo-html"
+            title="Html"
+            aria-label="Logo Html"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/css.svg"
+            alt="logo-css"
+            title="CSS"
+            aria-label="Logo CSS"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/bootstrap.svg"
+            alt="logo-bootstrap"
+            title="Bootstrap"
+            aria-label="Logo Bootstrap"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/tailwind.svg"
+            alt="logo-tailwind"
+            title="tailwind"
+            aria-label="Logo tailwind"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/vue.svg"
+            alt="logo-vue"
+            title="Vue"
+            aria-label="Logo Vue"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/nuxt.svg"
+            alt="logo-nuxt"
+            title="Nuxt"
+            aria-label="Logo Nuxt"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/vuetify.svg"
+            alt="logo-vuetify"
+            title="Vuetify"
+            aria-label="Logo Vuetify"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/nuxt.svg"
+            alt="logo-nuxt"
+            title="Nuxt"
+            aria-label="Logo Nuxt"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/react.svg"
+            alt="logo-react"
+            title="React"
+            aria-label="Logo React"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/angular.svg"
+            alt="logo-angular"
+            title="Angular"
+            aria-label="Logo Angular"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/python.svg"
+            alt="logo-python"
+            title="Python"
+            aria-label="Logo Python"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/django.svg"
+            alt="logo-django"
+            title="Django"
+            aria-label="Logo Django"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/rust.svg"
+            alt="logo-rust"
+            title="Rust"
+            aria-label="Logo Rust"
+            class="h-14" />
+        </li>
+        <li>
+          <img
+            src="@/assets/img/dev-icons/tauri.svg"
+            alt="logo-tauri"
+            title="Tauri"
+            aria-label="Logo Tauri"
+            class="h-14" />
+        </li>
+      </ul>
+    </div>
   </Section>
 
   <Section title="Meus Projetos" light>
