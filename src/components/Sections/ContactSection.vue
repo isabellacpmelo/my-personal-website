@@ -45,7 +45,6 @@ const socials = [
               :href="social.url"
               target="_blank"
               rel="noopener noreferrer"
-              :aria-label="social.label"
               :title="social.name">
               <i :class="social.icon" />
             </a>
