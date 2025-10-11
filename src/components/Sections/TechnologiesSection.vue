@@ -113,7 +113,7 @@ const devLogos = [
   <Section title="Tecnologias">
     <div class="h-full w-full flex justify-center items-center">
       <ul
-        class="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-12 md:gap-16 2xl:gap-28">
+        class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-12 md:gap-16 2xl:gap-28">
         <li v-for="logo in devLogos" :key="logo.alt">
           <LogoImage
             :src="logo.src"

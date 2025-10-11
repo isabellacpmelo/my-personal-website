@@ -40,7 +40,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <Section>
+  <Section class="h-screen">
     <div
       class="h-full w-full flex flex-col justify-center items-center gap-16 md:gap-20 2xl:gap-36">
       <div
