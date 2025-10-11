@@ -14,6 +14,7 @@ export default {
         mustard: '#f8b454',
         lightText: '#e3e2d6',
         darkText: '#09090b',
+        lightBlue: '#5e5ba9',
       },
       keyframes: {
         shake: {
