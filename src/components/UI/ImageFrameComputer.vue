@@ -12,7 +12,7 @@ const props = defineProps({
 <template>
   <div class="border-2 border-lightBlue h-40 w-80 group">
     <div
-      class="bg-lightBlue w-full h-[10%] flex justify-between items-center px-1 transition duration-700 ease-in-out group-hover:opacity-90">
+      class="bg-lightBlue group-hover:bg-primary w-full h-[10%] flex justify-between items-center px-1 transition duration-700 ease-in-out border-[0.5px] border-lightBlue">
       <div class="h-full flex items-center gap-1">
         <div
           class="w-2 h-2 bg-lightText group-hover:bg-red-300 rounded-full group-hover:animate-pulse transition duration-700 ease-in-out delay-75" />
@@ -37,7 +37,8 @@ const props = defineProps({
       </div>
 
       <div class="border-l border-lightBlue w-[3%] h-full flex items-start">
-        <div class="bg-lightBlue h-12 w-full mt-2 group-hover:opacity-90" />
+        <div
+          class="bg-lightBlue h-12 w-full mt-2 group-hover:bg-primary transition duration-300 ease-in-out" />
       </div>
     </div>
   </div>
