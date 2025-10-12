@@ -58,16 +58,7 @@ onMounted(() => {
       </div>
       <div>
         <ResumeButton />
-        <!-- <Button light>
-          <div class="flex items-center justify-between gap-2 h-6">
-            <div class="h-full w-6 rounded-full">
-              <img
-                src="@/assets/img/language-icon/pt-br.png"
-                class="h-6 w-6 object-cover object-center -translate-x-0.5" />
-            </div>
-            <div>Português</div>
-          </div>
-        </Button> -->
+        <!-- <LanguageButton language="pt-BR" /> -->
       </div>
     </div>
   </Section>

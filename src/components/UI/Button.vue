@@ -21,12 +21,12 @@ const props = defineProps({
   <div>
     <button
       :disabled="disabled"
-      class="border transition duration-700 ease-in-out delay-75 rounded-full font-medium"
+      class="border-[1.5px] transition duration-700 ease-in-out delay-75 rounded-full font-medium"
       :class="{
-        'border-secondary hover:border-mustard text-secondary hover:text-mustard':
-          light,
-        'border-darkText hover:border-mustard text-darkText hover:text-mustard':
-          !light,
+        'hover:border-mustard hover:text-mustard': !disabled,
+        'border-secondary  text-secondary ': light,
+        'border-darkText text-darkText ': !light,
+        'cursor-not-allowed opacity-60': disabled,
       }">
       <div
         v-if="label || icon"
