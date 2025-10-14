@@ -10,65 +10,6 @@
 
 const projectsFolder = `${baseUrl}/img/projects-cover/`
 
-const projects = ref([
-  {
-    title: 'Star Wars Catalogue',
-    description: 'Catalog of characters from the Star Wars universe',
-    tags: ['javascript', 'vue', 'tailwind', 'nuxt'],
-    img: `${projectsFolder}/star-wars-catalogue.png`,
-    alt: 'star-wars-catalogue-cover',
-    linkSite: 'https://star-wars-catal.netlify.app/',
-    linkRep: 'https://github.com/isabellacpmelo/starwars',
-  },
-  {
-    title: 'Naruto Game',
-    description: "Naruto's racing game, based on T-Rex Game",
-    tags: ['javascript', 'vue', 'tailwind', 'quasar', 'game'],
-    img: `${projectsFolder}/narutinho-game.png`,
-    alt: 'narutinho-game-cover',
-    linkSite: 'https://naruto-running-game.netlify.app/#/',
-    linkRep: 'https://github.com/isabellacpmelo/naruto-game',
-  },
-  {
-    title: 'Cripto Coin',
-    description:
-      'Conversor de criptomoedas que permite que o usuário saiba a cotação do criptoativo desejado.',
-    tags: ['javascript', 'vue', 'tailwind', 'quasar'],
-    img: `${projectsFolder}/cripto-coin.png`,
-    alt: 'cripto-coin-cover',
-    linkSite: 'https://cryptor-converter.netlify.app/',
-    linkRep: 'https://github.com/isabellacpmelo/conversor-criptomoedas',
-  },
-  {
-    title: 'Cupcake Shop',
-    description:
-      'Cupcake Shop é uma lojinha de cupcakes fictícia e em progresso',
-    tags: ['javascript', 'vue', 'tailwind', 'nuxt'],
-    img: `${projectsFolder}/cupcake-shop.png`,
-    alt: 'cupcake-shop-cover',
-    linkSite: 'https://cupcack-store.netlify.app/#/',
-    linkRep: 'https://github.com/isabellacpmelo/cupcake-store',
-  },
-  {
-    title: 'Space Shooter',
-    description: 'Jogo de tiro espacial',
-    tags: ['javascript', 'game'],
-    img: `${projectsFolder}/space-shooter.gif`,
-    alt: 'space-shooter-cover',
-    linkRep: 'https://github.com/isabellacpmelo/jogo-space-shooter',
-    linkSite: 'https://isabellacpmelo.github.io/jogo-space-shooter/',
-  },
-  {
-    title: 'Landing Page React',
-    description: 'Exemplo de landing page feita em react',
-    tags: ['javascript', 'react'],
-    img: `${projectsFolder}/landing-page-cover.png`,
-    alt: 'landing-page-cover',
-    linkSite: 'https://react-landing-page-exemplo.netlify.app/',
-    linkRep: 'https://github.com/isabellacpmelo/landing-page-react',
-  },
-])
-
 const tagsType = ref([
   'javascript',
   'vue',
