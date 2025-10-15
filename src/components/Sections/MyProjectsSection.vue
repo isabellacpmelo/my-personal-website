@@ -71,11 +71,15 @@ const projects = ref([
     Lorem ipsum dolor sit amet consectetur gendi ipsam voluptate, asperiores
     tempore dicta sequi dolore dolorem?
 
-    <ProjectCard
-      :src="projects[0].img"
-      :title="projects[0].title"
-      :link-site="projects[0].linkSite"
-      :link-rep="projects[0].linkRep"
-      class="max-w-[320px]" />
+    <Carousel :items="projects">
+      <template #default="{ item }">
+        <ProjectCard
+          :src="item.img"
+          :alt="item.alt"
+          :title="item.title"
+          :link-site="item.linkSite"
+          :link-rep="item.linkRep" />
+      </template>
+    </Carousel>
   </Section>
 </template>
