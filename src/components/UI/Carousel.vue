@@ -6,12 +6,21 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  autoPlay: {
+    type: Boolean,
+    default: true,
+  },
+  autoPlayInterval: {
+    type: Number,
+    default: 3000,
+  },
 });
 
 const carouselRef = ref(null);
 const currentIndex = ref(0);
-
 const itemsPerView = ref(1);
+const isPlaying = ref(props.autoPlay);
+const autoPlayTimer = ref(null);
 
 const updateItemsPerView = () => {
   if (window.innerWidth >= 1024) {
@@ -41,6 +50,9 @@ const goToNext = () => {
   if (canGoNext.value) {
     currentIndex.value++;
     updateCarouselPosition();
+  } else if (isPlaying.value) {
+    currentIndex.value = 0;
+    updateCarouselPosition();
   }
 };
 
@@ -54,6 +66,45 @@ const updateCarouselPosition = () => {
   }
 };
 
+const startAutoPlay = () => {
+  if (props.items.length > itemsPerView.value) {
+    autoPlayTimer.value = setInterval(() => {
+      goToNext();
+    }, props.autoPlayInterval);
+  }
+};
+
+const stopAutoPlay = () => {
+  if (autoPlayTimer.value) {
+    clearInterval(autoPlayTimer.value);
+    autoPlayTimer.value = null;
+  }
+};
+
+const toggleAutoPlay = () => {
+  isPlaying.value = !isPlaying.value;
+
+  if (isPlaying.value) {
+    startAutoPlay();
+  } else {
+    stopAutoPlay();
+  }
+};
+
+const handleManualNavigation = (callback) => {
+  const wasPlaying = isPlaying.value;
+  stopAutoPlay();
+  callback();
+
+  if (wasPlaying) {
+    setTimeout(() => {
+      if (isPlaying.value) {
+        startAutoPlay();
+      }
+    }, 2000);
+  }
+};
+
 const handleResize = () => {
   const prevItemsPerView = itemsPerView.value;
   updateItemsPerView();
@@ -62,15 +113,25 @@ const handleResize = () => {
     currentIndex.value = maxIndex.value;
     updateCarouselPosition();
   }
+
+  if (isPlaying.value) {
+    stopAutoPlay();
+    startAutoPlay();
+  }
 };
 
 onMounted(() => {
   updateItemsPerView();
   window.addEventListener("resize", handleResize);
+
+  if (isPlaying.value) {
+    startAutoPlay();
+  }
 });
 
 onUnmounted(() => {
   window.removeEventListener("resize", handleResize);
+  stopAutoPlay();
 });
 </script>
 
@@ -99,14 +160,20 @@ onUnmounted(() => {
       v-if="items.length > itemsPerView"
       class="flex justify-center gap-4 mt-6">
       <button
-        @click="goToPrev"
+        @click="handleManualNavigation(goToPrev)"
         :disabled="!canGoPrev"
         class="px-4 py-2 rounded-lg bg-primary text-secondary disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-80 transition-opacity">
         ← Anterior
       </button>
 
       <button
-        @click="goToNext"
+        @click="toggleAutoPlay"
+        class="px-4 py-2 rounded-lg bg-secondary text-primary hover:opacity-80 transition-opacity border border-primary">
+        {{ isPlaying ? "⏸️ Pausar" : "▶️ Play" }}
+      </button>
+
+      <button
+        @click="handleManualNavigation(goToNext)"
         :disabled="!canGoNext"
         class="px-4 py-2 rounded-lg bg-primary text-secondary disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-80 transition-opacity">
         Próximo →
@@ -120,8 +187,10 @@ onUnmounted(() => {
         v-for="n in maxIndex + 1"
         :key="n - 1"
         @click="
-          currentIndex = n - 1;
-          updateCarouselPosition();
+          handleManualNavigation(() => {
+            currentIndex = n - 1;
+            updateCarouselPosition();
+          })
         "
         class="w-3 h-3 rounded-full transition-colors"
         :class="currentIndex === n - 1 ? 'bg-primary' : 'bg-gray-300'"></button>
