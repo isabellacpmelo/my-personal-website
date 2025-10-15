@@ -22,6 +22,16 @@ const languages = [
 const openMenu = ref(false);
 const menuRef = ref(null);
 
+const scrollToSection = inject("scrollToSection", null);
+
+const navigateToSection = (sectionName, event) => {
+  event.preventDefault();
+  if (scrollToSection) {
+    scrollToSection(sectionName);
+  }
+  openMenu.value = false;
+};
+
 const toggleMenu = (event) => {
   event.stopPropagation();
   openMenu.value = !openMenu.value;
@@ -46,7 +56,11 @@ onUnmounted(() => {
   <div
     class="bg-primary/40 backdrop-blur-md border-b border-white/20 w-full flex items-center gap-4 justify-between px-8 lg:px-16 2xl:px-48 py-2 text-white relative">
     <div class="flex items-center gap-6 lg:gap-12">
-      <div class="relative group" style="opacity: 1; transform: none">
+      <button
+        @click="navigateToSection('home', $event)"
+        class="relative group cursor-pointer"
+        style="opacity: 1; transform: none"
+        title="Voltar ao início">
         <div
           class="absolute inset-0 rounded-full bg-gradient-to-r from-[#4a54de] via-[#ff2ee3] to-[#ec5cff] blur-sm opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
         <div class="relative w-12 h-12 rounded-full overflow-hidden">
@@ -57,12 +71,34 @@ onUnmounted(() => {
           <div
             class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#4ADE80]/20 via-transparent to-[#2EBDFF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
-      </div>
+      </button>
       <div
         class="hidden w-10 md:w-auto md:flex items-center gap-2 md:gap-4 lg:gap-8 text-sm xl:text-normal">
-        <a href="#about-me">Sobre mim</a>
-        <a href="#my-projects">Meus projetos</a>
-        <a href="#contact">Contato</a>
+        <button
+          @click="navigateToSection('home', $event)"
+          class="hover:text-secondary transition-colors">
+          Início
+        </button>
+        <button
+          @click="navigateToSection('about-me', $event)"
+          class="hover:text-secondary transition-colors">
+          Sobre mim
+        </button>
+        <button
+          @click="navigateToSection('technologies', $event)"
+          class="hover:text-secondary transition-colors">
+          Tecnologias
+        </button>
+        <button
+          @click="navigateToSection('my-projects', $event)"
+          class="hover:text-secondary transition-colors">
+          Projetos
+        </button>
+        <button
+          @click="navigateToSection('contact', $event)"
+          class="hover:text-secondary transition-colors">
+          Contato
+        </button>
       </div>
     </div>
     <div class="hidden md:flex items-center gap-8">
@@ -105,24 +141,31 @@ onUnmounted(() => {
         <div
           class="bg-white p-4 text-black rounded-md grid grid-cols-1 shadow-lg">
           <div class="grid gap-2">
-            <a
-              href="#about-me"
-              class="border-b border-black"
-              @click="openMenu = false"
-              >Sobre mim</a
-            >
-            <a
-              href="#my-projects"
-              class="border-b border-black"
-              @click="openMenu = false"
-              >Meus projetos</a
-            >
-            <a
-              href="#contact"
-              class="border-b border-black"
-              @click="openMenu = false"
-              >Contato</a
-            >
+            <button
+              @click="navigateToSection('home', $event)"
+              class="border-b border-black hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
+              Início
+            </button>
+            <button
+              @click="navigateToSection('about-me', $event)"
+              class="border-b border-black hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
+              Sobre mim
+            </button>
+            <button
+              @click="navigateToSection('technologies', $event)"
+              class="border-b border-black hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
+              Tecnologias
+            </button>
+            <button
+              @click="navigateToSection('my-projects', $event)"
+              class="border-b border-black hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
+              Projetos
+            </button>
+            <button
+              @click="navigateToSection('contact', $event)"
+              class="border-b border-black hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
+              Contato
+            </button>
           </div>
 
           <Button
