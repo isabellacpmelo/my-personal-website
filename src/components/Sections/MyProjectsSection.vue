@@ -75,6 +75,7 @@ const projects = ref([
       :src="projects[0].img"
       :title="projects[0].title"
       :link-site="projects[0].linkSite"
-      :link-rep="projects[0].linkRep" />
+      :link-rep="projects[0].linkRep"
+      class="max-w-[320px]" />
   </Section>
 </template>
