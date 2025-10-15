@@ -10,7 +10,7 @@ const props = defineProps({
   },
   disabled: {
     type: Boolean,
-    default: true,
+    default: false,
   },
 })
 
@@ -39,15 +39,20 @@ const chosenLanguage =
 </script>
 
 <template>
-  <Button light :disabled="disabled">
-    <div class="flex items-center justify-between gap-1.5 h-5 pr-1.5 text-xs">
-      <div class="h-full w-5 rounded-full overflow-hidden">
+  <button
+    :disabled="disabled"
+    :class="{
+      'cursor-not-allowed opacity-30': disabled,
+      'hover:brightness-110': !disabled,
+    }">
+    <div class="flex items-center justify-between gap-1.5 h-6 pr-1.5 text-xs">
+      <div class="h-full w-6 rounded-full overflow-hidden">
         <img
           :src="chosenLanguage.src"
-          class="object-cover object-center h-6 w-auto -translate-y-0.5 -translate-x-[1.1px]"
+          class="object-cover object-center h-full w-auto"
           :alt="chosenLanguage.name" />
       </div>
-      <div>{{ chosenLanguage.name }}</div>
+      <div class="text-[12px] font-medium">{{ chosenLanguage.name }}</div>
     </div>
-  </Button>
+  </button>
 </template>

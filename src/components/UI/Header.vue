@@ -1,55 +1,57 @@
 <script setup>
-const iconsFoder = `${baseUrl}/img/language-icon/`;
+import ProfilePic from './ProfilePic.vue'
+
+const iconsFoder = `${baseUrl}/img/language-icon/`
 
 const languages = [
   {
-    name: "Português",
-    desc: "pt-br",
+    name: 'Português',
+    desc: 'pt-br',
     icon: `${iconsFoder}/pt-br.png`,
   },
   {
-    name: "Español",
-    desc: "es",
+    name: 'Español',
+    desc: 'es',
     icon: `${iconsFoder}/es.png`,
   },
   {
-    name: "English",
-    desc: "en",
+    name: 'English',
+    desc: 'en',
     icon: `${iconsFoder}/en.png`,
   },
-];
+]
 
-const openMenu = ref(false);
-const menuRef = ref(null);
+const openMenu = ref(false)
+const menuRef = ref(null)
 
-const scrollToSection = inject("scrollToSection", null);
+const scrollToSection = inject('scrollToSection', null)
 
 const navigateToSection = (sectionName, event) => {
-  event.preventDefault();
+  event.preventDefault()
   if (scrollToSection) {
-    scrollToSection(sectionName);
+    scrollToSection(sectionName)
   }
-  openMenu.value = false;
-};
+  openMenu.value = false
+}
 
 const toggleMenu = (event) => {
-  event.stopPropagation();
-  openMenu.value = !openMenu.value;
-};
+  event.stopPropagation()
+  openMenu.value = !openMenu.value
+}
 
 const handleClickOutside = (event) => {
   if (menuRef.value && !menuRef.value.contains(event.target)) {
-    openMenu.value = false;
+    openMenu.value = false
   }
-};
+}
 
 onMounted(() => {
-  document.addEventListener("click", handleClickOutside);
-});
+  document.addEventListener('click', handleClickOutside)
+})
 
 onUnmounted(() => {
-  document.removeEventListener("click", handleClickOutside);
-});
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <template>
@@ -58,68 +60,42 @@ onUnmounted(() => {
     <div class="flex items-center gap-6 lg:gap-12">
       <button
         @click="navigateToSection('home', $event)"
-        class="relative group cursor-pointer"
-        style="opacity: 1; transform: none"
+        class="cursor-pointer"
         title="Voltar ao início">
-        <div
-          class="absolute inset-0 rounded-full bg-gradient-to-r from-[#4a54de] via-[#ff2ee3] to-[#ec5cff] blur-sm opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-        <div class="relative w-12 h-12 rounded-full overflow-hidden">
-          <img
-            src="/src/assets/img/my-pic-02.png"
-            alt="Isabella Melo"
-            class="w-full h-full rounded-full object-cover" />
-          <div
-            class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#4ADE80]/20 via-transparent to-[#2EBDFF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        </div>
+        <ProfilePic is-minimized />
       </button>
       <div
-        class="hidden w-10 md:w-auto md:flex items-center gap-2 md:gap-4 lg:gap-8 text-sm xl:text-normal">
+        class="hidden w-10 md:w-auto md:flex items-center gap-2 md:gap-4 lg:gap-8 text-sm xl:text-[16px] tracking-wider">
         <button
           @click="navigateToSection('home', $event)"
-          class="hover:text-secondary transition-colors">
+          class="hover:text-mustard transition ease-in-out duration-700 delay-75">
           Início
         </button>
         <button
           @click="navigateToSection('about-me', $event)"
-          class="hover:text-secondary transition-colors">
+          class="hover:text-mustard transition ease-in-out duration-700 delay-75">
           Sobre mim
         </button>
         <button
           @click="navigateToSection('technologies', $event)"
-          class="hover:text-secondary transition-colors">
+          class="hover:text-mustard transition ease-in-out duration-700 delay-75">
           Tecnologias
         </button>
         <button
           @click="navigateToSection('my-projects', $event)"
-          class="hover:text-secondary transition-colors">
+          class="hover:text-mustard transition ease-in-out duration-700 delay-75">
           Projetos
         </button>
         <button
           @click="navigateToSection('contact', $event)"
-          class="hover:text-secondary transition-colors">
+          class="hover:text-mustard transition ease-in-out duration-700 delay-75">
           Contato
         </button>
       </div>
     </div>
     <div class="hidden md:flex items-center gap-8">
-      <Button
-        bg-color="bg-teal-700"
-        text-color="text-white"
-        label="Conheça meu
-      currículo"
-        icon="bi-download"
-        class="text-[13px]"
-        @click="downloadCurriculum" />
-      <button
-        type="button"
-        disabled
-        class="flex items-center gap-2 text-sm xl:text-normal">
-        <img
-          :src="languages[0].icon"
-          :alt="`${languages[0].desc}`"
-          class="h-7 lg:h-8" />
-        <span>{{ languages[0].name }}</span>
-      </button>
+      <ResumeButton class="max-h-8 text-xs" />
+      <LanguageButton language="pt-BR" />
     </div>
     <div class="flex md:hidden">
       <div><ButtonIcon @click.stop="toggleMenu" /></div>
@@ -168,13 +144,7 @@ onUnmounted(() => {
             </button>
           </div>
 
-          <Button
-            bg-color="bg-teal-700"
-            text-color="text-white"
-            label="Conheça meu currículo"
-            icon="bi-download"
-            class="text-[13px] my-4"
-            @click="downloadCurriculum" />
+          <ResumeButton />
 
           <button
             type="button"

@@ -58,7 +58,6 @@ onMounted(() => {
       </div>
       <div>
         <ResumeButton />
-        <!-- <LanguageButton language="pt-BR" /> -->
       </div>
     </div>
   </Section>
