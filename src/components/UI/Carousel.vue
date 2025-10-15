@@ -101,7 +101,7 @@ const handleManualNavigation = (callback) => {
       if (isPlaying.value) {
         startAutoPlay();
       }
-    }, 2000);
+    }, 3000);
   }
 };
 
