@@ -15,15 +15,15 @@ const props = defineProps({
   linkRep: {
     type: String,
   },
-})
+});
 </script>
 
 <template>
-  <div class="bg-primary p-4 rounded-2xl h-[350px] flex flex-col items-center">
+  <div class="bg-primary rounded-2xl h-[350px] flex flex-col items-center py-4">
     <ImageFrameComputer :src="src" :alt="alt" class="hidden sm:flex" />
     <ImageFrameMobile :src="src" :alt="alt" class="flex sm:hidden" />
     <div
-      class="w-60 h-full flex flex-col items-center justify-between text-center text-secondary mt-4">
+      class="w-60 h-full flex flex-col items-center justify-between text-center text-secondary mt-4 w-[320px]">
       <h3 class="font-semibold">
         {{ title }}
       </h3>
