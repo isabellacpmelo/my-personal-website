@@ -1,50 +1,50 @@
 <script setup>
-const iconsFoder = `${baseUrl}/img/language-icon/`
+const iconsFoder = `${baseUrl}/img/language-icon/`;
 
 const languages = [
   {
-    name: 'Português',
-    desc: 'pt-br',
+    name: "Português",
+    desc: "pt-br",
     icon: `${iconsFoder}/pt-br.png`,
   },
   {
-    name: 'Español',
-    desc: 'es',
+    name: "Español",
+    desc: "es",
     icon: `${iconsFoder}/es.png`,
   },
   {
-    name: 'English',
-    desc: 'en',
+    name: "English",
+    desc: "en",
     icon: `${iconsFoder}/en.png`,
   },
-]
+];
 
-const openMenu = ref(false)
-const menuRef = ref(null)
+const openMenu = ref(false);
+const menuRef = ref(null);
 
 const toggleMenu = (event) => {
-  event.stopPropagation()
-  openMenu.value = !openMenu.value
-}
+  event.stopPropagation();
+  openMenu.value = !openMenu.value;
+};
 
 const handleClickOutside = (event) => {
   if (menuRef.value && !menuRef.value.contains(event.target)) {
-    openMenu.value = false
+    openMenu.value = false;
   }
-}
+};
 
 onMounted(() => {
-  document.addEventListener('click', handleClickOutside)
-})
+  document.addEventListener("click", handleClickOutside);
+});
 
 onUnmounted(() => {
-  document.removeEventListener('click', handleClickOutside)
-})
+  document.removeEventListener("click", handleClickOutside);
+});
 </script>
 
 <template>
   <div
-    class="bg-white/10 w-full flex items-center gap-4 justify-between px-8 lg:px-16 2xl:px-48 py-2 text-white relative">
+    class="bg-primary/40 backdrop-blur-md border-b border-white/20 w-full flex items-center gap-4 justify-between px-8 lg:px-16 2xl:px-48 py-2 text-white relative">
     <div class="flex items-center gap-6 lg:gap-12">
       <div class="relative group" style="opacity: 1; transform: none">
         <div
