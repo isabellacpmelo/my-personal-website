@@ -136,7 +136,19 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="relative w-full">
+  <div class="relative w-full flex items-center justify-center">
+    <button
+      v-if="items.length > itemsPerView && canGoPrev"
+      @click="handleManualNavigation(goToPrev)"
+      class="absolute z-10 h-6 w-6 rounded-full bg-primary text-secondary hover:opacity-80 transition-opacity shadow-lg"
+      :style="{
+        left: `calc(50% - ${
+          (itemsPerView * 320 + (itemsPerView - 1) * 24) / 2
+        }px - 32px)`,
+      }">
+      <i class="bi bi-arrow-left-short" />
+    </button>
+
     <div
       class="overflow-hidden"
       :style="{
@@ -156,34 +168,33 @@ onUnmounted(() => {
       </div>
     </div>
 
+    <button
+      v-if="items.length > itemsPerView && canGoNext"
+      @click="handleManualNavigation(goToNext)"
+      class="absolute z-10 h-6 w-6 rounded-full bg-primary text-secondary hover:opacity-80 transition-opacity shadow-lg"
+      :style="{
+        left: `calc(50% + ${
+          (itemsPerView * 320 + (itemsPerView - 1) * 24) / 2
+        }px + 10px)`,
+      }">
+      <i class="bi bi-arrow-right-short" />
+    </button>
     <div
       v-if="items.length > itemsPerView"
-      class="flex justify-center gap-4 mt-6">
-      <button
-        @click="handleManualNavigation(goToPrev)"
-        :disabled="!canGoPrev"
-        class="h-6 w-6 pt-0.5 rounded-full bg-primary text-secondary disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-80 transition-opacity">
-        <i class="bi bi-arrow-left-short" />
-      </button>
-
+      class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex justify-center gap-4 mt-6"
+      style="transform: translate(-50%, 60px)">
       <button
         v-if="autoPlay"
         @click="toggleAutoPlay"
         class="px-4 py-2 rounded-lg bg-secondary text-primary hover:opacity-80 transition-opacity border border-primary">
         {{ isPlaying ? "⏸️ Pausar" : "▶️ Play" }}
       </button>
-
-      <button
-        @click="handleManualNavigation(goToNext)"
-        :disabled="!canGoNext"
-        class="h-6 w-6 rounded-full pt-0.5 bg-primary text-secondary disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-80 transition-opacity">
-        <i class="bi bi-arrow-right-short" />
-      </button>
     </div>
 
     <div
       v-if="items.length > itemsPerView && maxIndex > 0"
-      class="flex justify-center gap-2 mt-4">
+      class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex justify-center gap-2"
+      style="transform: translate(-50%, 40px)">
       <button
         v-for="n in maxIndex + 1"
         :key="n - 1"
@@ -193,7 +204,7 @@ onUnmounted(() => {
             updateCarouselPosition();
           })
         "
-        class="w-3 h-3 rounded-full transition-colors"
+        class="w-2 h-2 rounded-full transition-colors"
         :class="currentIndex === n - 1 ? 'bg-primary' : 'bg-gray-300'"></button>
     </div>
   </div>
