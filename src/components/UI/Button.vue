@@ -24,7 +24,7 @@ const props = defineProps({
       class="border-[1.5px] transition duration-700 ease-in-out delay-75 rounded-full font-medium"
       :class="{
         'hover:border-mustard hover:text-mustard': !disabled,
-        'border-secondary  text-secondary ': light,
+        'border-lightText  text-lightText ': light,
         'border-darkText text-darkText ': !light,
         'cursor-not-allowed opacity-60': disabled,
       }">

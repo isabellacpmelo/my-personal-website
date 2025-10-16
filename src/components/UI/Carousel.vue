@@ -140,7 +140,7 @@ onUnmounted(() => {
     <button
       v-if="items.length > itemsPerView && canGoPrev"
       @click="handleManualNavigation(goToPrev)"
-      class="absolute z-10 h-6 w-6 rounded-full bg-primary text-secondary hover:opacity-80 transition-opacity shadow-lg"
+      class="absolute z-10 h-6 w-6 rounded-full bg-primary text-lightText hover:opacity-80 transition-opacity shadow-lg"
       :style="{
         left: `calc(50% - ${
           (itemsPerView * 320 + (itemsPerView - 1) * 24) / 2
@@ -171,7 +171,7 @@ onUnmounted(() => {
     <button
       v-if="items.length > itemsPerView && canGoNext"
       @click="handleManualNavigation(goToNext)"
-      class="absolute z-10 h-6 w-6 rounded-full bg-primary text-secondary hover:opacity-80 transition-opacity shadow-lg"
+      class="absolute z-10 h-6 w-6 rounded-full bg-primary text-lightText hover:opacity-80 transition-opacity shadow-lg"
       :style="{
         left: `calc(50% + ${
           (itemsPerView * 320 + (itemsPerView - 1) * 24) / 2
@@ -186,7 +186,7 @@ onUnmounted(() => {
       <button
         v-if="autoPlay"
         @click="toggleAutoPlay"
-        class="px-4 py-2 rounded-lg bg-secondary text-primary hover:opacity-80 transition-opacity border border-primary">
+        class="px-4 py-2 rounded-lg bg-lightText text-primary hover:opacity-80 transition-opacity border border-primary">
         {{ isPlaying ? "⏸️ Pausar" : "▶️ Play" }}
       </button>
     </div>

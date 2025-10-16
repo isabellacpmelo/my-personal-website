@@ -15,7 +15,7 @@ const props = defineProps({
   linkRep: {
     type: String,
   },
-})
+});
 </script>
 
 <template>
@@ -24,7 +24,7 @@ const props = defineProps({
     <ImageFrameComputer :src="src" :alt="alt" class="hidden sm:flex" />
     <ImageFrameMobile :src="src" :alt="alt" class="flex sm:hidden" />
     <div
-      class="h-full flex flex-col items-center justify-between text-center text-secondary mt-4 w-[320px]">
+      class="h-full flex flex-col items-center justify-between text-center text-lightText mt-4 w-[320px]">
       <h3 class="font-semibold">
         {{ title }}
       </h3>
