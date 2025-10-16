@@ -2,7 +2,7 @@
   <Section title="Sobre mim" light>
     <div class="h-full flex items-start">
       <div
-        class="w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-8 md:gap-16 2xl:gap-36 2xl:py-8">
+        class="w-full flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-8 md:gap-16 2xl:gap-36 2xl:py-8">
         <div class="text-justify w-full md:w-2/3">
           <p class="mb-4 md:mb-6 xl:mb-8">
             Sou uma Desenvolvedora Full Stack , com o objetivo de transformar
@@ -37,7 +37,7 @@
           <img
             src="@/assets/img/notebook-illustration.png"
             alt=""
-            class="h-32 w-auto md:h-40 lg:h-60 2xl:h-80" />
+            class="h-32 w-auto md:h-40 lg:h-60 2xl:h-96" />
         </div>
       </div>
     </div>
