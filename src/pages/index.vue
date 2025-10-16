@@ -1,123 +1,123 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from 'vue'
 
-const containerRef = ref(null);
-const currentSection = ref(0);
-const isScrolling = ref(false);
-const sections = ["home", "about-me", "technologies", "my-projects", "contact"];
+const containerRef = ref(null)
+const currentSection = ref(0)
+const isScrolling = ref(false)
+const sections = ['home', 'about-me', 'technologies', 'my-projects', 'contact']
 
 const scrollToSection = (index) => {
-  if (isScrolling.value || !containerRef.value) return;
+  if (isScrolling.value || !containerRef.value) return
 
-  isScrolling.value = true;
-  const targetPosition = index * window.innerHeight;
+  isScrolling.value = true
+  const targetPosition = index * window.innerHeight
 
   containerRef.value.scrollTo({
     top: targetPosition,
-    behavior: "smooth",
-  });
+    behavior: 'smooth',
+  })
 
-  currentSection.value = index;
+  currentSection.value = index
 
   setTimeout(() => {
-    isScrolling.value = false;
-  }, 800);
-};
+    isScrolling.value = false
+  }, 800)
+}
 
-let wheelTimeout;
+let wheelTimeout
 const handleWheel = (e) => {
   if (isScrolling.value) {
-    e.preventDefault();
-    return;
+    e.preventDefault()
+    return
   }
 
-  clearTimeout(wheelTimeout);
+  clearTimeout(wheelTimeout)
   wheelTimeout = setTimeout(() => {
-    const delta = e.deltaY;
+    const delta = e.deltaY
 
     if (delta > 0 && currentSection.value < sections.length - 1) {
       // Scroll para baixo
-      scrollToSection(currentSection.value + 1);
+      scrollToSection(currentSection.value + 1)
     } else if (delta < 0 && currentSection.value > 0) {
       // Scroll para cima
-      scrollToSection(currentSection.value - 1);
+      scrollToSection(currentSection.value - 1)
     }
-  }, 50);
-};
+  }, 50)
+}
 
 const handleKeydown = (e) => {
-  if (isScrolling.value) return;
+  if (isScrolling.value) return
 
   switch (e.key) {
-    case "ArrowDown":
-    case "PageDown":
-      e.preventDefault();
+    case 'ArrowDown':
+    case 'PageDown':
+      e.preventDefault()
       if (currentSection.value < sections.length - 1) {
-        scrollToSection(currentSection.value + 1);
+        scrollToSection(currentSection.value + 1)
       }
-      break;
-    case "ArrowUp":
-    case "PageUp":
-      e.preventDefault();
+      break
+    case 'ArrowUp':
+    case 'PageUp':
+      e.preventDefault()
       if (currentSection.value > 0) {
-        scrollToSection(currentSection.value - 1);
+        scrollToSection(currentSection.value - 1)
       }
-      break;
-    case "Home":
-      e.preventDefault();
-      scrollToSection(0);
-      break;
-    case "End":
-      e.preventDefault();
-      scrollToSection(sections.length - 1);
-      break;
+      break
+    case 'Home':
+      e.preventDefault()
+      scrollToSection(0)
+      break
+    case 'End':
+      e.preventDefault()
+      scrollToSection(sections.length - 1)
+      break
   }
-};
+}
 
 const handleScroll = () => {
-  if (isScrolling.value || !containerRef.value) return;
+  if (isScrolling.value || !containerRef.value) return
 
-  const scrollTop = containerRef.value.scrollTop;
-  const sectionHeight = window.innerHeight;
-  const newSection = Math.round(scrollTop / sectionHeight);
+  const scrollTop = containerRef.value.scrollTop
+  const sectionHeight = window.innerHeight
+  const newSection = Math.round(scrollTop / sectionHeight)
 
   if (
     newSection !== currentSection.value &&
     newSection >= 0 &&
     newSection < sections.length
   ) {
-    currentSection.value = newSection;
+    currentSection.value = newSection
   }
-};
+}
 
 onMounted(() => {
   if (containerRef.value) {
-    containerRef.value.addEventListener("wheel", handleWheel, {
+    containerRef.value.addEventListener('wheel', handleWheel, {
       passive: false,
-    });
-    containerRef.value.addEventListener("scroll", handleScroll);
+    })
+    containerRef.value.addEventListener('scroll', handleScroll)
   }
-  document.addEventListener("keydown", handleKeydown);
-});
+  document.addEventListener('keydown', handleKeydown)
+})
 
 onUnmounted(() => {
   if (containerRef.value) {
-    containerRef.value.removeEventListener("wheel", handleWheel);
-    containerRef.value.removeEventListener("scroll", handleScroll);
+    containerRef.value.removeEventListener('wheel', handleWheel)
+    containerRef.value.removeEventListener('scroll', handleScroll)
   }
-  document.removeEventListener("keydown", handleKeydown);
-  clearTimeout(wheelTimeout);
-});
+  document.removeEventListener('keydown', handleKeydown)
+  clearTimeout(wheelTimeout)
+})
 
-provide("scrollToSection", (sectionName) => {
-  const index = sections.indexOf(sectionName);
+provide('scrollToSection', (sectionName) => {
+  const index = sections.indexOf(sectionName)
   if (index !== -1) {
-    scrollToSection(index);
+    scrollToSection(index)
   }
-});
+})
 
-var date = new Date();
-var year = date.getFullYear();
+var date = new Date()
+var year = date.getFullYear()
 </script>
 
 <template>
@@ -154,14 +154,17 @@ var year = date.getFullYear();
       v-for="(section, index) in sections"
       :key="section"
       @click="scrollToSection(index)"
-      class="w-3 h-3 rounded-full border-2 border-white transition-all duration-300"
-      :class="
-        currentSection === index
-          ? 'bg-white'
-          : 'bg-transparent hover:bg-white/50'
-      "
+      :class="[
+        'w-1.5 h-1.5 rounded-full border transition-all duration-300 mr-2',
+        currentSection % 2 === 0 ? 'border-mustard' : 'border-primary',
+        currentSection === index && index % 2 === 0
+          ? 'bg-mustard'
+          : currentSection === index && index % 2 !== 0
+          ? 'bg-primary'
+          : 'bg-transparent hover:bg-mustard/50',
+      ]"
       :title="
         section.replace('-', ' ').replace(/\b\w/g, (l) => l.toUpperCase())
-      "></button>
+      " />
   </div>
 </template>
