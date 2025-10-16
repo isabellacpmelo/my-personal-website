@@ -162,8 +162,8 @@ onUnmounted(() => {
       <button
         @click="handleManualNavigation(goToPrev)"
         :disabled="!canGoPrev"
-        class="px-4 py-2 rounded-lg bg-primary text-secondary disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-80 transition-opacity">
-        ← Anterior
+        class="h-6 w-6 pt-0.5 rounded-full bg-primary text-secondary disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-80 transition-opacity">
+        <i class="bi bi-arrow-left-short" />
       </button>
 
       <button
@@ -176,8 +176,8 @@ onUnmounted(() => {
       <button
         @click="handleManualNavigation(goToNext)"
         :disabled="!canGoNext"
-        class="px-4 py-2 rounded-lg bg-primary text-secondary disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-80 transition-opacity">
-        Próximo →
+        class="h-6 w-6 rounded-full pt-0.5 bg-primary text-secondary disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-80 transition-opacity">
+        <i class="bi bi-arrow-right-short" />
       </button>
     </div>
 
