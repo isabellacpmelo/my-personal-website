@@ -8,7 +8,7 @@ const props = defineProps({
   },
   autoPlay: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   autoPlayInterval: {
     type: Number,
@@ -167,6 +167,7 @@ onUnmounted(() => {
       </button>
 
       <button
+        v-if="autoPlay"
         @click="toggleAutoPlay"
         class="px-4 py-2 rounded-lg bg-secondary text-primary hover:opacity-80 transition-opacity border border-primary">
         {{ isPlaying ? "⏸️ Pausar" : "▶️ Play" }}
