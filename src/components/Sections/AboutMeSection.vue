@@ -1,7 +1,8 @@
 <template>
   <Section title="Sobre mim" light>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 -mt-10">
-      <div class="flex flex-col gap-6">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 -mt-4 md:-mt-10 2xl:mt-0">
+      <div class="flex flex-col gap-2 md:gap-6 2xl:justify-between">
         <AboutMeCard
           title="Desenvolvedora Full Stack"
           description="Transformo desafios complexos em soluções de software eficientes e escaláveis. Minha jornada profissional é focada em construir produtos que não apenas funcionam bem, mas que também geram um impacto real e positivo para os usuários e o negócio."
@@ -25,17 +26,17 @@
                 para automatizar processos e criar soluções mais inteligentes.
               </p>
             </div>
-            <div class="flex gap-2">
+            <div class="flex gap-3 2xl:mt-6">
               <span
                 class="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20"
                 >Rust</span
               >
               <span
-                class="px-3 py-1 bg-mustard/10 text-mustard text-xs font-medium rounded-full border border-mustard/20"
+                class="px-3 py-1 bg-mustard/20 text-primary text-xs font-medium rounded-full border border-mustard/80"
                 >AI</span
               >
               <span
-                class="px-3 py-1 bg-lightBlue/10 text-lightBlue text-xs font-medium rounded-full border border-lightBlue/20"
+                class="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20"
                 >Tauri</span
               >
             </div>
@@ -43,7 +44,7 @@
         </AboutMeCard>
       </div>
 
-      <div class="flex flex-col gap-6 justify-center">
+      <div class="flex flex-col gap-2 md:gap-6 justify-center">
         <AboutMeCard
           title="Filosofia de Trabalho"
           icon="bi-person-arms-up"
@@ -69,7 +70,7 @@
               <img
                 src="@/assets/img/notebook-illustration.png"
                 alt="Ilustração de desenvolvimento"
-                class="h-36 w-auto md:h-56 lg:h-64 xl:h-48 2xl:h-60 object-contain mx-auto transform group-hover:scale-105 transition-transform duration-300" />
+                class="h-36 w-auto md:h-56 lg:h-64 xl:h-48 2xl:h-56 object-contain mx-auto transform group-hover:scale-105 transition-transform duration-300" />
               <div
                 class="absolute top-4 right-4 w-4 h-4 bg-lightBlue rounded-full animate-pulse" />
               <div

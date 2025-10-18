@@ -29,10 +29,12 @@ const props = defineProps({
     class="group bg-white rounded-2xl shadow-lg hover:shadow-xl overflow-hidden border"
     :class="props.borderCard">
     <div
-      class="p-3 bg-gradient-to-br transition-all duration-300"
+      class="p-3 2xl:p-6 bg-gradient-to-br transition-all duration-300"
       :class="props.cardClasses">
       <slot name="content" />
-      <div v-if="!$slots.content" class="flex items-center gap-2 mb-2">
+      <div
+        v-if="!$slots.content"
+        class="flex items-center gap-2 2xl:gap-3 mb-2 2xl:mb-6">
         <div
           class="w-6 h-6 bg-gradient-to-br rounded-full flex items-center justify-center shadow-lg"
           :class="props.iconClasses">
