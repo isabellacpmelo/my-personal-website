@@ -1,61 +1,61 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted } from 'vue'
 
 const socials = [
   {
-    name: "LinkedIn",
-    label: "Conectar no LinkedIn",
-    icon: "bi-linkedin",
+    name: 'LinkedIn',
+    label: 'Conectar no LinkedIn',
+    icon: 'bi-linkedin',
     url: import.meta.env.VITE_LINKEDIN_URL,
-    color: "from-blue-600 to-blue-800",
-    description: "Vamos nos conectar profissionalmente",
+    color: 'from-blue-600 to-blue-800',
+    description: 'Vamos nos conectar profissionalmente',
   },
   {
-    name: "GitHub",
-    label: "Ver meus repositórios",
-    icon: "bi-github",
+    name: 'GitHub',
+    label: 'Ver meus repositórios',
+    icon: 'bi-github',
     url: import.meta.env.VITE_GITHUB_URL,
-    color: "from-gray-700 to-gray-900",
-    description: "Explore meus projetos open source",
+    color: 'from-gray-700 to-gray-900',
+    description: 'Explore meus projetos open source',
   },
   {
-    name: "Email",
-    label: "Enviar um email",
-    icon: "bi-envelope-at-fill",
+    name: 'Email',
+    label: 'Enviar um email',
+    icon: 'bi-envelope-at-fill',
     url: `mailto:${import.meta.env.VITE_PERSONAL_EMAIL}`,
-    color: "from-red-500 to-red-700",
-    description: "Vamos conversar sobre oportunidades",
+    color: 'from-red-500 to-red-700',
+    description: 'Vamos conversar sobre oportunidades',
   },
-];
+]
 
-const hoveredCard = ref(null);
-const mousePosition = ref({ x: 0, y: 0 });
+const hoveredCard = ref(null)
+const mousePosition = ref({ x: 0, y: 0 })
 
 const handleMouseMove = (event) => {
   mousePosition.value = {
     x: event.clientX,
     y: event.clientY,
-  };
-};
+  }
+}
 
 const copyEmail = async () => {
   try {
-    await navigator.clipboard.writeText(import.meta.env.VITE_PERSONAL_EMAIL);
+    await navigator.clipboard.writeText(import.meta.env.VITE_PERSONAL_EMAIL)
     // Posteriormente, adicionar uma notificação de sucesso
   } catch (err) {
-    console.error("Falha ao copiar email:", err);
+    console.error('Falha ao copiar email:', err)
   }
-};
+}
 
 onMounted(() => {
-  window.addEventListener("mousemove", handleMouseMove);
-});
+  window.addEventListener('mousemove', handleMouseMove)
+})
 </script>
 
 <template>
   <Section>
     <div
-      class="w-full h-full flex flex-col justify-center items-center relative overflow-hidden">
+      class="mt-14 md:mt-4 sm:my-10 w-full h-full flex flex-col justify-center items-center relative overflow-hidden">
       <div class="absolute inset-0 opacity-10">
         <div
           class="absolute top-10 left-10 w-32 h-32 bg-mustard rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
