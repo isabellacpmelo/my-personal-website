@@ -1,7 +1,6 @@
 <template>
   <Section title="Sobre mim" light>
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 -mt-4 md:-mt-10 2xl:mt-0">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6">
       <div class="flex flex-col gap-2 md:gap-6 2xl:justify-between">
         <AboutMeCard
           title="Desenvolvedora Full Stack"

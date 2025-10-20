@@ -19,7 +19,7 @@ const props = defineProps({
     }">
     <h2
       v-if="title"
-      class="text-3xl lg:text-4xl 2xl:text-6xl font-[400] mt-14 md:mt-4 sm:my-10 2xl:my-16"
+      class="text-3xl lg:text-4xl 2xl:text-6xl font-[400] mt-14 md:mt-4"
       :class="{
         'text-primary': light,
         'text-lightText': !light,
