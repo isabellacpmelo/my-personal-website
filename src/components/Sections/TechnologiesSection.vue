@@ -132,7 +132,7 @@ const devLogos = [
 
 <template>
   <Section title="Tecnologias">
-    <div class="h-full w-full flex justify-center items-center">
+    <div class="h-full w-full flex justify-center items-start">
       <ul
         class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-12 2xl:gap-16">
         <li v-for="logo in devLogos" :key="logo.alt" class="tech-item group">

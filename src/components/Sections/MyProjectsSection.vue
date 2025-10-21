@@ -70,10 +70,9 @@ const githubUrl = import.meta.env.VITE_GITHUB_URL
 
 <template>
   <Section title="Meus Projetos" light>
-    <div class="w-full flex flex-col items-center">
+    <div class="w-full flex flex-col items-center mb-12 md:mb-8 2xl:mb-12">
       <div class="max-w-4xl text-center">
-        <p
-          class="text-sm md:text-base lg:text-lg 2xl:text-xl text-darkText/90 leading-relaxed">
+        <p class="text-darkText/90 leading-relaxed">
           Aqui estão alguns dos meus projetos mais recentes. Cada um representa
           uma jornada de
           <span class="font-semibold text-primary">aprendizado</span> e
@@ -81,36 +80,13 @@ const githubUrl = import.meta.env.VITE_GITHUB_URL
           vontade para explorá-los!
         </p>
       </div>
-
-      <!-- <div class="flex flex-wrap justify-center gap-2 mt-4 max-w-2xl">
-        <span
-          class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md border border-primary/20"
-          >Vue.js</span
-        >
-        <span
-          class="px-2 py-1 bg-lightBlue/10 text-lightBlue text-xs rounded-md border border-lightBlue/20"
-          >React</span
-        >
-        <span
-          class="px-2 py-1 bg-mustard/10 text-mustard text-xs rounded-md border border-mustard/20"
-          >JavaScript</span
-        >
-        <span
-          class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md border border-primary/20"
-          >Tailwind</span
-        >
-        <span
-          class="px-2 py-1 bg-lightBlue/10 text-lightBlue text-xs rounded-md border border-lightBlue/20"
-          >Nuxt</span
-        >
-      </div> -->
     </div>
     <Carousel :items="projects">
       <template #default="{ item }">
         <div class="px-2">
           <div
-            class="group bg-gradient-to-br from-secondary/80 to-white rounded-xl p-4 shadow-lg border border-lightBlue/20 hover:border-primary/30 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 max-w-sm mx-auto">
-            <div class="mb-3">
+            class="group bg-gradient-to-br from-secondary/80 to-white rounded-xl p-3 border border-lightBlue/30 transition-all duration-300 transform hover:-translate-y-1 max-w-sm">
+            <div class="mb-2 flex justify-center">
               <div>
                 <ImageFrameComputer
                   :src="item.img"
@@ -123,19 +99,20 @@ const githubUrl = import.meta.env.VITE_GITHUB_URL
               </div>
             </div>
 
-            <div class="space-y-3">
+            <div class="space-y-2">
               <div class="text-center">
                 <h3
-                  class="font-bold text-base text-darkText group-hover:text-primary transition-colors">
+                  class="font-bold text-darkText group-hover:text-primary transition-colors">
                   {{ item.title }}
                 </h3>
               </div>
 
-              <p class="text-sm text-darkText/80 leading-relaxed line-clamp-2">
+              <p
+                class="text-darkText/80 leading-relaxed line-clamp-2 text-center">
                 {{ item.description }}
               </p>
 
-              <div class="flex flex-wrap gap-1">
+              <div class="flex justify-center flex-wrap gap-1">
                 <span
                   v-for="tag in item.tags.slice(0, 4)"
                   :key="tag"
@@ -144,28 +121,24 @@ const githubUrl = import.meta.env.VITE_GITHUB_URL
                 </span>
               </div>
 
-              <div class="flex gap-2 pt-2">
+              <div class="flex justify-center gap-2 pt-2 w-full">
                 <a
                   v-if="item.linkSite"
                   :href="item.linkSite"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex-1 bg-gradient-to-r from-primary to-lightBlue text-lightText text-center py-2 px-3 rounded-md font-medium hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200 text-xs">
-                  <div class="flex items-center justify-center gap-2">
-                    <i class="bi bi-box-arrow-up-right" />
-                    <span>Ver Projeto</span>
-                  </div>
+                  class="bg-gradient-to-r from-primary to-lightBlue text-lightText rounded-md font-medium hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200 text-xs w-[45%] flex items-center justify-center py-1 gap-1">
+                  <i class="bi bi-box-arrow-up-right" />
+                  <span>Ver Projeto</span>
                 </a>
                 <a
                   v-if="item.linkRep"
                   :href="item.linkRep"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex-1 bg-gradient-to-r from-mustard/90 to-mustard text-white text-center py-2 px-3 rounded-md font-medium hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200 text-xs">
-                  <div class="flex items-center justify-center gap-2">
-                    <i class="bi bi-github" />
-                    <span>GitHub</span>
-                  </div>
+                  class="bg-gradient-to-r from-mustard/90 to-mustard text-white rounded-md font-medium hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200 text-xs w-[45%] flex items-center justify-center py-1 gap-1">
+                  <i class="bi bi-github" />
+                  <span>GitHub</span>
                 </a>
               </div>
             </div>
@@ -177,7 +150,7 @@ const githubUrl = import.meta.env.VITE_GITHUB_URL
       :href="githubUrl"
       target="_blank"
       rel="noopener noreferrer"
-      class="text-center mt-8 group">
+      class="text-center group mt-24 md:hidden 2xl:inline-block">
       <div
         class="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-lightBlue/20 group-hover:from-primary/20 group-hover:to-lightBlue/30 rounded-xl px-4 py-2 border border-primary/20 group-hover:border-primary/30 transition duration-300 delay-75">
         <div

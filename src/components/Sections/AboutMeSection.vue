@@ -15,7 +15,7 @@
           border-card="border-mustard/50 hover:border-mustard/90">
           <div>
             <div>
-              <p class="text-darkText/80 text-sm leading-relaxed mb-3">
+              <p class="text-darkText/80 leading-relaxed mb-3">
                 Explorando o futuro das aplicações desktop com
                 <span class="font-semibold text-primary">Rust e Tauri</span>
                 e integrando o poder da
@@ -27,15 +27,15 @@
             </div>
             <div class="flex gap-3 2xl:mt-6">
               <span
-                class="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20"
+                class="px-3 py-1 bg-primary/10 text-primary font-medium rounded-full border border-primary/20"
                 >Rust</span
               >
               <span
-                class="px-3 py-1 bg-mustard/20 text-primary text-xs font-medium rounded-full border border-mustard/80"
+                class="px-3 py-1 bg-mustard/20 text-primary font-medium rounded-full border border-mustard/80"
                 >AI</span
               >
               <span
-                class="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20"
+                class="px-3 py-1 bg-primary/10 text-primary font-medium rounded-full border border-primary/20"
                 >Tauri</span
               >
             </div>
@@ -51,7 +51,7 @@
           card-classes="from-mustard/25 via-white to-primary/20"
           border-card="border-mustard/50 hover:border-mustard/90">
           <div>
-            <p class="text-darkText/80 text-sm leading-relaxed">
+            <p class="text-darkText/80 leading-relaxed">
               Acredito no poder da
               <span class="font-semibold text-lightBlue">colaboração ágil</span>
               e do

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const props = defineProps({
   items: {
@@ -14,125 +14,125 @@ const props = defineProps({
     type: Number,
     default: 3000,
   },
-});
+})
 
-const carouselRef = ref(null);
-const currentIndex = ref(0);
-const itemsPerView = ref(1);
-const isPlaying = ref(props.autoPlay);
-const autoPlayTimer = ref(null);
+const carouselRef = ref(null)
+const currentIndex = ref(0)
+const itemsPerView = ref(1)
+const isPlaying = ref(props.autoPlay)
+const autoPlayTimer = ref(null)
 
 const updateItemsPerView = () => {
   if (window.innerWidth >= 1024) {
-    itemsPerView.value = 3;
+    itemsPerView.value = 3
   } else if (window.innerWidth >= 768) {
-    itemsPerView.value = 2;
+    itemsPerView.value = 2
   } else {
-    itemsPerView.value = 1;
+    itemsPerView.value = 1
   }
-};
+}
 
 const maxIndex = computed(() => {
-  return Math.max(0, props.items.length - itemsPerView.value);
-});
+  return Math.max(0, props.items.length - itemsPerView.value)
+})
 
-const canGoPrev = computed(() => currentIndex.value > 0);
-const canGoNext = computed(() => currentIndex.value < maxIndex.value);
+const canGoPrev = computed(() => currentIndex.value > 0)
+const canGoNext = computed(() => currentIndex.value < maxIndex.value)
 
 const goToPrev = () => {
   if (canGoPrev.value) {
-    currentIndex.value--;
-    updateCarouselPosition();
+    currentIndex.value--
+    updateCarouselPosition()
   }
-};
+}
 
 const goToNext = () => {
   if (canGoNext.value) {
-    currentIndex.value++;
-    updateCarouselPosition();
+    currentIndex.value++
+    updateCarouselPosition()
   } else if (isPlaying.value) {
-    currentIndex.value = 0;
-    updateCarouselPosition();
+    currentIndex.value = 0
+    updateCarouselPosition()
   }
-};
+}
 
 const updateCarouselPosition = () => {
   if (carouselRef.value) {
-    const itemWidth = 320;
-    const gap = 24;
-    const translateX = currentIndex.value * (itemWidth + gap);
+    const itemWidth = 320
+    const gap = 24
+    const translateX = currentIndex.value * (itemWidth + gap)
 
-    carouselRef.value.style.transform = `translateX(-${translateX}px)`;
+    carouselRef.value.style.transform = `translateX(-${translateX}px)`
   }
-};
+}
 
 const startAutoPlay = () => {
   if (props.items.length > itemsPerView.value) {
     autoPlayTimer.value = setInterval(() => {
-      goToNext();
-    }, props.autoPlayInterval);
+      goToNext()
+    }, props.autoPlayInterval)
   }
-};
+}
 
 const stopAutoPlay = () => {
   if (autoPlayTimer.value) {
-    clearInterval(autoPlayTimer.value);
-    autoPlayTimer.value = null;
+    clearInterval(autoPlayTimer.value)
+    autoPlayTimer.value = null
   }
-};
+}
 
 const toggleAutoPlay = () => {
-  isPlaying.value = !isPlaying.value;
+  isPlaying.value = !isPlaying.value
 
   if (isPlaying.value) {
-    startAutoPlay();
+    startAutoPlay()
   } else {
-    stopAutoPlay();
+    stopAutoPlay()
   }
-};
+}
 
 const handleManualNavigation = (callback) => {
-  const wasPlaying = isPlaying.value;
-  stopAutoPlay();
-  callback();
+  const wasPlaying = isPlaying.value
+  stopAutoPlay()
+  callback()
 
   if (wasPlaying) {
     setTimeout(() => {
       if (isPlaying.value) {
-        startAutoPlay();
+        startAutoPlay()
       }
-    }, 3000);
+    }, 3000)
   }
-};
+}
 
 const handleResize = () => {
-  const prevItemsPerView = itemsPerView.value;
-  updateItemsPerView();
+  const prevItemsPerView = itemsPerView.value
+  updateItemsPerView()
 
   if (currentIndex.value > maxIndex.value) {
-    currentIndex.value = maxIndex.value;
-    updateCarouselPosition();
+    currentIndex.value = maxIndex.value
+    updateCarouselPosition()
   }
 
   if (isPlaying.value) {
-    stopAutoPlay();
-    startAutoPlay();
+    stopAutoPlay()
+    startAutoPlay()
   }
-};
+}
 
 onMounted(() => {
-  updateItemsPerView();
-  window.addEventListener("resize", handleResize);
+  updateItemsPerView()
+  window.addEventListener('resize', handleResize)
 
   if (isPlaying.value) {
-    startAutoPlay();
+    startAutoPlay()
   }
-});
+})
 
 onUnmounted(() => {
-  window.removeEventListener("resize", handleResize);
-  stopAutoPlay();
-});
+  window.removeEventListener('resize', handleResize)
+  stopAutoPlay()
+})
 </script>
 
 <template>
@@ -187,7 +187,7 @@ onUnmounted(() => {
         v-if="autoPlay"
         @click="toggleAutoPlay"
         class="px-4 py-2 rounded-lg bg-lightText text-primary hover:opacity-80 transition-opacity border border-primary">
-        {{ isPlaying ? "⏸️ Pausar" : "▶️ Play" }}
+        {{ isPlaying ? '⏸️ Pausar' : '▶️ Play' }}
       </button>
     </div>
 
@@ -200,8 +200,8 @@ onUnmounted(() => {
         :key="n - 1"
         @click="
           handleManualNavigation(() => {
-            currentIndex = n - 1;
-            updateCarouselPosition();
+            currentIndex = n - 1
+            updateCarouselPosition()
           })
         "
         class="w-2 h-2 rounded-full transition-colors"

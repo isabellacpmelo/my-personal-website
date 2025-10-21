@@ -11,7 +11,7 @@ const props = defineProps({
 
 <template>
   <div>
-    <div class="border-2 border-lightBlue h-36 w-72 group">
+    <div class="border-2 border-lightBlue h-32 w-64 group">
       <div
         class="bg-lightBlue group-hover:bg-primary w-full h-[10%] flex justify-between items-center px-1 transition duration-700 ease-in-out border-[0.5px] border-lightBlue">
         <div class="h-full flex items-center gap-1">
@@ -28,8 +28,8 @@ const props = defineProps({
           <div class="text-lightText bi-x" />
         </div>
       </div>
-      <div class="flex justify-between h-[90%] w-full overflow-hidden">
-        <div class="w-[97%] overflow-hidden">
+      <div class="flex justify-between h-[90.5%] w-full overflow-hidden">
+        <div class="w-full overflow-hidden">
           <img
             :src="src"
             :alt="alt"
