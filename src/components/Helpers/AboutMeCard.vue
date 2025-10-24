@@ -11,7 +11,7 @@ const props = defineProps({
   },
   cardClasses: {
     type: String,
-    default: 'from-primary/20 via-white to-mustard/20',
+    default: 'from-primary/30 to-lightBlue/25',
   },
   borderCard: {
     type: String,
@@ -26,7 +26,7 @@ const props = defineProps({
 
 <template>
   <div
-    class="group bg-white rounded-2xl shadow-lg hover:shadow-xl overflow-hidden border"
+    class="group bg-white rounded-2xl shadow-xs hover:shadow-sm overflow-hidden border"
     :class="props.borderCard">
     <div
       class="p-3 2xl:p-6 bg-gradient-to-br transition-all duration-300"
@@ -47,7 +47,7 @@ const props = defineProps({
       <div>
         <p
           v-if="!$slots.default && !props.content"
-          class="text-darkText/80 leading-relaxed">
+          class="text-darkText leading-relaxed">
           {{ props.description }}
         </p>
         <slot />

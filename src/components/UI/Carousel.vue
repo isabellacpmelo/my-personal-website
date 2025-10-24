@@ -193,7 +193,7 @@ onUnmounted(() => {
 
     <div
       v-if="items.length > itemsPerView && maxIndex > 0"
-      class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex justify-center gap-2"
+      class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex justify-center gap-2"
       style="transform: translate(-50%, 40px)">
       <button
         v-for="n in maxIndex + 1"

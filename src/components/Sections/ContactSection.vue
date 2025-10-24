@@ -85,14 +85,14 @@ onMounted(() => {
               </div>
 
               <h3
-                class="2xl:text-xl font-semibold text-secondary mb-1 2xl:mb-2 flex items-center justify-center gap-2">
+                class="font-semibold text-secondary mb-1 2xl:mb-2 flex items-center justify-center gap-2">
                 {{ social.name }}
                 <button
                   v-if="social.name.toLocaleLowerCase() === 'email'"
                   @click="copyEmail"
                   title="Copiar email"
                   aria-label="Copiar email"
-                  class="group text-secondary hover:text-mustard transition-all duration-300">
+                  class="group text-secondary hover:text-mustard transition-all duration-300 hidden md:inline-flex">
                   <i
                     class="bi bi-clipboard group-hover:scale-110 transition-transform"></i>
                 </button>

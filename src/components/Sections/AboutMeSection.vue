@@ -10,9 +10,7 @@
         <AboutMeCard
           title="Inovação & Futuro"
           icon="bi-lightning-charge"
-          iconClasses="from-mustard to-mustard/80"
-          card-classes="from-mustard/25 via-white to-primary/20"
-          border-card="border-mustard/50 hover:border-mustard/90">
+          iconClasses="from-mustard to-mustard/80">
           <div>
             <div>
               <p class="text-darkText/80 leading-relaxed mb-3">
@@ -27,7 +25,7 @@
             </div>
             <div class="flex gap-3 2xl:mt-6">
               <span
-                class="px-3 py-1 bg-primary/10 text-primary font-medium rounded-full border border-primary/20"
+                class="px-3 py-1 bg-primary/60 text-mustard/90 font-medium rounded-full border border-mustard/20"
                 >Rust</span
               >
               <span
@@ -35,7 +33,7 @@
                 >AI</span
               >
               <span
-                class="px-3 py-1 bg-primary/10 text-primary font-medium rounded-full border border-primary/20"
+                class="px-3 py-1 bg-primary/60 text-mustard/90 font-medium rounded-full border border-mustard/20"
                 >Tauri</span
               >
             </div>
@@ -47,9 +45,7 @@
         <AboutMeCard
           title="Filosofia de Trabalho"
           icon="bi-person-arms-up"
-          iconClasses="from-mustard to-mustard/80"
-          card-classes="from-mustard/25 via-white to-primary/20"
-          border-card="border-mustard/50 hover:border-mustard/90">
+          iconClasses="from-mustard to-mustard/80">
           <div>
             <p class="text-darkText/80 leading-relaxed">
               Acredito no poder da
@@ -63,7 +59,9 @@
           </div>
         </AboutMeCard>
 
-        <AboutMeCard>
+        <AboutMeCard
+          card-classes="from-primary/15 to-mustard/50"
+          border-card="border-mustard/30 hover:border-mustard/90">
           <template #content>
             <div class="relative">
               <img
