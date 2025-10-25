@@ -17,7 +17,7 @@
                 Explorando o futuro das aplicações desktop com
                 <span class="font-semibold text-primary">Rust e Tauri</span>
                 e integrando o poder da
-                <span class="font-semibold text-mustard/90"
+                <span class="font-semibold text-lightBlue"
                   >Inteligência Artificial generativa</span
                 >
                 para automatizar processos e criar soluções mais inteligentes.

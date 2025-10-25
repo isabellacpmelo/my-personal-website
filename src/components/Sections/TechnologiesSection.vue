@@ -24,108 +24,126 @@ const devLogos = [
     alt: 'logo-javascript',
     title: 'Javascript',
     ariaLabel: 'Logo Javascript',
+    docLink: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
   },
   {
     src: typescriptLogo,
     alt: 'logo-typescript',
     title: 'Typescript',
     ariaLabel: 'Logo Typescript',
+    docLink: 'https://www.typescriptlang.org/docs/',
   },
   {
     src: htmlLogo,
     alt: 'logo-html',
     title: 'HTML5',
     ariaLabel: 'Logo HTML5',
+    docLink: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
   },
   {
     src: cssLogo,
     alt: 'logo-css',
     title: 'CSS3',
     ariaLabel: 'Logo CSS3',
+    docLink: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
   },
   {
     src: vueLogo,
     alt: 'logo-vue',
     title: 'Vue.js',
     ariaLabel: 'Logo Vue.js',
+    docLink: 'https://vuejs.org/guide/introduction.html',
   },
   {
     src: reactLogo,
     alt: 'logo-react',
     title: 'React',
     ariaLabel: 'Logo React',
+    docLink: 'https://reactjs.org/docs/getting-started.html',
   },
   {
     src: angularLogo,
     alt: 'logo-angular',
     title: 'Angular',
     ariaLabel: 'Logo Angular',
+    docLink: 'https://angular.dev/overview',
   },
   {
     src: nuxtLogo,
     alt: 'logo-nuxt',
     title: 'Nuxt.js',
     ariaLabel: 'Logo Nuxt.js',
+    docLink: 'https://nuxt.com/docs/getting-started/installation',
   },
   {
     src: nextLogo,
     alt: 'logo-next',
     title: 'Next.js',
     ariaLabel: 'Logo Next.js',
+    docLink: 'https://nextjs.org/docs/getting-started',
   },
   {
     src: quasarLogo,
     alt: 'logo-quasar',
     title: 'Quasar',
     ariaLabel: 'Logo Quasar',
+    docLink: 'https://quasar.dev/docs',
   },
   {
     src: viteLogo,
     alt: 'logo-vite',
     title: 'Vite',
     ariaLabel: 'Logo Vite',
+    docLink: 'https://vitejs.dev/guide/',
   },
   {
     src: pythonLogo,
     alt: 'logo-python',
     title: 'Python',
     ariaLabel: 'Logo Python',
+    docLink: 'https://www.python.org/doc/',
   },
   {
     src: djangoLogo,
     alt: 'logo-django',
     title: 'Django',
     ariaLabel: 'Logo Django',
+    docLink: 'https://www.djangoproject.com/start/overview/',
   },
   {
     src: rustLogo,
     alt: 'logo-rust',
     title: 'Rust',
     ariaLabel: 'Logo Rust',
+    docLink: 'https://www.rust-lang.org/learn',
   },
   {
     src: tauriLogo,
     alt: 'logo-tauri',
     title: 'Tauri',
     ariaLabel: 'Logo Tauri',
+    docLink: 'https://tauri.app/start/',
   },
   {
     src: bootstrapLogo,
     alt: 'logo-bootstrap',
     title: 'Bootstrap',
     ariaLabel: 'Logo Bootstrap',
+    docLink: 'https://getbootstrap.com/docs/5.3/getting-started/introduction/',
   },
   {
     src: tailwindLogo,
     alt: 'logo-tailwind',
     title: 'Tailwind CSS',
     ariaLabel: 'Logo Tailwind CSS',
+    docLink: 'https://tailwindcss.com/docs',
   },
   {
     src: vuetifyLogo,
     alt: 'logo-vuetify',
     title: 'Vuetify',
     ariaLabel: 'Logo Vuetify',
+    docLink: 'https://vuetifyjs.com/en/introduction/why-vuetify/',
   },
 ]
 </script>
@@ -136,19 +154,23 @@ const devLogos = [
       <ul
         class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-12 2xl:gap-16">
         <li v-for="logo in devLogos" :key="logo.alt" class="tech-item group">
-          <div
-            class="tech-card bg-white/5 backdrop-blur-sm rounded-xl p-3 2xl:p-4 border border-white/10 transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:shadow-xl hover:shadow-white/20 hover:scale-110">
-            <img
-              :src="logo.src"
-              :alt="logo.alt"
-              :title="logo.title"
-              :aria-label="logo.ariaLabel"
-              class="h-8 xl:h-10 2xl:h-16 w-auto mx-auto transition-all duration-300 group-hover:brightness-125 group-hover:drop-shadow-lg" />
-            <p
-              class="text-xs md:text-sm text-center text-lightText/70 group-hover:text-lightText transition-colors duration-300 mt-2 font-medium">
-              {{ logo.title }}
-            </p>
-          </div>
+          <a
+            :href="logo.docLink || '#'"
+            target="_blank"
+            rel="noopener noreferrer"
+            :title="`Saiba mais sobre ${logo.title}`">
+            <div
+              class="tech-card bg-white/5 backdrop-blur-sm rounded-xl p-3 2xl:p-4 border border-white/10 transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:shadow-xl hover:shadow-white/20 hover:scale-110">
+              <img
+                :src="logo.src"
+                :alt="logo.alt"
+                class="h-8 xl:h-10 2xl:h-16 w-auto mx-auto transition-all duration-300 group-hover:brightness-125 group-hover:drop-shadow-lg" />
+              <p
+                class="text-xs md:text-sm text-center text-lightText/70 group-hover:text-lightText transition-colors duration-300 mt-2 font-medium">
+                {{ logo.title }}
+              </p>
+            </div>
+          </a>
         </li>
       </ul>
     </div>
