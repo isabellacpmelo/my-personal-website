@@ -46,11 +46,11 @@ const handleClickOutside = (event) => {
 }
 
 const mappedSections = [
-  'home',
-  'about-me',
-  'technologies',
-  'my-projects',
-  'contact',
+  { name: 'home', label: 'Início' },
+  { name: 'about-me', label: 'Sobre mim' },
+  { name: 'technologies', label: 'Tecnologias' },
+  { name: 'my-projects', label: 'Projetos' },
+  { name: 'contact', label: 'Contato' },
 ]
 
 onMounted(() => {
@@ -73,31 +73,13 @@ onUnmounted(() => {
         <ProfilePic is-minimized />
       </button>
       <div
+        v-for="section in mappedSections"
+        :key="section.name"
         class="hidden w-10 md:w-auto md:flex items-center gap-2 md:gap-4 lg:gap-8 text-sm xl:text-[16px] tracking-wider">
         <button
-          @click="navigateToSection('home', $event)"
+          @click="navigateToSection(section.name, $event)"
           class="hover:text-mustard transition ease-in-out duration-700 delay-75">
-          Início
-        </button>
-        <button
-          @click="navigateToSection('about-me', $event)"
-          class="hover:text-mustard transition ease-in-out duration-700 delay-75">
-          Sobre mim
-        </button>
-        <button
-          @click="navigateToSection('technologies', $event)"
-          class="hover:text-mustard transition ease-in-out duration-700 delay-75">
-          Tecnologias
-        </button>
-        <button
-          @click="navigateToSection('my-projects', $event)"
-          class="hover:text-mustard transition ease-in-out duration-700 delay-75">
-          Projetos
-        </button>
-        <button
-          @click="navigateToSection('contact', $event)"
-          class="hover:text-mustard transition ease-in-out duration-700 delay-75">
-          Contato
+          {{ section.label }}
         </button>
       </div>
     </div>
@@ -129,31 +111,14 @@ onUnmounted(() => {
         @click.stop>
         <div
           class="bg-primary/90 p-4 text-lightText rounded-md grid grid-cols-1 shadow-lg">
-          <div class="grid gap-2">
+          <div
+            v-for="section in mappedSections"
+            :key="section.name"
+            class="grid gap-2">
             <button
-              @click="navigateToSection('home', $event)"
-              class="border-b border-lightText hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
-              Início
-            </button>
-            <button
-              @click="navigateToSection('about-me', $event)"
-              class="border-b border-lightText hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
-              Sobre mim
-            </button>
-            <button
-              @click="navigateToSection('technologies', $event)"
-              class="border-b border-lightText hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
-              Tecnologias
-            </button>
-            <button
-              @click="navigateToSection('my-projects', $event)"
-              class="border-b border-lightText hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
-              Projetos
-            </button>
-            <button
-              @click="navigateToSection('contact', $event)"
-              class="border-b border-lightText hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
-              Contato
+              @click="navigateToSection(section.name, $event)"
+              class="border-b border-lightText hover:bg-gray-100 transition-colors p-2 rounded w-full text-center">
+              {{ section.label }}
             </button>
           </div>
 
