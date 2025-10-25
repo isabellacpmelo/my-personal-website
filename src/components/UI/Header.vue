@@ -45,6 +45,14 @@ const handleClickOutside = (event) => {
   }
 }
 
+const mappedSections = [
+  'home',
+  'about-me',
+  'technologies',
+  'my-projects',
+  'contact',
+]
+
 onMounted(() => {
   document.addEventListener('click', handleClickOutside)
 })
@@ -98,7 +106,12 @@ onUnmounted(() => {
       <LanguageButton language="pt-BR" />
     </div>
     <div class="flex md:hidden">
-      <div><ButtonIcon @click.stop="toggleMenu" /></div>
+      <div>
+        <ButtonIcon
+          @click.stop="toggleMenu"
+          bg-color="bg-lightBlue/40"
+          text-color="text-lightText" />
+      </div>
     </div>
 
     <!-- menu que só abre no mobile -->
@@ -112,50 +125,41 @@ onUnmounted(() => {
       <div
         v-if="openMenu"
         ref="menuRef"
-        class="top-16 right-8 absolute"
+        class="top-16 right-8 absolute bg-white rounded-lg"
         @click.stop>
         <div
-          class="bg-white p-4 text-black rounded-md grid grid-cols-1 shadow-lg">
+          class="bg-primary/90 p-4 text-lightText rounded-md grid grid-cols-1 shadow-lg">
           <div class="grid gap-2">
             <button
               @click="navigateToSection('home', $event)"
-              class="border-b border-black hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
+              class="border-b border-lightText hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
               Início
             </button>
             <button
               @click="navigateToSection('about-me', $event)"
-              class="border-b border-black hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
+              class="border-b border-lightText hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
               Sobre mim
             </button>
             <button
               @click="navigateToSection('technologies', $event)"
-              class="border-b border-black hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
+              class="border-b border-lightText hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
               Tecnologias
             </button>
             <button
               @click="navigateToSection('my-projects', $event)"
-              class="border-b border-black hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
+              class="border-b border-lightText hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
               Projetos
             </button>
             <button
               @click="navigateToSection('contact', $event)"
-              class="border-b border-black hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
+              class="border-b border-lightText hover:bg-gray-100 transition-colors p-2 rounded w-full text-left">
               Contato
             </button>
           </div>
 
-          <ResumeButton />
+          <ResumeButton class="mt-4 text-xs mx-auto" />
 
-          <button
-            type="button"
-            disabled
-            class="flex items-center gap-2 text-sm xl:text-normal">
-            <img
-              :src="languages[0].icon"
-              :alt="`${languages[0].desc}`"
-              class="h-7 lg:h-8" />
-            <span>{{ languages[0].name }}</span>
-          </button>
+          <LanguageButton language="pt-BR" class="mt-4 mx-auto" />
         </div>
       </div>
     </transition>
