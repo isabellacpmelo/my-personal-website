@@ -2,6 +2,7 @@
 const container = ref(null)
 const particles = ref([])
 const nextParticleId = ref(0)
+const isTouchDevice = ref(false)
 
 const createParticle = (x, y) => {
   const particle = {
@@ -42,8 +43,42 @@ const cursorStyle = computed(() => ({
 }))
 
 const handleMouseMove = (e) => {
-  mousePosition.value = { x: e.clientX, y: e.clientY }
-  createParticle(mousePosition.value.x, mousePosition.value.y)
+  if (!isTouchDevice.value) {
+    mousePosition.value = { x: e.clientX, y: e.clientY }
+    createParticle(mousePosition.value.x, mousePosition.value.y)
+  }
+}
+
+let lastTouchY = 0
+let scrolling = false
+
+const handleTouchMove = (e) => {
+  const touch = e.touches[0]
+  const currentY = touch.clientY
+
+  if (!scrolling && Math.abs(currentY - lastTouchY) > 10) {
+    scrolling = true
+  }
+
+  if (!scrolling) {
+    mousePosition.value = { x: touch.clientX, y: touch.clientY }
+    createParticle(touch.clientX, touch.clientY)
+  }
+
+  lastTouchY = currentY
+}
+
+const handleTouchStart = (e) => {
+  isTouchDevice.value = true
+  scrolling = false
+  lastTouchY = e.touches[0].clientY
+  const touch = e.touches[0]
+  mousePosition.value = { x: touch.clientX, y: touch.clientY }
+  createParticle(touch.clientX, touch.clientY)
+}
+
+const handleTouchEnd = () => {
+  scrolling = false
 }
 
 const animate = () => {
@@ -53,11 +88,21 @@ const animate = () => {
 
 onMounted(() => {
   window.addEventListener('mousemove', handleMouseMove)
+
+  window.addEventListener('touchstart', handleTouchStart, { passive: true })
+  window.addEventListener('touchmove', handleTouchMove, { passive: true })
+  window.addEventListener('touchend', handleTouchEnd, { passive: true })
+
   animate()
 })
 
 onUnmounted(() => {
   window.removeEventListener('mousemove', handleMouseMove)
+
+  window.removeEventListener('touchstart', handleTouchStart)
+  window.removeEventListener('touchmove', handleTouchMove)
+  window.removeEventListener('touchend', handleTouchEnd)
+
   if (animationFrame) {
     cancelAnimationFrame(animationFrame)
   }
@@ -106,6 +151,9 @@ onUnmounted(() => {
   z-index: 10000;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+  @media (hover: none) and (pointer: coarse) {
+    display: none;
+  }
 }
 
 .cursor-glow {
@@ -123,6 +171,10 @@ onUnmounted(() => {
   z-index: 9999;
   transform: translate(-50%, -50%);
   animation: pulse 1.5s infinite;
+  @media (hover: none) and (pointer: coarse) {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 @keyframes pulse {
