@@ -53,7 +53,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <Section class="">
+  <Section class="mb-32 md:mb-0">
     <div class="mt-8 2xl:mt-24 h-auto">
       <div class="mx-auto text-center">
         <div class="mb-8 2xl:mb-16">
@@ -121,9 +121,6 @@ onMounted(() => {
               <div class="w-3 h-3 bg-mustard rounded-full animate-ping"></div>
               <div class="w-2 h-2 bg-mustard rounded-full"></div>
             </div>
-            <!-- <h3 class="text-lg 2xl:text-xl font-semibold text-secondary mb-2">
-            Baseada em
-          </h3> -->
             <p class="text-mustard font-medium text-lg lg:text-xl">
               São Paulo, Brasil
             </p>
@@ -131,14 +128,6 @@ onMounted(() => {
               Disponível para projetos remotos
             </p>
           </div>
-
-          <!-- <button
-            @click="copyEmail"
-            class="group inline-flex items-center gap-2 px-6 lg:px-8 py-3 lg:py-4 bg-white/10 backdrop-blur-md border border-mustard/50 rounded-full text-secondary hover:bg-mustard/20 hover:border-mustard transition-all duration-300">
-            <i
-              class="bi bi-clipboard text-lg group-hover:scale-110 transition-transform"></i>
-            <span class="font-medium">Copiar email</span>
-          </button> -->
         </div>
       </div>
     </div>
