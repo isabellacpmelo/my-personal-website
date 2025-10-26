@@ -8,13 +8,13 @@ import starWarsCatalogueCover from '@/assets/img/projects-cover/star-wars-catalo
 
 const projects = ref([
   {
-    title: 'Star Wars Catalogue',
-    description: 'Catalog of characters from the Star Wars universe',
-    tags: ['javascript', 'vue', 'tailwind', 'nuxt'],
-    img: starWarsCatalogueCover,
-    alt: 'star-wars-catalogue-cover',
-    linkSite: 'https://star-wars-catal.netlify.app/',
-    linkRep: 'https://github.com/isabellacpmelo/starwars',
+    Title: 'My Portfolio',
+    description: 'Meu portfólio pessoal, onde você está agora!',
+    tags: ['javascript', 'vue', 'tailwind'],
+    img: 'https://i.imgur.com/wRXJ8nT.gif',
+    alt: 'my-portfolio-cover',
+    linkSite: '#',
+    linkRep: 'https://github.com/isabellacpmelo/my-personal-website',
   },
   {
     title: 'Naruto Game',
@@ -25,6 +25,16 @@ const projects = ref([
     linkSite: 'https://naruto-running-game.netlify.app/#/',
     linkRep: 'https://github.com/isabellacpmelo/naruto-game',
   },
+  {
+    title: 'Star Wars Catalogue',
+    description: 'Catalog of characters from the Star Wars universe',
+    tags: ['javascript', 'vue', 'tailwind', 'nuxt'],
+    img: starWarsCatalogueCover,
+    alt: 'star-wars-catalogue-cover',
+    linkSite: 'https://star-wars-catal.netlify.app/',
+    linkRep: 'https://github.com/isabellacpmelo/starwars',
+  },
+
   {
     title: 'Cripto Coin',
     description:
