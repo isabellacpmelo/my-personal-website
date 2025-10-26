@@ -1,7 +1,7 @@
 # Personal Portfolio Website
 
 <div align="left">
-<a href="https://isamelo.netlify.app/"><img height="355em" alt="Isabella Melo's Website" src="./src/assets/img/readme/my-website.gif" /></a>
+<a href="https://isamelo.netlify.app/"><img height="355em" alt="Isabella Melo's Website" src="https://i.imgur.com/wRXJ8nT.gif" /></a>
 </div>
 </br>
 <a href="https://isamelo.netlify.app/">Click here to access the website</a>
