@@ -1,11 +1,4 @@
 <script setup>
-import criptoCoinCover from '@/assets/img/projects-cover/cripto-coin.png'
-import cupcakeShopCover from '@/assets/img/projects-cover/cupcake-shop.png'
-import landingPageCover from '@/assets/img/projects-cover/landing-page-cover.png'
-import narutinhoGameCover from '@/assets/img/projects-cover/narutinho-game.png'
-import spaceShooterCover from '@/assets/img/projects-cover/space-shooter.gif'
-import starWarsCatalogueCover from '@/assets/img/projects-cover/star-wars-catalogue.png'
-
 const projects = ref([
   {
     Title: 'My Portfolio',
@@ -17,19 +10,29 @@ const projects = ref([
     linkRep: 'https://github.com/isabellacpmelo/my-personal-website',
   },
   {
+    title: 'Chronos Pomodoro',
+    description:
+      'Aplicativo de gerenciamento de tempo baseado na técnica Pomodoro.',
+    tags: ['react', 'typescript', 'tailwind'],
+    img: 'https://i.imgur.com/f7QOqsq.gif',
+    alt: 'chronos-pomodoro-cover',
+    linkSite: 'https://chronos-pomodoro-lac.vercel.app/',
+    linkRep: 'https://github.com/isabellacpmelo/chronos-pomodoro',
+  },
+  {
     title: 'Naruto Game',
-    description: "Naruto's racing game, based on T-Rex Game",
+    description: 'Jogo de corrida com o personagem Naruto Uzumaki',
     tags: ['javascript', 'vue', 'tailwind', 'quasar', 'game'],
-    img: narutinhoGameCover,
+    img: 'https://i.imgur.com/B69eDgF.gif',
     alt: 'narutinho-game-cover',
     linkSite: 'https://naruto-running-game.netlify.app/#/',
     linkRep: 'https://github.com/isabellacpmelo/naruto-game',
   },
   {
     title: 'Star Wars Catalogue',
-    description: 'Catalog of characters from the Star Wars universe',
+    description: 'Catálogo de personagens de Star Wars utilizando a API SWAPI.',
     tags: ['javascript', 'vue', 'tailwind', 'nuxt'],
-    img: starWarsCatalogueCover,
+    img: 'https://imgur.com/6euXN8I.gif',
     alt: 'star-wars-catalogue-cover',
     linkSite: 'https://star-wars-catal.netlify.app/',
     linkRep: 'https://github.com/isabellacpmelo/starwars',
@@ -40,7 +43,7 @@ const projects = ref([
     description:
       'Conversor de criptomoedas que permite que o usuário saiba a cotação do criptoativo desejado.',
     tags: ['javascript', 'vue', 'tailwind', 'quasar'],
-    img: criptoCoinCover,
+    img: 'https://imgur.com/quyQC6J.gif',
     alt: 'cripto-coin-cover',
     linkSite: 'https://cryptor-converter.netlify.app/',
     linkRep: 'https://github.com/isabellacpmelo/conversor-criptomoedas',
@@ -50,29 +53,30 @@ const projects = ref([
     description:
       'Cupcake Shop é uma lojinha de cupcakes fictícia e em progresso',
     tags: ['javascript', 'vue', 'tailwind', 'nuxt'],
-    img: cupcakeShopCover,
+    img: 'https://i.imgur.com/q4TtbyL.gif',
     alt: 'cupcake-shop-cover',
     linkSite: 'https://cupcack-store.netlify.app/#/',
     linkRep: 'https://github.com/isabellacpmelo/cupcake-store',
   },
   {
     title: 'Space Shooter',
-    description: 'Jogo de tiro espacial',
+    description: 'Jogo de tiro espacial desenvolvido em JavaScript puro',
     tags: ['javascript', 'game'],
-    img: spaceShooterCover,
+    img: 'https://i.imgur.com/sKvx4ue.gif',
     alt: 'space-shooter-cover',
     linkRep: 'https://github.com/isabellacpmelo/jogo-space-shooter',
     linkSite: 'https://isabellacpmelo.github.io/jogo-space-shooter/',
   },
-  {
-    title: 'Landing Page React',
-    description: 'Exemplo de landing page feita em react',
-    tags: ['javascript', 'react'],
-    img: landingPageCover,
-    alt: 'landing-page-cover',
-    linkSite: 'https://react-landing-page-exemplo.netlify.app/',
-    linkRep: 'https://github.com/isabellacpmelo/landing-page-react',
-  },
+  // {
+  //   title: 'Landing Page',
+  //   description:
+  //     'Exemplo de landing page simples em desenvolvimento utilizando React',
+  //   tags: ['javascript', 'react'],
+  //   img: landingPageCover,
+  //   alt: 'landing-page-cover',
+  //   linkSite: 'https://react-landing-page-exemplo.netlify.app/',
+  //   linkRep: 'https://github.com/isabellacpmelo/landing-page-react',
+  // },
 ])
 
 const githubUrl = import.meta.env.VITE_GITHUB_URL
