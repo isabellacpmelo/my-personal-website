@@ -2,15 +2,15 @@
 const props = defineProps({
   icon: {
     type: String,
-    default: 'bi-list',
+    default: "bi-list",
   },
   textColor: {
     type: String,
-    default: 'text-blue-500',
+    default: "text-blue-500",
   },
   bgColor: {
     type: String,
-    default: 'bg-white',
+    default: "bg-white",
   },
   iconLeft: {
     type: Boolean,
@@ -20,7 +20,11 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-})
+  title: {
+    type: String,
+    default: "",
+  },
+});
 </script>
 
 <template>
@@ -28,6 +32,8 @@ const props = defineProps({
     <button
       :disabled="disabled"
       :class="[textColor, bgColor]"
+      :title="title"
+      :aria-label="title"
       class="px-1.5 lg:px-3 py-1 rounded-md font-medium">
       <div>
         <i :class="icon" />

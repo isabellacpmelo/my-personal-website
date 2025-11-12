@@ -99,6 +99,7 @@ onUnmounted(() => {
     <div class="flex md:hidden">
       <div>
         <ButtonIcon
+          title="Menu"
           @click.stop="toggleMenu"
           bg-color="bg-lightBlue/40"
           text-color="text-lightText" />
