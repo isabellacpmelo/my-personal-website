@@ -1,65 +1,65 @@
 <script setup>
-import ProfilePic from './ProfilePic.vue'
+import ProfilePic from "./ProfilePic.vue";
 
-const iconsFoder = `${baseUrl}/img/language-icon/`
+const iconsFoder = `${baseUrl}/img/language-icon/`;
 
 const languages = [
   {
-    name: 'Português',
-    desc: 'pt-br',
+    name: "Português",
+    desc: "pt-br",
     icon: `${iconsFoder}/pt-br.png`,
   },
   {
-    name: 'Español',
-    desc: 'es',
+    name: "Español",
+    desc: "es",
     icon: `${iconsFoder}/es.png`,
   },
   {
-    name: 'English',
-    desc: 'en',
+    name: "English",
+    desc: "en",
     icon: `${iconsFoder}/en.png`,
   },
-]
+];
 
-const openMenu = ref(false)
-const menuRef = ref(null)
+const openMenu = ref(false);
+const menuRef = ref(null);
 
-const scrollToSection = inject('scrollToSection', null)
+const scrollToSection = inject("scrollToSection", null);
 
 const navigateToSection = (sectionName, event) => {
-  event.preventDefault()
+  event.preventDefault();
   if (scrollToSection) {
-    scrollToSection(sectionName)
+    scrollToSection(sectionName);
   }
-  openMenu.value = false
-}
+  openMenu.value = false;
+};
 
 const toggleMenu = (event) => {
-  event.stopPropagation()
-  openMenu.value = !openMenu.value
-}
+  event.stopPropagation();
+  openMenu.value = !openMenu.value;
+};
 
 const handleClickOutside = (event) => {
   if (menuRef.value && !menuRef.value.contains(event.target)) {
-    openMenu.value = false
+    openMenu.value = false;
   }
-}
+};
 
 const mappedSections = [
-  { name: 'home', label: 'Início' },
-  { name: 'about-me', label: 'Sobre mim' },
-  { name: 'technologies', label: 'Tecnologias' },
-  { name: 'my-projects', label: 'Projetos' },
-  { name: 'contact', label: 'Contato' },
-]
+  { name: "home", label: "Início" },
+  { name: "about-me", label: "Sobre mim" },
+  { name: "technologies", label: "Tecnologias" },
+  { name: "my-projects", label: "Projetos" },
+  { name: "contact", label: "Contato" },
+];
 
 onMounted(() => {
-  document.addEventListener('click', handleClickOutside)
-})
+  document.addEventListener("click", handleClickOutside);
+});
 
 onUnmounted(() => {
-  document.removeEventListener('click', handleClickOutside)
-})
+  document.removeEventListener("click", handleClickOutside);
+});
 </script>
 
 <template>
@@ -83,9 +83,11 @@ onUnmounted(() => {
         </button>
       </div>
     </div>
+
     <div class="hidden md:flex items-center gap-8">
       <ResumeButton class="max-h-8 text-xs" />
       <LanguageButton language="pt-BR" />
+      <div class="text-xs text-gray-400">v1.4.0</div>
     </div>
     <div class="flex md:hidden">
       <div>
@@ -96,7 +98,7 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <!-- menu que só abre no mobile -->
+    <!-- menu that only opens on mobile -->
     <transition
       enter-active-class="transition-opacity duration-300 ease-out transform"
       enter-from-class="opacity-0"
@@ -125,6 +127,7 @@ onUnmounted(() => {
           <ResumeButton class="mt-4 text-xs mx-auto" />
 
           <LanguageButton language="pt-BR" class="mt-4 mx-auto" />
+          <div class="text-xs text-gray-400 mt-4 mx-auto">v1.4.0</div>
         </div>
       </div>
     </transition>
