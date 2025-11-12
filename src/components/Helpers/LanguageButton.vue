@@ -5,6 +5,13 @@ import english from "@/assets/img/language-icon/en.png";
 import spanish from "@/assets/img/language-icon/es.png";
 
 const { locale, t } = useI18n();
+const {
+  changeLanguage,
+  getLanguageFromUrl,
+  getLanguageFromStorage,
+  updateUrlWithLanguage,
+} = useLanguage();
+const route = useRoute();
 
 const props = defineProps({
   disabled: {
@@ -18,16 +25,19 @@ const languages = computed(() => [
     name: t("languages.portuguese"),
     src: portuguese,
     locale: "pt-BR",
+    urlCode: "pt-br",
   },
   {
     name: t("languages.english"),
     src: english,
     locale: "en",
+    urlCode: "en",
   },
   {
     name: t("languages.spanish"),
     src: spanish,
     locale: "es",
+    urlCode: "es",
   },
 ]);
 
@@ -48,7 +58,7 @@ const toggleDropdown = (event) => {
 };
 
 const selectLanguage = (language) => {
-  locale.value = language.locale;
+  changeLanguage(language.locale);
   isOpen.value = false;
 };
 
@@ -58,13 +68,52 @@ const handleClickOutside = (event) => {
   }
 };
 
+const initializeLanguage = () => {
+  
+  const urlLanguage = getLanguageFromUrl();
+  const storedLanguage = getLanguageFromStorage();
+
+  let targetLanguage = "pt-BR"; 
+
+  if (urlLanguage) {
+    targetLanguage = urlLanguage;
+  } else if (storedLanguage) {
+    targetLanguage = storedLanguage;
+ 
+    updateUrlWithLanguage(storedLanguage);
+  }
+
+  if (locale.value !== targetLanguage) {
+    locale.value = targetLanguage;
+  }
+};
+
 onMounted(() => {
   document.addEventListener("click", handleClickOutside);
+  initializeLanguage();
 });
 
 onUnmounted(() => {
   document.removeEventListener("click", handleClickOutside);
 });
+
+watch(
+  () => route.query.lang,
+  (newLang) => {
+    if (newLang) {
+      const language = languages.value.find((lang) => lang.urlCode === newLang);
+      if (language && locale.value !== language.locale) {
+        locale.value = language.locale;
+        saveLanguageToStorage(language.locale);
+      }
+    } else {
+      if (locale.value !== "pt-BR") {
+        locale.value = "pt-BR";
+        saveLanguageToStorage("pt-BR");
+      }
+    }
+  }
+);
 </script>
 
 <template>

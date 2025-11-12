@@ -8,9 +8,33 @@ import App from "./App.vue";
 import router from "./router";
 import messages from "./locales";
 
+const getInitialLocale = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const langParam = urlParams.get("lang");
+
+  const supportedLocales = ["pt-BR", "en", "es"];
+  const urlToLocaleMap = {
+    "pt-br": "pt-BR",
+    en: "en",
+    es: "es",
+  };
+
+  if (langParam && urlToLocaleMap[langParam]) {
+    return urlToLocaleMap[langParam];
+  }
+
+  const storedLocale = localStorage.getItem("preferred-language");
+  if (storedLocale && supportedLocales.includes(storedLocale)) {
+    return storedLocale;
+  }
+
+
+  return "pt-BR";
+};
+
 const i18n = createI18n({
   legacy: false,
-  locale: "pt-BR",
+  locale: getInitialLocale(),
   fallbackLocale: "en",
   messages,
 });

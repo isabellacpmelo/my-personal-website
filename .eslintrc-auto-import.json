@@ -307,6 +307,7 @@
     "teste": true,
     "baseUrl": true,
     "downloadFile": true,
-    "downloadCurriculum": true
+    "downloadCurriculum": true,
+    "useLanguage": true
   }
 }
