@@ -93,7 +93,7 @@ onUnmounted(() => {
 
     <div class="hidden md:flex items-center gap-8">
       <ResumeButton class="max-h-8 text-xs" />
-      <LanguageButton language="pt-BR" />
+      <LanguageButton />
       <div class="text-xs text-gray-400">v{{ version }}</div>
     </div>
     <div class="flex md:hidden">
@@ -133,7 +133,7 @@ onUnmounted(() => {
 
           <ResumeButton class="mt-4 text-xs mx-auto" />
 
-          <LanguageButton language="pt-BR" class="mt-4 mx-auto" />
+          <LanguageButton class="mt-4 mx-auto" />
           <div class="text-xs text-gray-400 mt-4 mx-auto">v{{ version }}</div>
         </div>
       </div>

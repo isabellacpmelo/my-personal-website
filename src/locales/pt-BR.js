@@ -90,4 +90,9 @@ export default {
   common: {
     resume: "Currículo",
   },
+  languages: {
+    portuguese: "Português",
+    english: "English",
+    spanish: "Español",
+  },
 };

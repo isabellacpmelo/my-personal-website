@@ -88,4 +88,9 @@ export default {
   common: {
     resume: "Resume",
   },
+  languages: {
+    portuguese: "Português",
+    english: "English",
+    spanish: "Español",
+  },
 };
