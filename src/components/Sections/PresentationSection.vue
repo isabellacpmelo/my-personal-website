@@ -1,7 +1,7 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 const text1 = computed(() => t("presentation.greeting"));
 const text2Part1 = computed(() => t("presentation.iAm"));
@@ -16,30 +16,51 @@ const displayText2Part3 = ref("");
 const displayText3 = ref("");
 
 const typingSpeed = 50;
+const isTyping = ref(false);
 
 function typeEffect(text, refValue, callback) {
   let index = 0;
   function type() {
-    if (index < text.length) {
+    if (index < text.length && isTyping.value) {
       refValue.value += text[index];
       index++;
       setTimeout(type, typingSpeed);
-    } else if (callback) {
-      setTimeout(callback, 300); // Pausa antes de ir para o próximo
+    } else if (callback && isTyping.value) {
+      setTimeout(callback, 300);
     }
   }
   type();
 }
-onMounted(() => {
-  typeEffect(text1.value, displayText1, () => {
-    typeEffect(text2Part1.value, displayText2Part1, () => {
-      typeEffect(text2Part2.value, displayText2Part2, () => {
-        typeEffect(text2Part3.value, displayText2Part3, () => {
-          typeEffect(text3.value, displayText3);
+
+function resetAndStartTyping() {
+  isTyping.value = false;
+
+  displayText1.value = "";
+  displayText2Part1.value = "";
+  displayText2Part2.value = "";
+  displayText2Part3.value = "";
+  displayText3.value = "";
+
+  setTimeout(() => {
+    isTyping.value = true;
+    typeEffect(text1.value, displayText1, () => {
+      typeEffect(text2Part1.value, displayText2Part1, () => {
+        typeEffect(text2Part2.value, displayText2Part2, () => {
+          typeEffect(text2Part3.value, displayText2Part3, () => {
+            typeEffect(text3.value, displayText3);
+          });
         });
       });
     });
-  });
+  }, 100);
+}
+
+onMounted(() => {
+  resetAndStartTyping();
+});
+
+watch(locale, () => {
+  resetAndStartTyping();
 });
 </script>
 
