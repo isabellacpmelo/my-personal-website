@@ -1,5 +1,7 @@
 <script setup>
 import ProfilePic from "./ProfilePic.vue";
+// @ts-ignore
+import pkg from "../../../package.json";
 
 const iconsFoder = `${baseUrl}/img/language-icon/`;
 
@@ -53,6 +55,8 @@ const mappedSections = [
   { name: "contact", label: "Contato" },
 ];
 
+const version = pkg.version;
+
 onMounted(() => {
   document.addEventListener("click", handleClickOutside);
 });
@@ -87,7 +91,7 @@ onUnmounted(() => {
     <div class="hidden md:flex items-center gap-8">
       <ResumeButton class="max-h-8 text-xs" />
       <LanguageButton language="pt-BR" />
-      <div class="text-xs text-gray-400">v1.4.0</div>
+      <div class="text-xs text-gray-400">v{{ version }}</div>
     </div>
     <div class="flex md:hidden">
       <div>
@@ -127,7 +131,7 @@ onUnmounted(() => {
           <ResumeButton class="mt-4 text-xs mx-auto" />
 
           <LanguageButton language="pt-BR" class="mt-4 mx-auto" />
-          <div class="text-xs text-gray-400 mt-4 mx-auto">v1.4.0</div>
+          <div class="text-xs text-gray-400 mt-4 mx-auto">v{{ version }}</div>
         </div>
       </div>
     </transition>
