@@ -87,16 +87,16 @@ const githubUrl = import.meta.env.VITE_GITHUB_URL;
   <Section :title="t('projects.title')" light>
     <div class="w-full flex flex-col items-center mb-12 md:mb-8 2xl:mb-12">
       <div class="max-w-4xl text-center">
-        <p class="text-darkText/90 leading-relaxed">
+        <p class="text-darkText/90 leading-relaxed text-gray-900 font-[350]">
           {{ t("projects.description") }}
-          <span class="font-semibold text-primary">{{
-            t("projects.learning")
-          }}</span>
+          <span class="font-semibold text-primary"
+            >{{ t("projects.learning") }}
+          </span>
           {{ t("projects.and") }}
-          <span class="font-semibold text-mustard">{{
-            t("projects.innovation")
-          }}</span
-          >{{ t("projects.description2") }}
+          <span class="font-semibold text-lightBlue">
+            {{ t("projects.innovation") }}
+          </span>
+          {{ t("projects.description2") }}
         </p>
       </div>
     </div>

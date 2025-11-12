@@ -151,13 +151,13 @@ var year = date.getFullYear();
   </div>
 
   <div
-    class="fixed right-4 top-1/2 transform -translate-y-1/2 z-40 hidden lg:flex flex-col gap-2">
+    class="fixed right-4 top-1/2 transform -translate-y-1/2 z-40 hidden lg:flex flex-col gap-4">
     <button
       v-for="(section, index) in sections"
       :key="section"
       @click="scrollToSection(index)"
       :class="[
-        'w-1.5 h-1.5 rounded-full border transition-all duration-300 mr-2',
+        'w-3 h-3 rounded-full border transition-all duration-300 mr-2',
         currentSection % 2 === 0 ? 'border-mustard' : 'border-primary',
         currentSection === index && index % 2 === 0
           ? 'bg-mustard'
