@@ -1,155 +1,159 @@
 <script setup>
-import javascriptLogo from '@/assets/img/dev-icons/javascript.svg'
-import typescriptLogo from '@/assets/img/dev-icons/typescript.svg'
-import htmlLogo from '@/assets/img/dev-icons/html.svg'
-import cssLogo from '@/assets/img/dev-icons/css.svg'
-import bootstrapLogo from '@/assets/img/dev-icons/bootstrap.svg'
-import tailwindLogo from '@/assets/img/dev-icons/tailwind.svg'
-import vueLogo from '@/assets/img/dev-icons/vue.svg'
-import nuxtLogo from '@/assets/img/dev-icons/nuxt.svg'
-import vuetifyLogo from '@/assets/img/dev-icons/vuetify.svg'
-import reactLogo from '@/assets/img/dev-icons/react.svg'
-import angularLogo from '@/assets/img/dev-icons/angular.svg'
-import pythonLogo from '@/assets/img/dev-icons/python.svg'
-import djangoLogo from '@/assets/img/dev-icons/django.svg'
-import rustLogo from '@/assets/img/dev-icons/rust.svg'
-import tauriLogo from '@/assets/img/dev-icons/tauri.svg'
-import nextLogo from '@/assets/img/dev-icons/next.svg'
-import quasarLogo from '@/assets/img/dev-icons/quasar.svg'
-import viteLogo from '@/assets/img/dev-icons/vite.svg'
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+
+import javascriptLogo from "@/assets/img/dev-icons/javascript.svg";
+import typescriptLogo from "@/assets/img/dev-icons/typescript.svg";
+import htmlLogo from "@/assets/img/dev-icons/html.svg";
+import cssLogo from "@/assets/img/dev-icons/css.svg";
+import bootstrapLogo from "@/assets/img/dev-icons/bootstrap.svg";
+import tailwindLogo from "@/assets/img/dev-icons/tailwind.svg";
+import vueLogo from "@/assets/img/dev-icons/vue.svg";
+import nuxtLogo from "@/assets/img/dev-icons/nuxt.svg";
+import vuetifyLogo from "@/assets/img/dev-icons/vuetify.svg";
+import reactLogo from "@/assets/img/dev-icons/react.svg";
+import angularLogo from "@/assets/img/dev-icons/angular.svg";
+import pythonLogo from "@/assets/img/dev-icons/python.svg";
+import djangoLogo from "@/assets/img/dev-icons/django.svg";
+import rustLogo from "@/assets/img/dev-icons/rust.svg";
+import tauriLogo from "@/assets/img/dev-icons/tauri.svg";
+import nextLogo from "@/assets/img/dev-icons/next.svg";
+import quasarLogo from "@/assets/img/dev-icons/quasar.svg";
+import viteLogo from "@/assets/img/dev-icons/vite.svg";
 
 const devLogos = [
   {
     src: javascriptLogo,
-    alt: 'logo-javascript',
-    title: 'Javascript',
-    ariaLabel: 'Logo Javascript',
-    docLink: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+    alt: "logo-javascript",
+    title: "Javascript",
+    ariaLabel: "Logo Javascript",
+    docLink: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
   {
     src: typescriptLogo,
-    alt: 'logo-typescript',
-    title: 'Typescript',
-    ariaLabel: 'Logo Typescript',
-    docLink: 'https://www.typescriptlang.org/docs/',
+    alt: "logo-typescript",
+    title: "Typescript",
+    ariaLabel: "Logo Typescript",
+    docLink: "https://www.typescriptlang.org/docs/",
   },
   {
     src: htmlLogo,
-    alt: 'logo-html',
-    title: 'HTML5',
-    ariaLabel: 'Logo HTML5',
-    docLink: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+    alt: "logo-html",
+    title: "HTML5",
+    ariaLabel: "Logo HTML5",
+    docLink: "https://developer.mozilla.org/en-US/docs/Web/HTML",
   },
   {
     src: cssLogo,
-    alt: 'logo-css',
-    title: 'CSS3',
-    ariaLabel: 'Logo CSS3',
-    docLink: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+    alt: "logo-css",
+    title: "CSS3",
+    ariaLabel: "Logo CSS3",
+    docLink: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
   {
     src: vueLogo,
-    alt: 'logo-vue',
-    title: 'Vue.js',
-    ariaLabel: 'Logo Vue.js',
-    docLink: 'https://vuejs.org/guide/introduction.html',
+    alt: "logo-vue",
+    title: "Vue.js",
+    ariaLabel: "Logo Vue.js",
+    docLink: "https://vuejs.org/guide/introduction.html",
   },
   {
     src: reactLogo,
-    alt: 'logo-react',
-    title: 'React',
-    ariaLabel: 'Logo React',
-    docLink: 'https://reactjs.org/docs/getting-started.html',
+    alt: "logo-react",
+    title: "React",
+    ariaLabel: "Logo React",
+    docLink: "https://reactjs.org/docs/getting-started.html",
   },
   {
     src: angularLogo,
-    alt: 'logo-angular',
-    title: 'Angular',
-    ariaLabel: 'Logo Angular',
-    docLink: 'https://angular.dev/overview',
+    alt: "logo-angular",
+    title: "Angular",
+    ariaLabel: "Logo Angular",
+    docLink: "https://angular.dev/overview",
   },
   {
     src: nuxtLogo,
-    alt: 'logo-nuxt',
-    title: 'Nuxt.js',
-    ariaLabel: 'Logo Nuxt.js',
-    docLink: 'https://nuxt.com/docs/getting-started/installation',
+    alt: "logo-nuxt",
+    title: "Nuxt.js",
+    ariaLabel: "Logo Nuxt.js",
+    docLink: "https://nuxt.com/docs/getting-started/installation",
   },
   {
     src: nextLogo,
-    alt: 'logo-next',
-    title: 'Next.js',
-    ariaLabel: 'Logo Next.js',
-    docLink: 'https://nextjs.org/docs/getting-started',
+    alt: "logo-next",
+    title: "Next.js",
+    ariaLabel: "Logo Next.js",
+    docLink: "https://nextjs.org/docs/getting-started",
   },
   {
     src: quasarLogo,
-    alt: 'logo-quasar',
-    title: 'Quasar',
-    ariaLabel: 'Logo Quasar',
-    docLink: 'https://quasar.dev/docs',
+    alt: "logo-quasar",
+    title: "Quasar",
+    ariaLabel: "Logo Quasar",
+    docLink: "https://quasar.dev/docs",
   },
   {
     src: viteLogo,
-    alt: 'logo-vite',
-    title: 'Vite',
-    ariaLabel: 'Logo Vite',
-    docLink: 'https://vitejs.dev/guide/',
+    alt: "logo-vite",
+    title: "Vite",
+    ariaLabel: "Logo Vite",
+    docLink: "https://vitejs.dev/guide/",
   },
   {
     src: pythonLogo,
-    alt: 'logo-python',
-    title: 'Python',
-    ariaLabel: 'Logo Python',
-    docLink: 'https://www.python.org/doc/',
+    alt: "logo-python",
+    title: "Python",
+    ariaLabel: "Logo Python",
+    docLink: "https://www.python.org/doc/",
   },
   {
     src: djangoLogo,
-    alt: 'logo-django',
-    title: 'Django',
-    ariaLabel: 'Logo Django',
-    docLink: 'https://www.djangoproject.com/start/overview/',
+    alt: "logo-django",
+    title: "Django",
+    ariaLabel: "Logo Django",
+    docLink: "https://www.djangoproject.com/start/overview/",
   },
   {
     src: rustLogo,
-    alt: 'logo-rust',
-    title: 'Rust',
-    ariaLabel: 'Logo Rust',
-    docLink: 'https://www.rust-lang.org/learn',
+    alt: "logo-rust",
+    title: "Rust",
+    ariaLabel: "Logo Rust",
+    docLink: "https://www.rust-lang.org/learn",
   },
   {
     src: tauriLogo,
-    alt: 'logo-tauri',
-    title: 'Tauri',
-    ariaLabel: 'Logo Tauri',
-    docLink: 'https://tauri.app/start/',
+    alt: "logo-tauri",
+    title: "Tauri",
+    ariaLabel: "Logo Tauri",
+    docLink: "https://tauri.app/start/",
   },
   {
     src: bootstrapLogo,
-    alt: 'logo-bootstrap',
-    title: 'Bootstrap',
-    ariaLabel: 'Logo Bootstrap',
-    docLink: 'https://getbootstrap.com/docs/5.3/getting-started/introduction/',
+    alt: "logo-bootstrap",
+    title: "Bootstrap",
+    ariaLabel: "Logo Bootstrap",
+    docLink: "https://getbootstrap.com/docs/5.3/getting-started/introduction/",
   },
   {
     src: tailwindLogo,
-    alt: 'logo-tailwind',
-    title: 'Tailwind CSS',
-    ariaLabel: 'Logo Tailwind CSS',
-    docLink: 'https://tailwindcss.com/docs',
+    alt: "logo-tailwind",
+    title: "Tailwind CSS",
+    ariaLabel: "Logo Tailwind CSS",
+    docLink: "https://tailwindcss.com/docs",
   },
   {
     src: vuetifyLogo,
-    alt: 'logo-vuetify',
-    title: 'Vuetify',
-    ariaLabel: 'Logo Vuetify',
-    docLink: 'https://vuetifyjs.com/en/introduction/why-vuetify/',
+    alt: "logo-vuetify",
+    title: "Vuetify",
+    ariaLabel: "Logo Vuetify",
+    docLink: "https://vuetifyjs.com/en/introduction/why-vuetify/",
   },
-]
+];
 </script>
 
 <template>
-  <Section title="Tecnologias">
+  <Section :title="t('technologies.title')">
     <div class="h-full w-full flex justify-center items-start">
       <ul
         class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-12 2xl:gap-16">
@@ -158,7 +162,7 @@ const devLogos = [
             :href="logo.docLink || '#'"
             target="_blank"
             rel="noopener noreferrer"
-            :title="`Saiba mais sobre ${logo.title}`">
+            :title="`${t('technologies.learnMore')} ${logo.title}`">
             <div
               class="tech-card bg-white/5 backdrop-blur-sm rounded-xl p-3 2xl:p-4 border border-white/10 transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:shadow-xl hover:shadow-white/20 hover:scale-110">
               <img

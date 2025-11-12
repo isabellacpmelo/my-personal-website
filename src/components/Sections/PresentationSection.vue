@@ -1,9 +1,13 @@
 <script setup>
-const text1 = "Olá!";
-const text2Part1 = "Sou ";
-const text2Part2 = "Isabella Melo";
-const text2Part3 = ",";
-const text3 = "Desenvolvedora fullstack";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+
+const text1 = computed(() => t("presentation.greeting"));
+const text2Part1 = computed(() => t("presentation.iAm"));
+const text2Part2 = computed(() => t("presentation.name"));
+const text2Part3 = ref(",");
+const text3 = computed(() => t("presentation.role"));
 
 const displayText1 = ref("");
 const displayText2Part1 = ref("");
@@ -27,11 +31,11 @@ function typeEffect(text, refValue, callback) {
   type();
 }
 onMounted(() => {
-  typeEffect(text1, displayText1, () => {
-    typeEffect(text2Part1, displayText2Part1, () => {
-      typeEffect(text2Part2, displayText2Part2, () => {
-        typeEffect(text2Part3, displayText2Part3, () => {
-          typeEffect(text3, displayText3);
+  typeEffect(text1.value, displayText1, () => {
+    typeEffect(text2Part1.value, displayText2Part1, () => {
+      typeEffect(text2Part2.value, displayText2Part2, () => {
+        typeEffect(text2Part3.value, displayText2Part3, () => {
+          typeEffect(text3.value, displayText3);
         });
       });
     });

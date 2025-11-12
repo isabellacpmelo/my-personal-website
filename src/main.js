@@ -10,7 +10,7 @@ import messages from "./locales";
 
 const i18n = createI18n({
   legacy: false,
-  locale: "en",
+  locale: "pt-BR",
   fallbackLocale: "en",
   messages,
 });

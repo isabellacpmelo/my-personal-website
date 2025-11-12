@@ -1,5 +1,6 @@
 <script setup>
 import ProfilePic from "./ProfilePic.vue";
+import { useI18n } from "vue-i18n";
 // @ts-ignore
 import pkg from "../../../package.json";
 
@@ -47,13 +48,15 @@ const handleClickOutside = (event) => {
   }
 };
 
-const mappedSections = [
-  { name: "home", label: "Início" },
-  { name: "about-me", label: "Sobre mim" },
-  { name: "technologies", label: "Tecnologias" },
-  { name: "my-projects", label: "Projetos" },
-  { name: "contact", label: "Contato" },
-];
+const { t } = useI18n();
+
+const mappedSections = computed(() => [
+  { name: "home", label: t("header.home") },
+  { name: "about-me", label: t("header.aboutMe") },
+  { name: "technologies", label: t("header.technologies") },
+  { name: "my-projects", label: t("header.projects") },
+  { name: "contact", label: t("header.contact") },
+]);
 
 const version = pkg.version;
 
@@ -73,7 +76,7 @@ onUnmounted(() => {
       <button
         @click="navigateToSection('home', $event)"
         class="cursor-pointer"
-        title="Voltar ao início">
+        :title="t('header.backToTop')">
         <ProfilePic is-minimized />
       </button>
       <div

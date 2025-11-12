@@ -1,71 +1,72 @@
 <script setup>
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+
 const projects = ref([
   {
-    Title: 'My Portfolio',
-    description: 'Meu portfólio pessoal, onde você está agora!',
-    tags: ['javascript', 'vue', 'tailwind'],
-    img: 'https://i.imgur.com/wRXJ8nT.gif',
-    alt: 'my-portfolio-cover',
-    linkSite: '#',
-    linkRep: 'https://github.com/isabellacpmelo/my-personal-website',
+    Title: "My Portfolio",
+    description: computed(() => t("projects.projectDescriptions.portfolio")),
+    tags: ["javascript", "vue", "tailwind"],
+    img: "https://i.imgur.com/wRXJ8nT.gif",
+    alt: "my-portfolio-cover",
+    linkSite: "#",
+    linkRep: "https://github.com/isabellacpmelo/my-personal-website",
   },
   {
-    title: 'Chronos Pomodoro',
-    description:
-      'Aplicativo de gerenciamento de tempo baseado na técnica Pomodoro.',
-    tags: ['react', 'typescript', 'tailwind'],
-    img: 'https://i.imgur.com/f7QOqsq.gif',
-    alt: 'chronos-pomodoro-cover',
-    linkSite: 'https://chronos-pomodoro-lac.vercel.app/',
-    linkRep: 'https://github.com/isabellacpmelo/chronos-pomodoro',
+    title: "Chronos Pomodoro",
+    description: computed(() => t("projects.projectDescriptions.chronos")),
+    tags: ["react", "typescript", "tailwind"],
+    img: "https://i.imgur.com/f7QOqsq.gif",
+    alt: "chronos-pomodoro-cover",
+    linkSite: "https://chronos-pomodoro-lac.vercel.app/",
+    linkRep: "https://github.com/isabellacpmelo/chronos-pomodoro",
   },
   {
-    title: 'Naruto Game',
-    description: 'Jogo de corrida com o personagem Naruto Uzumaki',
-    tags: ['javascript', 'vue', 'tailwind', 'quasar', 'game'],
-    img: 'https://i.imgur.com/B69eDgF.gif',
-    alt: 'narutinho-game-cover',
-    linkSite: 'https://naruto-running-game.netlify.app/#/',
-    linkRep: 'https://github.com/isabellacpmelo/naruto-game',
+    title: "Naruto Game",
+    description: computed(() => t("projects.projectDescriptions.naruto")),
+    tags: ["javascript", "vue", "tailwind", "quasar", "game"],
+    img: "https://i.imgur.com/B69eDgF.gif",
+    alt: "narutinho-game-cover",
+    linkSite: "https://naruto-running-game.netlify.app/#/",
+    linkRep: "https://github.com/isabellacpmelo/naruto-game",
   },
   {
-    title: 'Star Wars Catalogue',
-    description: 'Catálogo de personagens de Star Wars utilizando a API SWAPI.',
-    tags: ['javascript', 'vue', 'tailwind', 'nuxt'],
-    img: 'https://imgur.com/6euXN8I.gif',
-    alt: 'star-wars-catalogue-cover',
-    linkSite: 'https://star-wars-catal.netlify.app/',
-    linkRep: 'https://github.com/isabellacpmelo/starwars',
+    title: "Star Wars Catalogue",
+    description: computed(() => t("projects.projectDescriptions.starWars")),
+    tags: ["javascript", "vue", "tailwind", "nuxt"],
+    img: "https://imgur.com/6euXN8I.gif",
+    alt: "star-wars-catalogue-cover",
+    linkSite: "https://star-wars-catal.netlify.app/",
+    linkRep: "https://github.com/isabellacpmelo/starwars",
   },
 
   {
-    title: 'Cripto Coin',
-    description:
-      'Conversor de criptomoedas que permite que o usuário saiba a cotação do criptoativo desejado.',
-    tags: ['javascript', 'vue', 'tailwind', 'quasar'],
-    img: 'https://imgur.com/quyQC6J.gif',
-    alt: 'cripto-coin-cover',
-    linkSite: 'https://cryptor-converter.netlify.app/',
-    linkRep: 'https://github.com/isabellacpmelo/conversor-criptomoedas',
+    title: "Cripto Coin",
+    description: computed(() => t("projects.projectDescriptions.cripto")),
+    tags: ["javascript", "vue", "tailwind", "quasar"],
+    img: "https://imgur.com/quyQC6J.gif",
+    alt: "cripto-coin-cover",
+    linkSite: "https://cryptor-converter.netlify.app/",
+    linkRep: "https://github.com/isabellacpmelo/conversor-criptomoedas",
   },
   {
-    title: 'Cupcake Shop',
-    description:
-      'Cupcake Shop é uma lojinha de cupcakes fictícia e em progresso',
-    tags: ['javascript', 'vue', 'tailwind', 'nuxt'],
-    img: 'https://i.imgur.com/q4TtbyL.gif',
-    alt: 'cupcake-shop-cover',
-    linkSite: 'https://cupcack-store.netlify.app/#/',
-    linkRep: 'https://github.com/isabellacpmelo/cupcake-store',
+    title: "Cupcake Shop",
+    description: computed(() => t("projects.projectDescriptions.cupcake")),
+    tags: ["javascript", "vue", "tailwind", "nuxt"],
+    img: "https://i.imgur.com/q4TtbyL.gif",
+    alt: "cupcake-shop-cover",
+    linkSite: "https://cupcack-store.netlify.app/#/",
+    linkRep: "https://github.com/isabellacpmelo/cupcake-store",
   },
   {
-    title: 'Space Shooter',
-    description: 'Jogo de tiro espacial desenvolvido em JavaScript puro',
-    tags: ['javascript', 'game'],
-    img: 'https://i.imgur.com/sKvx4ue.gif',
-    alt: 'space-shooter-cover',
-    linkRep: 'https://github.com/isabellacpmelo/jogo-space-shooter',
-    linkSite: 'https://isabellacpmelo.github.io/jogo-space-shooter/',
+    title: "Space Shooter",
+    description: computed(() => t("projects.projectDescriptions.spaceShooter")),
+    tags: ["javascript", "game"],
+    img: "https://i.imgur.com/sKvx4ue.gif",
+    alt: "space-shooter-cover",
+    linkRep: "https://github.com/isabellacpmelo/jogo-space-shooter",
+    linkSite: "https://isabellacpmelo.github.io/jogo-space-shooter/",
   },
   // {
   //   title: 'Landing Page',
@@ -77,21 +78,25 @@ const projects = ref([
   //   linkSite: 'https://react-landing-page-exemplo.netlify.app/',
   //   linkRep: 'https://github.com/isabellacpmelo/landing-page-react',
   // },
-])
+]);
 
-const githubUrl = import.meta.env.VITE_GITHUB_URL
+const githubUrl = import.meta.env.VITE_GITHUB_URL;
 </script>
 
 <template>
-  <Section title="Meus Projetos" light>
+  <Section :title="t('projects.title')" light>
     <div class="w-full flex flex-col items-center mb-12 md:mb-8 2xl:mb-12">
       <div class="max-w-4xl text-center">
         <p class="text-darkText/90 leading-relaxed">
-          Aqui estão alguns dos meus projetos mais recentes. Cada um representa
-          uma jornada de
-          <span class="font-semibold text-primary">aprendizado</span> e
-          <span class="font-semibold text-mustard">inovação</span>. Sinta-se à
-          vontade para explorá-los!
+          {{ t("projects.description") }}
+          <span class="font-semibold text-primary">{{
+            t("projects.learning")
+          }}</span>
+          {{ t("projects.and") }}
+          <span class="font-semibold text-mustard">{{
+            t("projects.innovation")
+          }}</span
+          >{{ t("projects.description2") }}
         </p>
       </div>
     </div>
@@ -113,9 +118,11 @@ const githubUrl = import.meta.env.VITE_GITHUB_URL
         </div>
         <div class="text-left">
           <p class="text-sm font-semibold text-darkText">
-            Quer acompanhar meus projetos?
+            {{ t("projects.followProjects") }}
           </p>
-          <p class="text-xs text-darkText/70">Visite meu perfil no GitHub!</p>
+          <p class="text-xs text-darkText/70">
+            {{ t("projects.visitGithub") }}
+          </p>
         </div>
       </div>
     </a>

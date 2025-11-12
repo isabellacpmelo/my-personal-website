@@ -1,26 +1,34 @@
+<script setup>
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+</script>
+
 <template>
-  <Section title="Sobre mim" light>
+  <Section :title="t('aboutMe.title')" light>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6">
       <div class="flex flex-col gap-2 md:gap-6 2xl:justify-between">
         <AboutMeCard
-          title="Desenvolvedora Full Stack"
-          description="Transformo desafios complexos em soluções de software eficientes e escaláveis. Minha jornada profissional é focada em construir produtos que não apenas funcionam bem, mas que também geram um impacto real e positivo para os usuários e o negócio."
+          :title="t('aboutMe.fullStackDev.title')"
+          :description="t('aboutMe.fullStackDev.description')"
           icon="bi-code-slash" />
 
         <AboutMeCard
-          title="Inovação & Futuro"
+          :title="t('aboutMe.innovation.title')"
           icon="bi-lightning-charge"
           iconClasses="from-mustard to-mustard/80">
           <div>
             <div>
               <p class="text-darkText/80 leading-relaxed mb-3">
-                Explorando o futuro das aplicações desktop com
-                <span class="font-semibold text-primary">Rust e Tauri</span>
-                e integrando o poder da
-                <span class="font-semibold text-lightBlue"
-                  >Inteligência Artificial generativa</span
-                >
-                para automatizar processos e criar soluções mais inteligentes.
+                {{ t("aboutMe.innovation.description") }}
+                <span class="font-semibold text-primary">{{
+                  t("aboutMe.innovation.rust")
+                }}</span>
+                {{ t("aboutMe.innovation.and") }}
+                <span class="font-semibold text-lightBlue">{{
+                  t("aboutMe.innovation.ai")
+                }}</span>
+                {{ t("aboutMe.innovation.description2") }}
               </p>
             </div>
             <div class="flex gap-3 2xl:mt-6">
@@ -43,18 +51,20 @@
 
       <div class="flex flex-col gap-2 md:gap-6 justify-center">
         <AboutMeCard
-          title="Filosofia de Trabalho"
+          :title="t('aboutMe.philosophy.title')"
           icon="bi-person-arms-up"
           iconClasses="from-mustard to-mustard/80">
           <div>
             <p class="text-darkText/80 leading-relaxed">
-              Acredito no poder da
-              <span class="font-semibold text-lightBlue">colaboração ágil</span>
-              e do
-              <span class="font-semibold text-primary">código limpo</span> para
-              impulsionar a inovação. Estou sempre em busca de projetos
-              desafiadores onde eu possa aplicar minhas habilidades para
-              construir tecnologia de ponta.
+              {{ t("aboutMe.philosophy.description") }}
+              <span class="font-semibold text-lightBlue">{{
+                t("aboutMe.philosophy.collaboration")
+              }}</span>
+              {{ t("aboutMe.philosophy.and") }}
+              <span class="font-semibold text-primary">{{
+                t("aboutMe.philosophy.cleanCode")
+              }}</span>
+              {{ t("aboutMe.philosophy.description2") }}
             </p>
           </div>
         </AboutMeCard>

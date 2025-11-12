@@ -1,55 +1,58 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from "vue";
+import { useI18n } from "vue-i18n";
 
-const socials = [
+const { t } = useI18n();
+
+const socials = computed(() => [
   {
-    name: 'LinkedIn',
-    label: 'Conectar no LinkedIn',
-    icon: 'bi-linkedin',
+    name: t("contact.linkedin.name"),
+    label: t("contact.linkedin.label"),
+    icon: "bi-linkedin",
     url: import.meta.env.VITE_LINKEDIN_URL,
-    color: 'from-blue-600 to-blue-800',
-    description: 'Vamos nos conectar profissionalmente',
+    color: "from-blue-600 to-blue-800",
+    description: t("contact.linkedin.description"),
   },
   {
-    name: 'GitHub',
-    label: 'Ver meus repositórios',
-    icon: 'bi-github',
+    name: t("contact.github.name"),
+    label: t("contact.github.label"),
+    icon: "bi-github",
     url: import.meta.env.VITE_GITHUB_URL,
-    color: 'from-gray-700 to-gray-900',
-    description: 'Explore meus projetos open source',
+    color: "from-gray-700 to-gray-900",
+    description: t("contact.github.description"),
   },
   {
-    name: 'Email',
-    label: 'Enviar um email',
-    icon: 'bi-envelope-at-fill',
+    name: t("contact.email.name"),
+    label: t("contact.email.label"),
+    icon: "bi-envelope-at-fill",
     url: `mailto:${import.meta.env.VITE_PERSONAL_EMAIL}`,
-    color: 'from-red-500 to-red-700',
-    description: 'Vamos conversar sobre oportunidades',
+    color: "from-red-500 to-red-700",
+    description: t("contact.email.description"),
   },
-]
+]);
 
-const hoveredCard = ref(null)
-const mousePosition = ref({ x: 0, y: 0 })
+const hoveredCard = ref(null);
+const mousePosition = ref({ x: 0, y: 0 });
 
 const handleMouseMove = (event) => {
   mousePosition.value = {
     x: event.clientX,
     y: event.clientY,
-  }
-}
+  };
+};
 
 const copyEmail = async () => {
   try {
-    await navigator.clipboard.writeText(import.meta.env.VITE_PERSONAL_EMAIL)
+    await navigator.clipboard.writeText(import.meta.env.VITE_PERSONAL_EMAIL);
     // Posteriormente, adicionar uma notificação de sucesso
   } catch (err) {
-    console.error('Falha ao copiar email:', err)
+    console.error("Falha ao copiar email:", err);
   }
-}
+};
 
 onMounted(() => {
-  window.addEventListener('mousemove', handleMouseMove)
-})
+  window.addEventListener("mousemove", handleMouseMove);
+});
 </script>
 
 <template>
@@ -59,7 +62,7 @@ onMounted(() => {
         <div class="mb-8 2xl:mb-16">
           <h2
             class="text-4xl md:text-5xl 2xl:text-6xl font-bold bg-gradient-to-r from-mustard via-lightBlue to-mustard bg-clip-text text-transparent mb-4 lg:mb-6">
-            Vamos Conversar?
+            {{ t("contact.title") }}
           </h2>
           <div
             class="w-24 h-1 bg-gradient-to-r from-mustard to-lightBlue mx-auto rounded-full"></div>
@@ -90,8 +93,8 @@ onMounted(() => {
                 <button
                   v-if="social.name.toLocaleLowerCase() === 'email'"
                   @click="copyEmail"
-                  title="Copiar email"
-                  aria-label="Copiar email"
+                  :title="t('contact.email.copy')"
+                  :aria-label="t('contact.email.copy')"
                   class="group text-secondary hover:text-mustard transition-all duration-300 hidden md:inline-flex">
                   <i
                     class="bi bi-clipboard group-hover:scale-110 transition-transform"></i>
@@ -122,10 +125,10 @@ onMounted(() => {
               <div class="w-2 h-2 bg-mustard rounded-full"></div>
             </div>
             <p class="text-mustard font-medium text-lg lg:text-xl">
-              São Paulo, Brasil
+              {{ t("contact.location") }}
             </p>
             <p class="text-secondary/70 text-sm lg:text-base mt-2">
-              Disponível para projetos remotos
+              {{ t("contact.availability") }}
             </p>
           </div>
         </div>
