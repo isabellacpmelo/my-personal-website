@@ -1,12 +1,13 @@
 # Isabella Melo - Personal Portfolio Website
 
 <div align="left">
-<a href="https://isamelo.netlify.app/"><img height="355em" alt="Isabella Melo's Website" src="https://i.imgur.com/wRXJ8nT.gif" /></a>
+<a href="https://isamelo.netlify.app/">
+  <img height="355em" alt="Isabella Melo's Website" src="https://i.imgur.com/wRXJ8nT.gif" />
+</a>
 </div>
 </br>
 
 🌐 **[Visit Live Website](https://isamelo.netlify.app/)**  
-📂 **[View Source Code](https://github.com/isabellacpmelo/my-personal-website)**
 
 ## 📋 About the Project
 
