@@ -23,7 +23,9 @@ const getTranslation = (key, fallbackKey) => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-primary flex items-center justify-center px-4">
+  <main
+    class="min-h-screen bg-primary flex items-center justify-center px-4"
+    role="main">
     <div class="max-w-lg w-full text-center">
       <div class="mb-8">
         <div class="relative">
@@ -94,7 +96,7 @@ const getTranslation = (key, fallbackKey) => {
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <style scoped>

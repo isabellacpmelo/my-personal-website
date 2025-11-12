@@ -145,7 +145,9 @@ onUnmounted(() => {
         left: `calc(50% - ${
           (itemsPerView * 320 + (itemsPerView - 1) * 24) / 2
         }px - 32px)`,
-      }">
+      }"
+      title="Anterior"
+      aria-label="Anterior">
       <i class="bi bi-arrow-left-short" />
     </button>
 
@@ -176,7 +178,9 @@ onUnmounted(() => {
         left: `calc(50% + ${
           (itemsPerView * 320 + (itemsPerView - 1) * 24) / 2
         }px + 10px)`,
-      }">
+      }"
+      title="Próximo"
+      aria-label="Próximo">
       <i class="bi bi-arrow-right-short" />
     </button>
     <div
@@ -193,7 +197,7 @@ onUnmounted(() => {
 
     <div
       v-if="items.length > itemsPerView && maxIndex > 0"
-      class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex justify-center gap-2"
+      class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex justify-center gap-3"
       style="transform: translate(-50%, 40px)">
       <button
         v-for="n in maxIndex + 1"

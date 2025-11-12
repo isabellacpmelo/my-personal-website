@@ -308,6 +308,7 @@
     "baseUrl": true,
     "downloadFile": true,
     "downloadCurriculum": true,
-    "useLanguage": true
+    "useLanguage": true,
+    "useSEO": true
   }
 }
