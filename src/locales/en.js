@@ -93,4 +93,13 @@ export default {
     english: "English",
     spanish: "Español",
   },
+  error404: {
+    title: "Page not found",
+    description:
+      "Oops! It looks like the page you're looking for doesn't exist or has been moved somewhere else.",
+    suggestion:
+      "Check if the address is correct or navigate back to the home page.",
+    backToHome: "Back to home",
+    orClickHere: "or click here to go directly",
+  },
 };

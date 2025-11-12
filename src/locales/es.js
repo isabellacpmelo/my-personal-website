@@ -95,4 +95,13 @@ export default {
     english: "English",
     spanish: "Español",
   },
+  error404: {
+    title: "Página no encontrada",
+    description:
+      "¡Ups! Parece que la página que buscas no existe o ha sido movida a otro lugar.",
+    suggestion:
+      "Verifica si la dirección es correcta o navega de vuelta a la página de inicio.",
+    backToHome: "Volver al inicio",
+    orClickHere: "o haz clic aquí para ir directamente",
+  },
 };
